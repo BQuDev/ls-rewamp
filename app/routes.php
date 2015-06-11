@@ -14,7 +14,7 @@
 Route::get('/', 'UsersController@login');
 Route::get('/login', 'UsersController@login');
 Route::post('/login', 'UsersController@authenticate');
-
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::group(array('before' => 'members_auth'), function()
 {
     Route::get('/logout', 'UsersController@logout');
