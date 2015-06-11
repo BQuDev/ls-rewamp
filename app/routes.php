@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', 'UsersController@login');
+Route::get('/login', 'UsersController@login');
+Route::post('/login', 'UsersController@authenticate');
+
+Route::group(array('before' => 'members_auth'), function()
 {
-	return View::make('hello');
+    Route::get('/logout', 'UsersController@logout');
+    Route::get('students/create/checkSanAvailability','StudentsController@checkSanAvailability');
+    Route::get('students/create/information_source/dropdown','StudentsController@information_source_dropdown');
+    Route::get('students/create/intakes/dropdown','StudentsController@intakes_dropdown');
+
+    Route::resource('students','StudentsController');
+    Route::resource('users','UsersController');
 });

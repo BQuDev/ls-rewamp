@@ -121,7 +121,12 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+        'Way\Generators\GeneratorsServiceProvider',
+        'Cartalyst\Sentry\SentryServiceProvider',
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
+        'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider',
+		'Andheiberg\Notify\NotifyServiceProvider',
 	),
 
 	/*
@@ -188,7 +193,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-
+        'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
+        'Notify' => 'Andheiberg\Notify\Facades\Notify',
 	),
 
 );

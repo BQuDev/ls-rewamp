@@ -23,4 +23,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function scopeGetFirstNameByID($query,$id) {
+        return $query->where('id','=',$id)->first()->first_name;
+    }
+    public function scopeGetLastNameByID($query,$id) {
+        return $query->where('id','=',$id)->first()->last_name;
+    }
 }

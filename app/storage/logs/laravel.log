@@ -1,0 +1,92 @@
+[2015-06-11 03:54:39] production.ERROR: exception 'ErrorException' with message 'Trying to get property of non-object' in C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9:12
+Stack trace:
+#0 C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9(12): Illuminate\Exception\Handler->handleError(8, 'Trying to get p...', 'C:\\wamp\\www\\ls-...', 12, Array)
+#1 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9880): include('C:\\wamp\\www\\ls-...')
+#2 C:\wamp\www\ls-rewamp\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\wamp\\www\\ls-...', Array)
+#3 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9758): Illuminate\View\Engines\CompilerEngine->get('C:\\wamp\\www\\ls-...', Array)
+#4 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9745): Illuminate\View\View->getContents()
+#5 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9736): Illuminate\View\View->renderContents()
+#6 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(10438): Illuminate\View\View->render()
+#7 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9968): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 C:\wamp\www\ls-rewamp\public\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main}
+
+Next exception 'ErrorException' with message 'Trying to get property of non-object (View: C:\wamp\www\ls-rewamp\app\views\students\more.blade.php)' in C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9:12
+Stack trace:
+#0 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9882): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\wamp\www\ls-rewamp\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\wamp\\www\\ls-...', Array)
+#2 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9758): Illuminate\View\Engines\CompilerEngine->get('C:\\wamp\\www\\ls-...', Array)
+#3 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9745): Illuminate\View\View->getContents()
+#4 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9736): Illuminate\View\View->renderContents()
+#5 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(10438): Illuminate\View\View->render()
+#6 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9968): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\ls-rewamp\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2015-06-11 04:11:21] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9:465
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-06-11 04:36:19] production.ERROR: exception 'ErrorException' with message 'Undefined property: stdClass::$application_input_by' in C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9:922
+Stack trace:
+#0 C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9(922): Illuminate\Exception\Handler->handleError(8, 'Undefined prope...', 'C:\\wamp\\www\\ls-...', 922, Array)
+#1 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9880): include('C:\\wamp\\www\\ls-...')
+#2 C:\wamp\www\ls-rewamp\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\wamp\\www\\ls-...', Array)
+#3 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9758): Illuminate\View\Engines\CompilerEngine->get('C:\\wamp\\www\\ls-...', Array)
+#4 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9745): Illuminate\View\View->getContents()
+#5 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9736): Illuminate\View\View->renderContents()
+#6 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(10438): Illuminate\View\View->render()
+#7 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9968): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 C:\wamp\www\ls-rewamp\public\index.php(49): Illuminate\Foundation\Application->run()
+#19 {main}
+
+Next exception 'ErrorException' with message 'Undefined property: stdClass::$application_input_by (View: C:\wamp\www\ls-rewamp\app\views\students\more.blade.php)' in C:\wamp\www\ls-rewamp\app\storage\views\fbd7ca987ff40dacf840d72ba3a562c9:922
+Stack trace:
+#0 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9882): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\wamp\www\ls-rewamp\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(56): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\wamp\\www\\ls-...', Array)
+#2 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9758): Illuminate\View\Engines\CompilerEngine->get('C:\\wamp\\www\\ls-...', Array)
+#3 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9745): Illuminate\View\View->getContents()
+#4 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9736): Illuminate\View\View->renderContents()
+#5 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(10438): Illuminate\View\View->render()
+#6 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(9968): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 C:\wamp\www\ls-rewamp\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 C:\wamp\www\ls-rewamp\public\index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
