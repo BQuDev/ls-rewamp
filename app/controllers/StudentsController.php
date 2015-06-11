@@ -321,7 +321,6 @@ class StudentsController extends \BaseController {
 
                 $bqu_application_data->supervisor =Input::get('supervisor');
 
-                $bqu_application_data->status =Input::get('admission_status');
                 $bqu_application_data->notes = Input::get('notes');
                 $bqu_application_data->san = Input::get('san');
                 $bqu_application_data->amendment = 0;
