@@ -21,7 +21,16 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('students/create/checkSanAvailability','StudentsController@checkSanAvailability');
     Route::get('students/create/information_source/dropdown','StudentsController@information_source_dropdown');
     Route::get('students/create/intakes/dropdown','StudentsController@intakes_dropdown');
+    Route::get('/students/verify','StudentsController@verify');
+    Route::get('/students/validate','StudentsController@validate');
+    Route::get('/students/validate/{san}','StudentsController@more_validate');
+
+    Route::get('/modules/marks-input','ModulesController@markInputIndex');
+    Route::get('/modules/marks-input/create','ModulesController@markInputCreate');
+    Route::get('/modules/marks-input/{ls_student_number}','ModulesController@markInputShow');
+
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');
+    Route::resource('modules','ModulesController');
 });

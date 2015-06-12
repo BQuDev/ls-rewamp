@@ -29,7 +29,7 @@
       </div>
 
             <section class="panel panel-default">
-               <header class="panel-heading font-bold">AGENT/ ADMISSION MANAGER INFORMATION</header>
+             <header class="panel-heading font-bold">AGENT/ ADMISSION MANAGER INFORMATION</header>
                <div class="panel-body">
                   <div class="form-group">
                      {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
@@ -66,8 +66,22 @@
                                         @endif</div>
                               <div class="col-sm-4"></div>
                            </div>
+  <div class="line line-dashed b-b line-lg pull-in"></div>
 
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('english_language_level[]', 'CITY & GUILDS',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#modal-form">Amend Data</a>
+                                                                     </div> </div></div>
                </div>
+
             </section>
 
                <section class="panel panel-default">
@@ -843,6 +857,104 @@ Added ( Pending for validation )
 {{ Form::close() }}
    </div>
 </div>
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="modal-form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+          <div class="row"> <h3 class="m-t-none m-b">AGENT/ ADMISSION MANAGER INFORMATION</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                  @if(intval($studentSource->source)>0)
+                                      {{ ApplicationSource::getNameByID(intval($studentSource->source)) }}
+                                       @endif
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          @if(intval($studentSource->admission_manager) == 10000)
+                            {{ $studentSource->admission_managers_other }}
+                            @elseif(intval($studentSource->admission_manager) >0)
+                            {{ ApplicationAdmissionManager::getNameByID($studentSource->admission_manager); }}
+                            @endif
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9"> @if(intval($studentSource->agent_lap) == 10000)
+                                                    {{ $studentSource->agents_laps_other }}
+                                                     @elseif((intval($studentSource->source) == 2)&(intval($studentSource->agent_lap)>0))
+                                                     {{ ApplicationLap::getNameByID($studentSource->agent_lap)  }}
+                                                     @elseif(intval($studentSource->agent_lap)>0)
+                                                     {{ApplicationAgent::getNameByID($studentSource->agent_lap) }}
+                                                     @endif</div>
+
+                                        </div>
+                                        </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
+                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
+{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                        </div>
+                                        </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+
 @stop
 
 
@@ -853,15 +965,30 @@ Added ( Pending for validation )
 
 
 @section('post_css')
+{{ HTML::style('js/chosen/chosen.css'); }}
 <style>
 .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top: 6px;
+}
+.modal-dialog{
+width: 80%;
+}
+
+.chosen-container .chosen-drop {
+width: 250px !important;
+}
+.chosen-container-single .chosen-single {
+width: 250px !important;
 }
 </style>
 @stop
 
 @section('post_js')
-
+ {{ HTML::script('js/chosen/chosen.jquery.min.js'); }}
+   <!-- parsley -->
+ {{ HTML::script('js/parsley/parsley.min.js'); }}
+ {{ HTML::script('js/parsley/parsley.extend.js'); }}
+ {{ HTML::script('js/student_amend.js'); }}
 @stop
 
 @section('main_menu')

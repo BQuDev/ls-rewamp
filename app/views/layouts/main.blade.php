@@ -185,6 +185,17 @@
 
                                                   </li>
                                                    <?php } ?>
+                                                   <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
+                                                                                            <li >
+                                                                                                      <a href="{{ URL::to('students/verify') }}">
+
+                                                                                                         <i class="i  i-checked icon">
+                                                                                                         </i>
+                                                                                                         <span class="font-bold">Verify Admissions</span>
+                                                                                                       </a>
+
+                                                                                                     </li>
+                                                                                                      <?php } ?>
                                       <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
                                                      <li >
                                                                <a href="{{ URL::to('students/verify') }}">
@@ -207,6 +218,46 @@
 
                                                                   </li>
                                                                    <?php } ?>
+
+
+                                          </ul></li>
+                                          <li <?php if(Request::segment(1) == "modules") echo 'class="active"'; ?>>
+                                                                                  <a href="#" class="auto">
+                                                                                    <span class="pull-right text-muted">
+                                                                                      <i class="i i-circle-sm-o text"></i>
+                                                                                      <i class="i i-circle-sm text-active"></i>
+                                                                                    </span>
+                                                                                    <i class="i i-lab icon">
+                                                                                    </i>
+                                                                                    <span class="font-bold">Modules</span>
+                                                                                  </a>
+
+
+<ul class="nav dk">
+                                            <?php /*if (Sentry::getUser()->hasAccess('modules.index')){  ?>
+                                                            <li>
+                                                             <a href="{{ URL::to('/modules') }}/">
+                                                               <i class="i i-docs icon">
+                                                               </i>
+                                                               <span class="font-bold">All Modules</span>
+                                                             </a>
+                                                           </li>
+                                                           <?php } */ ?>
+                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
+                                                                            <li >
+                                                                         <a href="{{ URL::to('/modules/marks-input') }}/">
+
+                                                                            <i class="i i-pencil2 icon">
+                                                                            </i>
+                                                                            <span class="font-bold">Marks Input</span>
+                                                                          </a>
+
+                                                                        </li>
+                                          <?php } ?>
+
+
+
+
 
 
                                           </ul>

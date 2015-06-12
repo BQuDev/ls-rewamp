@@ -18,6 +18,24 @@ class StudentsController extends \BaseController {
                             ->get());
 	}
 
+
+    public function validate()
+    {
+        //
+        return View::make('students.validate')
+            ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
+                ->groupBy('san')
+                ->get());
+    }
+
+    public function verify()
+    {
+        //
+        return View::make('students.verify')
+            ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
+                ->groupBy('san')
+                ->get());
+    }
 	/**
 	 * Show the form for creating a new resource.
 	 * GET /students/create
@@ -413,6 +431,80 @@ return View::make('students.index')
                     ->with('student_bqu_data',DB::table('student_bqu_data')
                         ->where('san','=',$san)->orderBy('id','desc')
                         ->first())
+                    ;
+	}
+
+
+
+
+
+    public function more_validate($san)
+	{
+		//
+		 return View::make('students.more_validate')
+                    ->with('information_sources',ApplicationSource::lists('name','id'))
+                    ->with('admission_managers',ApplicationAdmissionManager::lists('name','id'))
+
+                    ->with('application_agents',ApplicationAgent::lists('name','id'))
+                    ->with('application_laps',ApplicationLap::lists('name','id'))
+
+                    ->with('nationalities',StaticNationality::lists('name','id'))
+                    ->with('countries',StaticCountry::lists('name','id'))
+                    ->with('course_names',ApplicationCourse::lists('name','id'))
+                    ->with('awarding_bodies',ApplicationAwardingBody::lists('name','id'))
+
+                    ->with('education_qualifications',ApplicationEducationalQualification::lists('name','id'))
+                    ->with('method_of_payment',ApplicationPaymentInfoMethodsOfPayment::lists('name','id'))
+                    ->with('application_status',ApplicationStatus::lists('name','id'))
+                    ->with('intake_year',StaticYear::lists('name','id'))
+                    ->with('intake_month',StaticMonth::lists('name','id'))
+                    // Getting Saved DATA
+                    ->with('student',Student::where('san','=',$san)->orderBy('id','desc')->first())
+                    ->with('studentSource',StudentSource::where('san','=',$san)->orderBy('id','desc')->first())
+                    ->with('ttStudentContactInformation',DB::table('student_contact_informations')
+                        ->where('student_contact_information_type','=',1)
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentContactInformation',DB::table('student_contact_informations')
+                        ->where('student_contact_information_type','=',2)
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentContactInformationOnline',DB::table('student_contact_information_onlines')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_contact_information_kin_detailes',DB::table('student_contact_information_kin_detailes')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_course_enrolments',DB::table('student_course_enrolments')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_educational_qualifications',DB::table('student_educational_qualifications')
+                                                                                        ->where('san','=',$san)->orderBy('id','desc')
+                                                                                        ->first())
+                    ->with('student_english_lang_levels',DB::table('student_english_lang_levels')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentWorkExperience',DB::table('student_work_experiences')
+                                                                              ->where('san','=',$san)->orderBy('id','desc')
+                                                                              ->first())
+                    ->with('student_payment_info_metadata',DB::table('student_payment_info_metadatas')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentPaymentInfo',DB::table('student_payment_infos')
+                           ->where('san','=',$san)->orderBy('id','desc')
+                           ->first())
+                    ->with('student_bqu_data',DB::table('student_bqu_data')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+
+             // Getting Saved DATA
+             ->with('data_studentSource',StudentSource::where('san','=',$san)->orderBy('id','desc')->first())
+             ->with('information_sources',ApplicationSource::lists('name','id'))
+             ->with('admission_managers',ApplicationAdmissionManager::lists('name','id'))
+             //To-Do
+             // ->with('admission_managers',ApplicationAdmissionManager::where('source_id','=',1)->lists('name','id'))
+
+             ->with('agents_laps',ApplicationAdmissionManager::lists('name','id'))
                     ;
 	}
 
