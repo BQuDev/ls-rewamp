@@ -138,7 +138,6 @@ catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
     echo 'User is banned.';
 }
 
-
         return View::make('modules.create_mark_input')
             ->with('ls_student_numbers',Student::lists('ls_student_number','ls_student_number'))
             ->with('modules',Module::lists('name','id'))
