@@ -6,30 +6,30 @@
                   <section class="panel panel-default">
                     <header class="panel-heading font-bold">Marks-Input</header>
                     <div class="panel-body">
-                      <form class="bs-example form-horizontal">
+                      {{ Form::open(array('url' =>URL::to("/").'/students',  'class'=>'form-horizontal','method' => 'post','data-validate'=>'parsley','id'=>'student_create')) }}
+
                         <div class="form-group">
                           <label class="col-lg-2 control-label">LS Student Number</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="LS Student Number" class="form-control">
-
+                             {{ Form::select('ls_student_number', $ls_student_numbers,'',['class'=>'chosen-select col-sm-12']);  }}
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Course</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Course" class="form-control">
-                          </div>
+                                <div id="course_name"></div>
+                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Module</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Module" class="form-control">
+                            {{ Form::select('module', $modules,'',['class'=>'chosen-select col-sm-12','disabled'=>'']);  }}
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Element</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Element" class="form-control">
+                            {{ Form::select('element', $elements,'',['class'=>'chosen-select col-sm-12','disabled'=>'']);  }}
                           </div>
                         </div>
                         <div class="line line-dashed b-b line-lg pull-in"></div>
@@ -38,14 +38,14 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Test</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Test" class="form-control">
+							 {{ Form::text('test', '',['placeholder'=>'Test','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
                           </div>
                         </div>
                         </div> <div class="col-lg-6">
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Course</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Course" class="form-control">
+                             {{ Form::text('course', '',['placeholder'=>'Course','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
                           </div>
                         </div>
                         </div>
@@ -55,14 +55,15 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Course Remark</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Course Remark" class="form-control">
+                            {{ Form::text('course_remark', '',['placeholder'=>'Course Remark','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
                           </div>
                         </div>
                         </div> <div class="col-lg-6">
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Resit</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Resit" class="form-control">
+                            {{ Form::text('resit', '',['placeholder'=>'Resit','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
+
                           </div>
                         </div>
                         </div>
@@ -72,8 +73,8 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Resit Remark</label>
                           <div class="col-lg-10">
-                            <input type="test" placeholder="Resit Remark" class="form-control">
-                          </div>
+                            {{ Form::text('resit_remark', '',['placeholder'=>'Resit Remark','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[1, 100]','data-parsley-type'=>'digits']); }}
+                            </div>
                         </div>
                         </div> <div class="col-lg-6">
 
@@ -83,18 +84,20 @@
                         <div class="form-group">
                           <div class="col-lg-offset-2 col-lg-10">
                             <div class="checkbox i-checks">
-                              <label>
-                                <input type="checkbox"><i></i> Confirm Save
-                              </label>
-                            </div>
+                                                                           <label>
+                                                                          {{ Form::checkbox('confirm_save', '1',false,array('data-required'=>'true')); }}
+                                                                           <i></i>
+                                                                           Confirm Save
+                                                                           </label>
+                                                                        </div>
                           </div>
                         </div>
                         <div class="form-group">
                           <div class="col-lg-offset-2 col-lg-10">
-                            <button class="btn btn-sm btn-default" type="submit">Save</button>
+                             {{ Form::submit('Save', array('class' => 'btn btn-s-md btn-primary','id'=>'save')) }}
                           </div>
                         </div>
-                      </form>
+                      {{ Form::close() }}
                     </div>
                   </section>
                 </div>
@@ -102,11 +105,149 @@
 
 
 @section('post_css')
-
+{{ HTML::style('js/chosen/chosen.css'); }}
 @stop
 
 @section('post_js')
+ {{ HTML::script('js/chosen/chosen.jquery.min.js'); }}
+  {{ HTML::script('js/module_marks_input_create.js'); }}
 
+  <script type="text/javascript">
+
+      $('[name="ls_student_number"]').change(function(){
+      if($('[name="ls_student_number"]').val() != 0){
+      $.ajax({
+           url: "{{ url('/modules/marks-input/create/module/dropdown')}}",
+           data: {token: $('[name="_token"]').val(),option: $('[name="ls_student_number"]').val()},
+           success: function (data) {console.log('success');
+               $('[name="module"]').empty();
+               var model = $('[name="module"]');
+               model.empty();
+               model.append("<option value='0'>Please Select an Option</option>");
+               $('#course_name').html(data[1]);
+               $.each(data[0], function(index, element) {
+                   model.append("<option value='"+ index +"'>" + element + "</option>");
+               });
+               $('[name="module"]').prop('disabled',false);
+               $('[name="module"]').trigger("chosen:updated");
+
+           },
+           type: "GET"
+        });
+        }else{
+            $('[name="module"]').prop('disabled',true);
+            $('[name="module"]').trigger("chosen:updated");
+        }
+
+      });
+      $('[name="module"]').change(function(){
+      if($('[name="module"]').val() != 0){
+          $.ajax({
+              url: "{{ url('/modules/marks-input/create/elements/dropdown')}}",
+              data: {token: $('[name="_token"]').val(),option: $('[name="module"]').val()},
+              success: function (data) {console.log('success');
+                  $('[name="element"]').empty();
+                  var model = $('[name="element"]');
+                  model.empty();
+                  model.append("<option value='0'>Please Select an Option</option>");
+
+                  $.each(data, function(index, element) {
+                      model.append("<option value='"+ index +"'>" + element + "</option>");
+                  });
+
+                  $('[name="element"]').prop('disabled',false);
+                  $('[name="element"]').trigger("chosen:updated");
+              },
+              type: "GET"
+          });}
+          else{
+          $('[name="element"]').prop('disabled',true);
+          $('[name="element"]').trigger("chosen:updated");
+          }
+      });
+
+      $('[name="element"]').change(function(){
+          if($('[name="element"]').val() != 0){
+             $('[name="test"]').prop('disabled',false);
+             $('[name="course"]').prop('disabled',false);
+             $('[name="course_remark"]').prop('disabled',false);
+             $('[name="resit"]').prop('disabled',false);
+             $('[name="resit_remark"]').prop('disabled',false);
+          }else{
+            $('[name="test"]').prop('disabled',true);
+            $('[name="course"]').prop('disabled',true);
+            $('[name="course_remark"]').prop('disabled',true);
+            $('[name="resit"]').prop('disabled',true);
+            $('[name="resit_remark"]').prop('disabled',true);
+          }
+      });
+
+      $( "#save" ).click(function( event ) {
+		  event.preventDefault();
+	/*	  $('#student_create').parsley().subscribe('parsley:form:validate', function (formInstance) {
+
+    // if one of these blocks is not failing do not prevent submission
+    // we use here group validation with option force (validate even non required fields)
+    if (formInstance.isValid('block1', true) || formInstance.isValid('block2', true)) {
+      $('.invalid-form-error-message').html('');
+      return;
+    }
+    // else stop form submission
+    formInstance.submitEvent.preventDefault();
+
+    // and display a gentle message
+    $('.invalid-form-error-message')
+      .html("You must correctly fill the fields of at least one of these two blocks!")
+      .addClass("filled");
+    return;
+  });*/
+  
+  
+        
+      if($('#student_create').parsley('validate')){
+        $.ajax({
+                      url: "{{ url('/modules/marks-input/create')}}",
+                      data: {
+                      token: $('[name="_token"]').val(),
+                      ls_student_number: $('[name="ls_student_number"]').val(),
+                      test: $('[name="test"]').val(),
+                      course: $('[name="course"]').val(),
+                      course_remark: $('[name="course_remark"]').val(),
+                      resit: $('[name="resit"]').val(),
+                      resit_remark: $('[name="resit_remark"]').val(),
+                      element: $('[name="element"]').val()
+                      },
+                      success: function (data) {
+                        if(data == 'Added'){
+                        console.log('success');
+                         new PNotify({
+                                                title: 'Data saved successfully',
+                                                notice:'success',
+                                                type : 'success',
+                                                buttons: {
+                                                    closer: true,
+                                                    sticker: true
+                                                },
+                                                animate_speed: 100,
+                                                opacity: .9,
+                                                hide: true,
+                                                stack: stack_bottomright
+                                            });
+                        }else{}
+
+
+
+                      },
+                      type: "POST"
+	  });}
+
+
+      });
+
+      </script>
+        <!-- parsley -->
+      {{ HTML::script('js/parsley/parsley.min.js'); }}
+      {{ HTML::script('js/parsley/parsley.extend.js'); }}
 @stop
 
 @section('main_menu')
