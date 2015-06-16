@@ -229,6 +229,21 @@ Checked
                           </div>
 
                        </div>
+					     <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('tt_contact_info[]', 'TT CONTACT INFORMATION',false); }}
+                                                                           <i></i>
+																			Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#tt_contact_information_form">Amend Data</a>
+                                                                     </div> </div></div>
+																	 <div class="line line-dashed b-b line-lg pull-in"></div>
          </div>
          <!-- Country of origin -->
          <div class="font-bold" style="padding: 10px 15px 0px 15px !important;" href="#">Permanent</div>
@@ -291,6 +306,21 @@ Checked
                                       {{ $studentContactInformation->landline }}   </div>
                </div>
             </div>
+										     <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('contact_info[]', 'CONTACT INFORMATION',false); }}
+                                                                           <i></i>
+																			Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#contact_information_form">Amend Data</a>
+                                                                     </div> </div></div>
+																	 <div class="line line-dashed b-b line-lg pull-in"></div>
             <div class="form-group">
                {{ Form::label('email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
                <div class="col-sm-9">{{ $studentContactInformationOnline->email }}</div>
@@ -299,8 +329,9 @@ Checked
                {{ Form::label('alternative_email', 'Alternative Email', array('class' => 'col-sm-3 control-label'));  }}
                <div class="col-sm-9"> {{ $studentContactInformationOnline->alternative_email }}</div>
             </div>
+	
             <div class="form-group">
-               <div class="line line-dashed b-b line-lg pull-in"></div>
+               
                {{ Form::label('forename_3', 'Social Accounts', array('class' => 'col-sm-3 control-label'));  }}
                <div class="col-sm-9">{{ $studentContactInformationOnline->facebook }}</div>
             </div>
@@ -883,7 +914,7 @@ Added ( Pending for validation )
 
 
 
-  <div class="modal fade" id="admission_manager_information_form">
+<div class="modal fade" id="admission_manager_information_form">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body wrapper-lg">
@@ -992,7 +1023,7 @@ Added ( Pending for validation )
               <h4 class="m-t-none m-b">Existing Data</h4>
                 <div class="row" style="font-size: 16px" >
                      <div class="form-group">
-                          {{ Form::label('information_source', 'Title', array('class' => 'col-sm-3 control-label'));  }}
+                          {{ Form::label('title', 'Title', array('class' => 'col-sm-3 control-label'));  }}
                           <div class="col-sm-9">
                           {{ $student->title }}
                           </div>
@@ -1005,41 +1036,223 @@ Added ( Pending for validation )
                                  {{ $student->initials_1 }}&nbsp;{{ $student->initials_2 }}&nbsp;{{ $student->initials_3 }}
                                  </div>
                               </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                 {{ Form::label('forename_1', 'Forename 1', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                 {{ $student->forename_1 }}
+                                 </div>
                               </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                {{ Form::label('forename_2', 'Forename 2', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                 {{ $student->forename_2 }}
+                                 </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                               {{ Form::label('forename_3', 'Forename 3', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                {{ $student->forename_3 }}
+                                 </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                              {{ Form::label('surname', 'Surname', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                               {{ $student->surname }}
+                                 </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                              {{ Form::label('gender', 'Gender', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                              {{ $student->gender }}
+                                 </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                            {{ $student->date_of_birth }}
+                                 </div>
+                              </div>
+                    </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('nationality', 'Nationality', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                @if($student->nationality > 0)
+								{{ StaticNationality::getNameByID($student->nationality); }}
+								@endif
+                                 </div>
+                              </div>
+                    </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('passport', 'Passport number', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                {{ $student->passport }}
+                                 </div>
+                              </div>
+                    </div>
             </div>
             <div class="col-sm-6">
 
 
               <h4 class="m-t-none m-b">New Data</h4>
+
 <div class="row" style="font-size: 16px" >
                      <div class="form-group">
-                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
-                                  <div class="col-sm-9">
-                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
-                                  </div>
-                               </div>
-                               </div>
+                          {{ Form::label('title', 'Title', array('class' => 'col-sm-2 control-label'));  }}
+                          <div class="col-sm-10">
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('title', 'Mr.',strpos($student->title,'Mr.')!==false); }}
+                                 <i></i>
+                                 Mr
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('title', 'Mrs.',strpos($student->title,'Mrs.')!==false); }}
+                                 <i></i>
+                                 Mrs
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('title', 'Miss.',strpos($student->title,'Miss.')!==false); }}
+                                 <i></i>
+                                 Miss
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                {{ Form::radio('title', 'Ms.',strpos($student->title,'Ms.')!==false); }}
+                                 <i></i>
+                                 Ms
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                  {{ Form::radio('title', 'Dr.',strpos($student->title,'Dr.')!==false); }}
+                                 <i></i>
+                                 Dr
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('title', 'Other.',strpos($student->title,'Other.')!==false); }}
+                                 <i></i>
+                                 Other
+                                 </label>
+                              </div>
+                           </div>
+                       </div>
+                </div>
+                       <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                 {{ Form::label('initials', 'Initials', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                 <div class="form-inline">
+                              <div class="col-sm-3"> {{ Form::text('initials_1',  $student->initials_1 ,['placeholder'=>'','class'=>'form-control','style'=>'width:60px !important']); }}</div>
 
-<div class="row" style="font-size: 16px">
-             <div class="form-group">
-                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
-                          <div class="col-sm-9">
-                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
-                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
-                                                        </div>
-                                           <div class="col-sm-4"></div>
-                                        </div>
-                                        </div>
+                              <div class="col-sm-3">{{ Form::text('initials_2', $student->initials_2,['placeholder'=>'','class'=>'form-control','style'=>'width:60px !important']); }}</div>
 
-<div class="row" style="font-size: 16px">
-             <div class="form-group">
-                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
-                          <div class="col-sm-9">
-                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
-{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
-                                        </div>
-                                        </div>
-            </div><br><br>
+                              <div class="col-sm-3">{{ Form::text('initials_3', $student->initials_3,['placeholder'=>'','class'=>'form-control','style'=>'width:60px !important']); }}</div>
+
+                           </div>
+						   </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                 {{ Form::label('forename_1', 'Forename 1', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">{{ Form::text('forename_1', $student->forename_1,['placeholder'=>'Forename 1','class'=>'form-control']); }}</div>
+                        
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                {{ Form::label('forename_2', 'Forename 2', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">{{ Form::text('forename_2', $student->forename_2,['placeholder'=>'Forename 2','class'=>'form-control']); }}</div>
+                        
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                               {{ Form::label('forename_3', 'Forename 3', array('class' => 'col-sm-3 control-label'));  }}
+                                <div class="col-sm-9">{{ Form::text('forename_3', $student->forename_3,['placeholder'=>'Forename 3','class'=>'form-control']); }}</div>
+                        
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                              {{ Form::label('surname', 'Surname', array('class' => 'col-sm-3 control-label'));  }}
+                                <div class="col-sm-9">{{ Form::text('surname', $student->surname,['placeholder'=>'Surname','class'=>'form-control']); }}</div>
+                       
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                              {{ Form::label('gender', 'Gender', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                             <div class="radio-inline i-checks">
+                                       <label>
+                                       {{ Form::radio('gender', 'Male',strpos($student->gender,'Male')!==false); }}
+                                       <i></i>
+                                       Male
+                                       </label>
+                                    </div>
+                                    <div class="radio-inline i-checks">
+                                       <label>
+                                       {{ Form::radio('gender', 'Female',strpos($student->gender,'Female')!==false); }}
+                                       <i></i>
+                                       Female
+                                       </label>
+            </div>
+                                 </div>
+                              </div>
+                     </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+								 <?php
+									$date_of_birth = explode('-',$student->date_of_birth);
+								?>
+                           <div class="form-inline">
+                                          {{ Form::text('date_of_birth_date',  $date_of_birth[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('date_of_birth_month',  $date_of_birth[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('date_of_birth_year',  $date_of_birth[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
+                                 </div>
+                              </div>
+                    </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('nationality', 'Nationality', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                {{ Form::select('nationality', $nationalities,$student->nationality,['class'=>'chosen-select col-sm-12']);  }}
+                                 </div>
+                              </div>
+                    </div>
+                    <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                            {{ Form::label('passport', 'Passport number', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                {{ Form::text('passport', $student->passport,['placeholder'=>'Passport number','class'=>'form-control']); }}
+                                 </div>
+                              </div>
+                    </div><br><br>
 
             <div class="doc-buttons">
             		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1051,7 +1264,320 @@ Added ( Pending for validation )
     </div><!-- /.modal-dialog -->
   </div>
   </div>
-@stop
+
+<div class="modal fade" id="tt_contact_information_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">CONTACT INFORMATION - Term time</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('address_line_1', 'Address line 1', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                {{ $ttStudentContactInformation->address_1  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                           {{ Form::label('address_line_2', 'Address line 2', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+                        {{ $ttStudentContactInformation->address_2  }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_city', 'Town/City', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $ttStudentContactInformation->city  }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('post_code', 'Post code', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $ttStudentContactInformation->post_code  }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('country', 'Country', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						  @if($ttStudentContactInformation->country >0)
+                                {{ StaticCountry::getNameByID($ttStudentContactInformation->country); }}
+                                @endif
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_mobile', 'Mobile', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> +&nbsp;&nbsp;
+                               {{ $ttStudentContactInformation->mobile }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_landline', 'Landline', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> +&nbsp;&nbsp;
+                                                  {{ $ttStudentContactInformation->landline }}</div>
+
+                                        </div>
+                                        </div>
+            </div>
+			
+
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('address_line_1', 'Address line 1', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+								{{ Form::text('tt_address_1', $ttStudentContactInformation->address_1,['placeholder'=>'Address line 1','class'=>'form-control']); }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                           {{ Form::label('address_line_2', 'Address line 2', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+						 {{ Form::text('tt_address_2', $ttStudentContactInformation->address_2,['placeholder'=>'Address line 2','class'=>'form-control']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_city', 'Town/City', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ Form::text('tt_city', $ttStudentContactInformation->city,['placeholder'=>'Town/City','class'=>'form-control']); }}
+						 </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_post_code', 'Post code', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">{{ Form::text('tt_post_code', $ttStudentContactInformation->post_code ,['placeholder'=>'Post code','class'=>'form-control']); }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_country', 'Country', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						 
+								  {{ Form::select('tt_country', $countries,$ttStudentContactInformation->country,['class'=>'chosen-select col-sm-4']);  }}
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_mobile', 'Mobile', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> <div class="form-inline">+&nbsp;&nbsp;
+							   {{ Form::text('tt_mobile',$ttStudentContactInformation->mobile ,['placeholder'=>'Mobile','class'=>'form-control']); }}
+							   </div>
+							   </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_landline', 'Landline', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"><div class="form-inline"> +&nbsp;&nbsp;
+												  {{ Form::text('tt_landline',$ttStudentContactInformation->landline ,['placeholder'=>'Landline','class'=>'form-control']); }}
+												  </div>
+												  </div>
+
+                                        </div>
+                                        </div>
+
+<br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>  
+  
+<div class="modal fade" id="contact_information_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">CONTACT INFORMATION - Term time</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('address_line_1', 'Address line 1', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                {{ $studentContactInformation->address_1  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                           {{ Form::label('address_line_2', 'Address line 2', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+                        {{ $studentContactInformation->address_2  }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_city', 'Town/City', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $studentContactInformation->city  }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('post_code', 'Post code', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $studentContactInformation->post_code  }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('country', 'Country', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						  @if($ttStudentContactInformation->country >0)
+                                {{ StaticCountry::getNameByID($studentContactInformation->country); }}
+                                @endif
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_mobile', 'Mobile', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> +&nbsp;&nbsp;
+                               {{ $studentContactInformation->mobile }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_landline', 'Landline', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> +&nbsp;&nbsp;
+                                                  {{ $studentContactInformation->landline }}</div>
+
+                                        </div>
+                                        </div>
+            </div>
+			
+
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('address_line_1', 'Address line 1', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+								{{ Form::text('address_1', $studentContactInformation->address_1,['placeholder'=>'Address line 1','class'=>'form-control']); }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                           {{ Form::label('address_line_2', 'Address line 2', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+						 {{ Form::text('address_2', $studentContactInformation->address_2,['placeholder'=>'Address line 2','class'=>'form-control']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_city', 'Town/City', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ Form::text('city', $studentContactInformation->city,['placeholder'=>'Town/City','class'=>'form-control']); }}
+						 </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('post_code', 'Post code', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">{{ Form::text('post_code', $studentContactInformation->post_code ,['placeholder'=>'Post code','class'=>'form-control']); }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_country', 'Country', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						 
+								  {{ Form::select('country', $countries,$ttStudentContactInformation->country,['class'=>'chosen-select col-sm-4']);  }}
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_mobile', 'Mobile', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> <div class="form-inline">+&nbsp;&nbsp;
+							   {{ Form::text('mobile',$ttStudentContactInformation->mobile ,['placeholder'=>'Mobile','class'=>'form-control']); }}
+							   </div>
+							   </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('tt_landline', 'Landline', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"><div class="form-inline"> +&nbsp;&nbsp;
+												  {{ Form::text('landline',$ttStudentContactInformation->landline ,['placeholder'=>'Landline','class'=>'form-control']); }}
+												  </div>
+												  </div>
+
+                                        </div>
+                                        </div>
+
+<br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>  
+  
+  @stop
 
 
  @section('breadcrumb')
