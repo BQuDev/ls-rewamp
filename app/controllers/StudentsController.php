@@ -440,7 +440,8 @@ return View::make('students.index')
 
     public function more_validate($san)
 	{
-		//
+		// Select agent or lap
+		
 		 return View::make('students.more_validate')
                     ->with('information_sources',ApplicationSource::lists('name','id'))
                     ->with('admission_managers',ApplicationAdmissionManager::lists('name','id'))
