@@ -74,11 +74,11 @@
                                                                      <div class="col-sm-12" >
                                                                         <div class="checkbox i-checks" style="padding-bottom: 10px">
                                                                            <label>
-                                                                           {{ Form::checkbox('english_language_level[]', 'CITY & GUILDS',false); }}
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'ADMISSION MANAGER INFORMATION',false); }}
                                                                            <i></i>
 Checked
                                                                            </label>
-                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#modal-form">Amend Data</a>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#admission_manager_information_form">Amend Data</a>
                                                                      </div> </div></div>
                </div>
 
@@ -145,7 +145,25 @@ Checked
                            {{ Form::label('passport', 'Passport number', array('class' => 'col-sm-3 control-label'));  }}
                            <div class="col-sm-9"> {{ $student->passport }}</div>
                         </div>
+
+                          <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                             <div class="form-inline">
+                             <div class="form-group">
+
+                 <div class="col-sm-12" >
+                    <div class="checkbox i-checks" style="padding-bottom: 10px">
+                       <label>
+                       {{ Form::checkbox('admission_manager_information[]', 'ADMISSION MANAGER INFORMATION',false); }}
+                       <i></i>
+                                                                                    Checked
+                       </label>
+                    </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#personal_data_form">Amend Data</a>
+                 </div> </div></div>
+
+
                      </div>
+
                   </section>
 
 
@@ -865,10 +883,11 @@ Added ( Pending for validation )
 
 
 
-  <div class="modal fade" id="modal-form">
+  <div class="modal fade" id="admission_manager_information_form">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <div class="row"> <h3 class="m-t-none m-b">AGENT/ ADMISSION MANAGER INFORMATION</h3>
           <div class="line line-dashed b-b line-lg pull-in"></div>
             <div class="col-sm-6 b-r">
@@ -947,7 +966,12 @@ Added ( Pending for validation )
 {{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
                                         </div>
                                         </div>
-            </div>
+            </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
           </div>
         </div>
       </div><!-- /.modal-content -->
@@ -955,6 +979,78 @@ Added ( Pending for validation )
   </div>
   </div>
 
+<div class="modal fade" id="personal_data_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">PERSONAL DATA</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+                <div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                          {{ Form::label('information_source', 'Title', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ $student->title }}
+                          </div>
+                       </div>
+                </div>
+                       <div class="row" style="font-size: 16px" >
+                    <div class="form-group">
+                                 {{ Form::label('initials', 'Initials', array('class' => 'col-sm-3 control-label'));  }}
+                                 <div class="col-sm-9">
+                                 {{ $student->initials_1 }}&nbsp;{{ $student->initials_2 }}&nbsp;{{ $student->initials_3 }}
+                                 </div>
+                              </div>
+                              </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
+                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
+{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                        </div>
+                                        </div>
+            </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
 @stop
 
 

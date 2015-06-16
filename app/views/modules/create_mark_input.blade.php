@@ -38,14 +38,15 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Test</label>
                           <div class="col-lg-10">
-							 {{ Form::text('test', '',['placeholder'=>'Test','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
+							 {{ Form::text('test', '',['placeholder'=>'Test','disabled'=>'','class'=>'form-control','data-min'=>'0','data-max'=>'100','data-trigger'=>'keyup']); }}
+
                           </div>
                         </div>
                         </div> <div class="col-lg-6">
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Course</label>
                           <div class="col-lg-10">
-                             {{ Form::text('course', '',['placeholder'=>'Course','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
+                             {{ Form::text('course', '',['placeholder'=>'Course','disabled'=>'','class'=>'form-control','data-min'=>'0','data-max'=>'100','data-trigger'=>'keyup']); }}
                           </div>
                         </div>
                         </div>
@@ -55,14 +56,14 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Course Remark</label>
                           <div class="col-lg-10">
-                            {{ Form::text('course_remark', '',['placeholder'=>'Course Remark','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
+                            {{ Form::text('course_remark', '',['placeholder'=>'Course Remark','disabled'=>'','class'=>'form-control','data-min'=>'0','data-max'=>'100','data-trigger'=>'keyup']); }}
                           </div>
                         </div>
                         </div> <div class="col-lg-6">
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Resit</label>
                           <div class="col-lg-10">
-                            {{ Form::text('resit', '',['placeholder'=>'Resit','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[0, 101]','data-parsley-type'=>'digits']); }}
+                            {{ Form::text('resit', '',['placeholder'=>'Resit','disabled'=>'','class'=>'form-control','data-min'=>'0','data-max'=>'100','data-trigger'=>'keyup']); }}
 
                           </div>
                         </div>
@@ -73,7 +74,7 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label">Resit Remark</label>
                           <div class="col-lg-10">
-                            {{ Form::text('resit_remark', '',['placeholder'=>'Resit Remark','disabled'=>'','class'=>'form-control','data-parsley-range'=>'[1, 100]','data-parsley-type'=>'digits']); }}
+                            {{ Form::text('resit_remark', '',['placeholder'=>'Resit Remark','disabled'=>'','class'=>'form-control','data-min'=>'0','data-max'=>'100','data-trigger'=>'keyup']); }}
                             </div>
                         </div>
                         </div> <div class="col-lg-6">
@@ -109,8 +110,7 @@
 @stop
 
 @section('post_js')
- {{ HTML::script('js/chosen/chosen.jquery.min.js'); }}
-  {{ HTML::script('js/module_marks_input_create.js'); }}
+
 
   <script type="text/javascript">
 
@@ -173,6 +173,9 @@
              $('[name="course_remark"]').prop('disabled',false);
              $('[name="resit"]').prop('disabled',false);
              $('[name="resit_remark"]').prop('disabled',false);
+              $('#student_create').parsley('destroy');
+                     // Re-assign parsley to the form to include the second page now
+                     $('#student_create').parsley();
           }else{
             $('[name="test"]').prop('disabled',true);
             $('[name="course"]').prop('disabled',true);
@@ -248,6 +251,7 @@
         <!-- parsley -->
       {{ HTML::script('js/parsley/parsley.min.js'); }}
       {{ HTML::script('js/parsley/parsley.extend.js'); }}
+      {{ HTML::script('js/parsley/extra/validator/comparison.js'); }}
 @stop
 
 @section('main_menu')
