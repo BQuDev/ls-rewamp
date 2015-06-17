@@ -5,10 +5,6 @@ $(function() {
      *   Hide / Show sections
      *
      */
-    $( "#qualification_container_2" ).hide();
-    $( "#qualification_container_3" ).hide();
-    $( "#occupation_container_2" ).hide();
-    $( "#occupation_container_3" ).hide();
 
     $( "#add_more_qualifications" ).click(function() {$( "#qualification_container_2" ).show( "slow", function() { }); $( "#add_more_qualifications" ).hide();});
     $( "#add_more_qualifications_2" ).click(function() {$( "#qualification_container_3" ).show( "slow", function() { });$( "#add_more_qualifications_2" ).hide();});
