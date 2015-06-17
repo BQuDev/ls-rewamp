@@ -311,16 +311,16 @@ Checked
                  <div class="form-inline">
                  <div class="form-group">
 
-                                                                     <div class="col-sm-12" >
-                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
-                                                                           <label>
-                                                                           {{ Form::checkbox('contact_info[]', 'CONTACT INFORMATION',false); }}
-                                                                           <i></i>
-																			Checked
-                                                                           </label>
-                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#contact_information_form">Amend Data</a>
-                                                                     </div> </div></div>
-																	 <div class="line line-dashed b-b line-lg pull-in"></div>
+				 <div class="col-sm-12" >
+					<div class="checkbox i-checks" style="padding-bottom: 10px">
+					   <label>
+					   {{ Form::checkbox('contact_info[]', 'CONTACT INFORMATION',false); }}
+					   <i></i>
+						Checked
+					   </label>
+					</div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#contact_information_form">Amend Data</a>
+				 </div> </div></div>
+				 <div class="line line-dashed b-b line-lg pull-in"></div>
             <div class="form-group">
                {{ Form::label('email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
                <div class="col-sm-9">{{ $studentContactInformationOnline->email }}</div>
@@ -347,12 +347,28 @@ Checked
                {{ Form::label('forename_3', ' ', array('class' => 'col-sm-3 control-label'));  }}
                <div class="col-sm-9">{{ $studentContactInformationOnline->other_social }}</div>
             </div>
+			
+			<div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('contact_info[]', 'ONLINE CONTACT INFORMATION',false); }}
+                                                                           <i></i>
+																			Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#online_contact_information_form">Amend Data</a>
+                                                                     </div> </div>
+																	 </div>	
          </div>
-         <div class="line line-dashed b-b line-lg pull-in"></div>
+																
       </section>
 
       <section class="panel panel-default">
-               <header class="panel-heading font-bold">Next of Kin Details</header>
+               <header class="panel-heading font-bold">NEXT OF KIN DETAILS</header>
                <div class="panel-body">
                   <div class="form-group">
                      <label class="col-sm-3 control-label">Title</label>
@@ -376,11 +392,26 @@ Checked
                                                           {{ $student_contact_information_kin_detailes->next_of_kin_telephone }} </div>
                                    </div>
                   </div>
-               </div>
-               <div class="form-group">
+				    <div class="form-group">
                   {{ Form::label('next_of_kin_email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
                   <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_email }}</div>
                </div>
+				   <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'NEXT OF KIN DETAILS',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#next_of_kin_form">Amend Data</a>
+                                                                     </div> </div></div>
+               </div>
+             
             </section>
 
             <section class="panel panel-default">
@@ -413,16 +444,11 @@ Checked
                                 @endif
                            </div>
                         </div>
-                     </div>
+							
                      <div class="form-group">
                         {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-3 control-label'));  }}
                         <div class="col-sm-9">
-                           <div class="form-group">
-                             <div class="form-inline">
                           {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->year).'-'.StaticMonth::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->month); }}
-
-                             </div>
-                           </div>
 
                         </div>
                      </div>
@@ -433,6 +459,21 @@ Checked
 
                         </div>
                      </div>
+					  <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'COURSE DETAILS',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#course_details_form">Amend Data</a>
+                                                                     </div> </div></div>
+																	 </div>
                   </section>
                   <section class="panel panel-default">
                            <header class="panel-heading font-bold">EDUCATIONAL QUALIFICATIONS</header>
@@ -575,11 +616,24 @@ Checked
                                  {{ Form::label('qualification_grade', 'Grade', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9">{{ $student_educational_qualifications->qualification_grade_3; }}</div>
                               </div>
-                              <div class="line line-dashed b-b line-lg pull-in"></div>
 
 
 
                            </div>
+						     <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'EDUCATIONAL QUALIFICATIONS',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#educational_qualifications_form">Amend Data</a>
+                                                                     </div> </div></div>
 
                   </div>
                         </section>
@@ -699,7 +753,20 @@ Checked
                               </div>
 
 
+<div class="line line-dashed b-b line-lg pull-in"></div>
 
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'WORK EXPERIENCE',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#work_experience_form">Amend Data</a>
+                                                                     </div> </div></div>
 
 
                            </div>
@@ -850,10 +917,24 @@ Checked
                                  {{ Form::label('late_fee', 'Late fee', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9">{{ $student_payment_info_metadata->late_fee }}</div>
                               </div>
+							  <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'WORK EXPERIENCE',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#work_experience_form">Amend Data</a>
+                                                                     </div> </div></div>
                            </div>
                         </section>
                         <section class="panel panel-default">
-                           <header class="panel-heading font-bold">BQu only</header>
+                           <header class="panel-heading font-bold">BQu ONLY</header>
                            <div class="panel-body">
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Application received to BQu date', array('class' => 'col-sm-3 control-label'));  }}
@@ -892,10 +973,25 @@ Added ( Pending for validation )
 
                                  </div>
                               </div>
+							  
+							   <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                 <div class="form-inline">
+                 <div class="form-group">
+
+                                                                     <div class="col-sm-12" >
+                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
+                                                                           <label>
+                                                                           {{ Form::checkbox('admission_manager_information[]', 'BQu ONLY',false); }}
+                                                                           <i></i>
+Checked
+                                                                           </label>
+                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#bqu_only_form">Amend Data</a>
+                                                                     </div> </div></div>
                            </div>
                            <div class="line line-dashed b-b line-lg pull-in"></div>
 
-                                       <div class="line line-dashed b-b line-lg pull-in"></div>
+                                       
                            <div class="form-group">
                               <label class="col-sm-3 control-label"> </label>
                               <div class="col-sm-9">
@@ -1426,7 +1522,7 @@ Added ( Pending for validation )
       <div class="modal-content">
         <div class="modal-body wrapper-lg">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <div class="row"> <h3 class="m-t-none m-b">CONTACT INFORMATION - Term time</h3>
+          <div class="row"> <h3 class="m-t-none m-b">CONTACT INFORMATION - Permanent</h3>
           <div class="line line-dashed b-b line-lg pull-in"></div>
             <div class="col-sm-6 b-r">
 
@@ -1576,6 +1672,770 @@ Added ( Pending for validation )
     </div><!-- /.modal-dialog -->
   </div>
   </div>  
+  
+<div class="modal fade" id="online_contact_information_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">CONTACT INFORMATION</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('email', 'Email ', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                  {{ $studentContactInformationOnline->email }}
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('alternative_email', 'Alternative Email', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+                           {{ $studentContactInformationOnline->alternative_email }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('facebook', 'Facebook', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $studentContactInformationOnline->facebook }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('linkedin', 'LinkedIn', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $studentContactInformationOnline->linkedin }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('twitter', 'Twitter', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">{{ $studentContactInformationOnline->twitter}}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('other_social', 'Other Social Accounts', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ $studentContactInformationOnline->other_social }}</div>
+
+                                        </div>
+                                        </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('email', 'Email ', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                  
+								  {{ Form::text('email', $studentContactInformationOnline->email,['placeholder'=>'Email','class'=>'form-control','data-parsley-type'=>'email']); }}
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('alternative_email', 'Alternative Email', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+						   {{ Form::text('alternative_email', $studentContactInformationOnline->alternative_email,['placeholder'=>'Alternative Email','class'=>'form-control','data-parsley-type'=>'email']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('facebook', 'Facebook', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						  {{ Form::text('facebook', $studentContactInformationOnline->facebook,['placeholder'=>'Facebook','class'=>'form-control']); }}
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('linkedin', 'LinkedIn', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						  {{ Form::text('linkedin', $studentContactInformationOnline->linkedin,['placeholder'=>'LinkedIn','class'=>'form-control']); }}
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('twitter', 'Twitter', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+						  {{ Form::text('twitter', $studentContactInformationOnline->twitter,['placeholder'=>'Twitter','class'=>'form-control']); }}
+						  </div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('other_social', 'Other Social Accounts', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> 
+						  {{ Form::text('other_social', $studentContactInformationOnline->other_social,['placeholder'=>'Other','class'=>'form-control']); }}
+						  </div>
+
+                                        </div>
+                                        </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+    
+<div class="modal fade" id="next_of_kin_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">Next Of Kin Details</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                 {{ Form::label('next_of_kin_title', 'Title', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                 {{ $student_contact_information_kin_detailes->next_of_kin_title }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_forename', 'Forename', array('class' => 'col-sm-3 control-label'));  }}
+                     <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_forename }}</div>
+                  </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_surname', 'Surname', array('class' => 'col-sm-3 control-label'));  }}
+                     <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_surname }}</div>
+                  </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_telephone', 'Telephone', array('class' => 'col-sm-3 control-label'));  }}
+                     <div class="col-sm-9"><div class="form-inline">
+                                                          +&nbsp;&nbsp;
+                                                          {{ $student_contact_information_kin_detailes->next_of_kin_telephone }} </div>
+                                   </div></div>
+                  </div>
+                                       
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                  {{ Form::label('next_of_kin_email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
+                  <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_email }}</div>
+               </div>
+                                        </div> </div>
+     
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                 {{ Form::label('next_of_kin_title', 'Title', array('class' => 'col-sm-2 control-label'));  }}
+                                  <div class="col-sm-10">
+								 <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('next_of_kin_title', 'Mr.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Mr.')!==false); }}
+                                 <i></i>
+                                 Mr
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('next_of_kin_title', 'Mrs.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Mrs.')!==false); }}
+                                 <i></i>
+                                 Mrs
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('next_of_kin_title', 'Miss.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Miss.')!==false); }}
+                                 <i></i>
+                                 Miss
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                {{ Form::radio('next_of_kin_title', 'Ms.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Ms.')!==false); }}
+                                 <i></i>
+                                 Ms
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                  {{ Form::radio('next_of_kin_title', 'Dr.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Dr.')!==false); }}
+                                 <i></i>
+                                 Dr
+                                 </label>
+                              </div>
+                              <div class="radio-inline i-checks">
+                                 <label>
+                                 {{ Form::radio('next_of_kin_title', 'Other.',strpos( $student_contact_information_kin_detailes->next_of_kin_title,'Other.')!==false); }}
+                                 <i></i>
+                                 Other
+                                 </label>
+                              </div>
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_forename', 'Forename', array('class' => 'col-sm-2 control-label'));  }}
+                     <div class="col-sm-10">{{ Form::text('next_of_kin_forename', $student_contact_information_kin_detailes->next_of_kin_forename,['placeholder'=>'Forename','class'=>'form-control']); }}
+					 </div>
+                  </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_surname', 'Surname', array('class' => 'col-sm-2 control-label'));  }}
+                     <div class="col-sm-10">
+					 {{ Form::text('next_of_kin_surname', $student_contact_information_kin_detailes->next_of_kin_surname,['placeholder'=>'Surname','class'=>'form-control']); }}
+					 </div>
+                  </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                     {{ Form::label('next_of_kin_telephone', 'Telephone', array('class' => 'col-sm-2 control-label'));  }}
+                     <div class="col-sm-10"><div class="form-inline">
+                                                          +&nbsp;&nbsp;
+{{ Form::text('next_of_kin_telephone', $student_contact_information_kin_detailes->next_of_kin_telephone,['placeholder'=>'','class'=>'form-control','style'=>'width:375px !important','data-parsley-type'=>'digits']); }}
+														  </div>
+                                   </div></div>
+                  </div>
+                                       
+<div class="row" style="font-size: 16px">
+            <div class="form-group">
+                  {{ Form::label('next_of_kin_email', 'Email ', array('class' => 'col-sm-2 control-label'));  }}
+                  <div class="col-sm-10">
+				  {{ Form::text('next_of_kin_email', $student_contact_information_kin_detailes->next_of_kin_email,['placeholder'=>'Email','class'=>'form-control','data-parsley-type'=>'email']); }}
+				  </div>
+               </div>
+                                        </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+    
+<div class="modal fade" id="course_details_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">COURSE DETAILS</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                {{ Form::label('course_name', 'Course Name', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                    @if(intval($student_course_enrolments->course_name)>0)
+                                   {{ ApplicationCourse::getNameByID($student_course_enrolments->course_name); }} ( {{ $student_course_enrolments->course_level }} )
+                                   @endif
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('awarding_body', 'Awarding Body', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+                          
+                             @if(intval($student_course_enrolments->awarding_body)>0)
+                                {{ ApplicationAwardingBody::getNameByID($student_course_enrolments->awarding_body); }}
+                                @endif
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">   {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->year).'-'.StaticMonth::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->month); }}
+</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('study_mode', 'Study mode', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">   {{ $student_course_enrolments->study_mode }}
+</div>
+
+                                        </div>
+                                        </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                {{ Form::label('course_name', 'Course Name', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                    @if(intval($student_course_enrolments->course_name)>0)
+                           
+ {{ Form::select('course_name', $course_names,$student_course_enrolments->course_name,['class'=>'chosen-select col-sm-4']);  }}   
+
+ 
+								  @endif
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         <div class="col-sm-4">  </div>
+                          <div class="col-sm-8">
+                          
+                               <div class="radio-inline i-checks">
+                                                                  <label>
+                                                                  {{ Form::radio('course_level', 'Top - Up',strpos($student_course_enrolments->course_level,'Top - Up')!==false); }}
+                                                                  <i></i>
+                                                                  Top - Up
+                                                                  </label>
+              </div>
+                                                             <div class="radio-inline i-checks">
+                                                                <label>
+                                                                {{ Form::radio('course_level', 'Advanced Entry',strpos($student_course_enrolments->course_level,'Advanced Entry')!==false); }}
+                                                                <i></i>
+                                                                Advanced Entry
+                                                                </label>
+                                                             </div>
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('awarding_body', 'Awarding Body', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">
+                          
+                             @if(intval($student_course_enrolments->awarding_body)>0)
+                                {{ Form::select('awarding_body', $awarding_bodies,$student_course_enrolments->awarding_body,['class'=>'chosen-select col-sm-4']);  }}
+                                @else
+								{{ Form::select('awarding_body', $awarding_bodies,'',['class'=>'chosen-select col-sm-4']);  }}
+								@endif
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8"> {{ Form::select('intake_year', $intake_year,ApplicationIntake::getRowByID($student_course_enrolments->intake)->year,['class'=>'chosen-select col-sm-4','style'=>'max-width:100px !important']);  }}
+</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         <div class="col-sm-4"> </div>
+                          <div class="col-sm-8">
+{{ Form::select('intake_month', $intake_month,$student_course_enrolments->intake,['class'=>'chosen-select']);  }}</div>
+
+                                        </div>
+                                        </div>
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                         {{ Form::label('study_mode', 'Study mode', array('class' => 'col-sm-4 control-label'));  }}
+                          <div class="col-sm-8">  <div class="radio-inline i-checks">
+                                                                              <label>
+                                                                              {{ Form::radio('study_mode', 'Blended',true); }}
+                                                                              <i></i>
+                                                                              Blended
+                                                                              </label>
+              </div>
+</div>
+
+                                        </div>
+                                        </div>
+
+			  <br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+    
+<div class="modal fade" id="educational_qualifications_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">EDUCATIONAL QUALIFICATIONS</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('english_language_level1', 'English language level', array('class' => 'col-sm-5 control-label'));  }}
+                                  <div class="col-sm-7">
+                                  @if(StudentEnglishLangLevels::lastRecordBySAN($student->san)->english_language_level != 'null')
+                                       <?php
+                                       $english_language_level =StudentEnglishLangLevels::lastRecordBySAN($student->san)->english_language_level;
+                                       $english_language_level_export = '';
+                                       if(strpos($english_language_level,'CITY & GUILDS')!==false){
+                                       $english_language_level_export = $english_language_level_export.', CITY & GUILDS';
+                                       }
+                                       if(strpos($english_language_level,'IELTS')!==false){
+                                       $english_language_level_export = $english_language_level_export.', IELTS';
+                                       }
+                                       if(strpos($english_language_level,'ESOL')!==false){
+                                       $english_language_level_export = $english_language_level_export.', ESOL';
+                                       }
+                                       if(strpos($english_language_level,'Other')!==false){
+                                       $english_language_level_export = $english_language_level_export.', '.StudentEnglishLangLevels::lastRecordBySAN($student->san)->english_language_level_other;
+                                       }
+                                       $english_language_level_export= ltrim ($english_language_level_export, ',');
+
+                                       //$english_language_level = str_replace('"]]','"\']',$english_language_level);
+                                       ?>
+                                       {{ $english_language_level_export }}
+                                       @endif
+									   
+                                  </div>
+                               </div>d
+							   <div class="line line-dashed b-b line-lg pull-in"></div>
+                               </div>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                   {{ Form::label('qualification_1', 'Qualification 1', array('class' => 'col-sm-4 control-label'));  }}
+                                  <div class="col-sm-8">
+                                  @if(intval($student_educational_qualifications->qualification_1) == 10000)
+                                                                                          @elseif(intval($student_educational_qualifications->qualification_1) == 0)
+                                                                                          {{ $student_educational_qualifications->qualification_other_1 }}
+                                                                                          @elseif(intval($student_educational_qualifications->qualification_1) > 0)
+                                                                                          {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_1) }}
+                                                                                          @endif
+                                  </div>
+                               </div>
+                               </div>
+
+
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                    {{ Form::label('institution_1', 'Institution', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                  {{ $student_educational_qualifications->institution_1; }}
+                                  </div>
+                               </div>
+                               </div>
+
+
+
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                   {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                  {{ $student_educational_qualifications->qualification_start_date_1; }} 
+                                  </div>
+                               </div>
+                               </div>
+							   
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                   {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                 {{ $student_educational_qualifications->qualification_end_date_1; }}
+                                  </div>
+                               </div>
+                               </div>
+
+
+
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
+                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
+{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                        </div>
+                                        </div>
+            </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+    
+<div class="modal fade" id="work_experience_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">AGENT/ ADMISSION MANAGER INFORMATION</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                  @if(intval($studentSource->source)>0)
+                                      {{ ApplicationSource::getNameByID(intval($studentSource->source)) }}
+                                       @endif
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          @if(intval($studentSource->admission_manager) == 10000)
+                            {{ $studentSource->admission_managers_other }}
+                            @elseif(intval($studentSource->admission_manager) >0)
+                            {{ ApplicationAdmissionManager::getNameByID($studentSource->admission_manager); }}
+                            @endif
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9"> @if(intval($studentSource->agent_lap) == 10000)
+                                                    {{ $studentSource->agents_laps_other }}
+                                                     @elseif((intval($studentSource->source) == 2)&(intval($studentSource->agent_lap)>0))
+                                                     {{ ApplicationLap::getNameByID($studentSource->agent_lap)  }}
+                                                     @elseif(intval($studentSource->agent_lap)>0)
+                                                     {{ApplicationAgent::getNameByID($studentSource->agent_lap) }}
+                                                     @endif</div>
+
+                                        </div>
+                                        </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
+                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
+{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                        </div>
+                                        </div>
+            </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+    
+<div class="modal fade" id="bqu_only_form">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">AGENT/ ADMISSION MANAGER INFORMATION</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b">Existing Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                                  @if(intval($studentSource->source)>0)
+                                      {{ ApplicationSource::getNameByID(intval($studentSource->source)) }}
+                                       @endif
+
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          @if(intval($studentSource->admission_manager) == 10000)
+                            {{ $studentSource->admission_managers_other }}
+                            @elseif(intval($studentSource->admission_manager) >0)
+                            {{ ApplicationAdmissionManager::getNameByID($studentSource->admission_manager); }}
+                            @endif
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9"> @if(intval($studentSource->agent_lap) == 10000)
+                                                    {{ $studentSource->agents_laps_other }}
+                                                     @elseif((intval($studentSource->source) == 2)&(intval($studentSource->agent_lap)>0))
+                                                     {{ ApplicationLap::getNameByID($studentSource->agent_lap)  }}
+                                                     @elseif(intval($studentSource->agent_lap)>0)
+                                                     {{ApplicationAgent::getNameByID($studentSource->agent_lap) }}
+                                                     @endif</div>
+
+                                        </div>
+                                        </div>
+            </div>
+            <div class="col-sm-6">
+
+
+              <h4 class="m-t-none m-b">New Data</h4>
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
+                                  <div class="col-sm-9">
+                               {{ Form::select('information_source', $information_sources,$data_studentSource->source,['class'=>'chosen-select col-sm-12']);  }}
+                                  </div>
+                               </div>
+                               </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('admission_manager', 'Admission manager', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                           {{ Form::select('admission_manager',  $admission_managers,$data_studentSource->admission_manager,['class'=>'chosen-select col-sm-12']);  }}
+                         {{ Form::text('admission_managers_other', $data_studentSource->admission_managers_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                                        </div>
+                                           <div class="col-sm-4"></div>
+                                        </div>
+                                        </div>
+
+<div class="row" style="font-size: 16px">
+             <div class="form-group">
+                          {{ Form::label('agents_laps', 'Agent/LAP', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-9">
+                          {{ Form::select('agents_laps', $agents_laps,$data_studentSource->agent_lap,['class'=>'chosen-select col-sm-12','style'=>'width:165px']);  }}
+{{ Form::text('agents_laps_other', $data_studentSource->agents_laps_other,['placeholder'=>'Please specify if other','class'=>'form-control','style'=>'width:250px']); }}
+                                        </div>
+                                        </div>
+            </div><br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
   
   @stop
 
