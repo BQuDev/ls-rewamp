@@ -75,12 +75,12 @@ $(function() {
 
 
 
-    $( "#san" ).keydown(function() {
+    $( "#san" ).keyup(function() {
         $('#top_san_display').html('SAN : '+this.value);
         // $('#top_san_display').append($(this).val());
 
     });
-    $( "#ls_student_number" ).keydown(function() {
+    $( "#ls_student_number" ).keyup(function() {
         $('#top_lssn_display').html('LS SN : '+this.value);
         // $('#top_lssn_display').append($(this).val());
     });

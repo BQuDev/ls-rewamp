@@ -2,7 +2,7 @@
 $(function() {
 
 
-    $('[name="ls_student_number"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
+
     $('[name="instalment_payment_method_1"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
     $('[name="instalment_payment_method_2"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
     $('[name="instalment_payment_method_3"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
