@@ -50,8 +50,12 @@
                            @if(!is_null($student_application_status))
                                @if(intval($student_application_status->status) == 1)
 <span class="label bg-info">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
-
+@elseif(intval($student_application_status->status) == 2)
+<span class="label bg-primary">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+@elseif(intval($student_application_status->status) == 3)
+<span class="label bg-success">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
                                @endif
+
                            @endif
                           </td>
                            <td style="min-width: 150px;">

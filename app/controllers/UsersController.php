@@ -11,6 +11,8 @@ class UsersController extends \BaseController {
 	public function index()
 	{
 		//
+		return View::make('users.index')
+		    ->with('users',User::all());
 
 
 	}
@@ -24,7 +26,9 @@ class UsersController extends \BaseController {
 	public function create()
 	{
 		//
-        return View::make('users.create')->with('groups',DB::table('groups')->lists('name','id'));
+        return View::make('users.create')
+            ->with('groups',DB::table('groups')->lists('name','id'))
+            ->with('companies',DB::table('users_companies')->lists('name','id'));
 	}
 
 	/**
@@ -40,7 +44,7 @@ class UsersController extends \BaseController {
         {
             // Create the user
             $user = Sentry::createUser(array(
-                'email'     => Input::get('email'),
+                'email'     => Input::get('username'),
                 'password'  => Input::get('password'),
                 'first_name'  => Input::get('first_name'),
                 'last_name'  => Input::get('last_name'),
@@ -53,7 +57,8 @@ class UsersController extends \BaseController {
             // Assign the group to the user
             $user->addGroup($adminGroup);
 
-            return View::make('users.create')->with('groups',DB::table('groups')->lists('name','id'));
+            return View::make('users.create')->with('groups',DB::table('groups')->lists('name','id'))
+            ->with('companies',DB::table('users_companies')->lists('name','id'));
         }
         catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
         {
@@ -86,6 +91,11 @@ class UsersController extends \BaseController {
 		//
 	}
 
+	public function user_groups(){
+        return View::make('users.index_user_group')
+            ->with('groups',DB::table('groups')->select('*')->get());
+	}
+
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /user/{id}/edit
@@ -96,6 +106,12 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		//
+	}
+
+	public function edit_group($group_name)
+	{
+		//
+		return View::make('users.edit_user_group')->with('permissions',DB::table('groups')->select('*')->where('name','=',$group_name)->get());
 	}
 
 	/**

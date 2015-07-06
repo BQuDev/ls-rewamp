@@ -47,17 +47,25 @@
                            <td>{{ $s->ls_student_number }}</td>
                            <td>{{ $s->title.' '.$s->initials_1.' '.$s->initials_2.' '.$s->initials_3.' '.$s->forename_1.' '.$s->forename_2.' '.$s->forename_3.' '.$s->surname }}</td>
                            <td>
-                           @if(!is_null($student_application_status))
-                               @if(intval($student_application_status->status) == 1)
-<span class="label bg-info">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                            @if(!is_null($student_application_status))
+                                                        @if(intval($student_application_status->status) == 1)
+                         <span class="label bg-info">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                         @elseif(intval($student_application_status->status) == 2)
+                         <span class="label bg-primary">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                         @elseif(intval($student_application_status->status) == 3)
+                         <span class="label bg-success">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                                                        @endif
 
-                               @endif
-                           @endif
+                                                    @endif
                           </td>
-                           <td style="min-width: 120px;">
+                           <td style="min-width: 150px;">
 @if (Sentry::getUser()->hasAccess('students.more'))
-                           <a class="btn btn-sm btn-primary" href="{{ URL::to('/students/'.$s->san) }}">More</a>
-@endif
+                           <a class="btn btn-sm btn-primary" href="{{ URL::to('/students/'.$s->san) }}">More</a>&nbsp;&nbsp;
+        @endif
+        @if (Sentry::getUser()->hasAccess('students.verify'))
+               <a class="btn btn-sm btn-warning" href="{{ URL::to('/students/verify/'.$s->san) }}">Verify</a>&nbsp;&nbsp;
+        @endif
+
                            </td>
                          </tr>
                     @endforeach

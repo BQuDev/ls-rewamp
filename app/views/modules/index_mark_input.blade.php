@@ -22,7 +22,8 @@
 
 
  <section class="panel panel-default">
-
+<div class="ssc">
+                <a href="{{ URL::to('/modules/marks-input/create') }}" class="btn btn-sm btn-success btncustom">New Marks Input</a></div>
                 <div class="table-responsive">
                   <table class="table table-striped m-b-none" data-ride="datatables" id="student_datatable">
                     <thead>
@@ -47,11 +48,12 @@
                            <td>{{ $s->title.' '.$s->initials_1.' '.$s->initials_2.' '.$s->initials_3.' '.$s->forename_1.' '.$s->forename_2.' '.$s->forename_3.' '.$s->surname }}</td>
 
                                      <td style="min-width: 160px;">
+                                     <!--
                           @if (Sentry::getUser()->hasAccess('modules.show_marks_input'))
                                                      <a class="btn btn-sm btn-primary" href="{{ URL::to('/modules/marks-input/'.$s->ls_student_number) }}">More</a>&nbsp;&nbsp;
-                          @endif
+                          @endif -->
                           @if (Sentry::getUser()->hasAccess('modules.create_marks_input'))
-                                                     <a class="btn btn-sm btn-warning" href="{{ URL::to('/modules/marks-input/create') }}">Add Marks</a>&nbsp;&nbsp;
+                                                     <a class="btn btn-sm btn-warning" href="{{ URL::to('/modules/marks-input/create/'.$s->ls_student_number) }}">Update Marks</a>&nbsp;&nbsp;
                           @endif
                                                      </td>
                          </tr>
@@ -66,6 +68,15 @@
 
 @section('post_css')
 {{ HTML::style('js/datatables/datatables.css'); }}
+
+<style>
+.btncustom{   position: absolute;
+              right: 2%;
+              top: 50%;
+              margin-top: 1.5%;
+              z-index:100;}
+.ssc{position:relative;}
+</style>
 @stop
 
 @section('post_js')

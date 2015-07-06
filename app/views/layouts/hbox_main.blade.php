@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="app">
-<head>
+<html lang="en" class="app bg-light">
+<head>  
   <meta charset="utf-8" />
   <title>LS Student Administration @section('title') @show</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
 {{ HTML::style('css/bootstrap.css'); }}
 {{ HTML::style('css/animate.css'); }}
 {{ HTML::style('css/font-awesome.min.css'); }}
@@ -14,7 +13,6 @@
 {{ HTML::style('css/app.css'); }}
 {{ HTML::style('pnotify/pnotify.core.min.css'); }}
 {{ HTML::style('pnotify/pnotify.buttons.min.css'); }}
-
 @section('post_css')
 @show
 
@@ -25,75 +23,8 @@
   <![endif]-->
 </head>
 <body class="">
-  <section class="vbox">
-    <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
-      <div class="navbar-header aside-md dk">
-        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="{{ URL::to('/') }}" class="navbar-brand">
-          <img src="{{asset('images/logo.png')}}" class="m-r-sm" alt="scale">
-
-        </a>
-        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
-          <i class="fa fa-cog"></i></a>
-      </div>
-      <ul class="nav navbar-nav hidden-xs">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="i i-grid"></i>
-          </a>
-          <section class="dropdown-menu aside-lg bg-white on animated fadeInLeft">
-            <div class="row m-l-none m-r-none m-t m-b text-center">
-              <div class="col-xs-4">
-                <div class="padder-v">
-                  <a href="{{ URL::to('/students') }}/">
-                    <span class="m-b-xs block">
-                      <i class="i  i-docs i-2x text-primary-lt"></i>
-                    </span>
-                    <small class="text-muted">Admissions</small>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-        </li>
-      </ul>
-      <!--<form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button type="submit" class="btn btn-sm bg-white b-white btn-icon"><i class="fa fa-search"></i></button>
-            </span>
-            <input type="text" class="form-control input-sm no-border" placeholder="Search apps, projects...">
-          </div>
-        </div>
-      </form>-->
-      	  @section('san')
-            @show
-      <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-             {{ Sentry::getUser()->first_name }}&nbsp;&nbsp;{{ Sentry::getUser()->last_name }} <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu animated fadeInRight">
-
-            <li>
-              <a href="{{ URL::to('/').'/help' }}">Help</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="{{ URL::to('/').'/logout' }}"  >Logout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </header>
-    <section>
-      <section class="hbox stretch">
-        <!-- .aside -->
+    <section class="hbox stretch">
+    <!-- .aside -->
         <aside class="bg-black aside-md hidden-print" id="nav">
           <section class="vbox">
             <section class="w-f scrollable">
@@ -207,7 +138,7 @@
 
                                                               </li>
                                                                <?php } ?>
-                                                   <?php /* if (Sentry::getUser()->hasAccess('students.export')){  ?>
+                                                   <?php if (Sentry::getUser()->hasAccess('students.export')){  ?>
                       <li >
                                                                    <a href="{{ URL::to('/export') }}/">
 
@@ -217,7 +148,7 @@
                                                                     </a>
 
                                                                   </li>
-                                                                   <?php } */?>
+                                                                   <?php } ?>
 
 
                                           </ul></li>
@@ -261,110 +192,16 @@
 
 
                                           </ul>
-                                          <li <?php if(Request::segment(1) == "exports") echo 'class="active"'; ?>>
-                                                                                  <a href="#" class="auto">
-                                                                                    <span class="pull-right text-muted">
-                                                                                      <i class="i i-circle-sm-o text"></i>
-                                                                                      <i class="i i-circle-sm text-active"></i>
-                                                                                    </span>
-                                                                                    <i class="i i-lab icon">
-                                                                                    </i>
-                                                                                    <span class="font-bold">Exports</span>
-                                                                                  </a>
-
-
-<ul class="nav dk">
-
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('students/applications/export') }}/">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Student Applications Sheet</span>
-                                                                          </a>
-
-                                                                        </li>
-                                          <?php } ?>
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('/modules') }}">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Marks Input Sheet</span>
-                                                                          </a>
-
-                                                                        </li>
-                                          <?php } ?>
 
 
 
 
-
-
-                                          </ul>
-
-                                          <li <?php if(Request::segment(1) == "settings") echo 'class="active"'; ?>>
-                                                                                  <a href="#" class="auto">
-                                                                                    <span class="pull-right text-muted">
-                                                                                      <i class="i i-circle-sm-o text"></i>
-                                                                                      <i class="i i-circle-sm text-active"></i>
-                                                                                    </span>
-                                                                                    <i class="i i-lab icon">
-                                                                                    </i>
-                                                                                    <span class="font-bold">Settings</span>
-                                                                                  </a>
-
-
-<ul class="nav dk">
-
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="#">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">User Management</span>
-                                                                          </a>
-<ul class="nav dker">
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/all-users') }}">
-                                <i class="i i-dot"></i>
-                                <span>All Users</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/create') }}">
-                                <i class="i i-dot"></i>
-                                <span>Add User</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/user-groups') }}">
-                                <i class="i i-dot"></i>
-                                <span>User Groups</span>
-                              </a>
-                            </li>
-                          </ul>
-                                                                        </li>
-                                          <?php } ?>
-
-
-
-
-
-
-
-                                          </ul>
-
-
-<li style="position: absolute; bottom: 5px;width: 100%">
+<!--<li style="position: absolute; bottom: 5px;width: 100%">
                       <a href="{{ URL::to('/contact-bqu') }}/">
-                        <i class="i i-circle-sm text-success-dk"></i>
-                        <span>Contact <strong>BQu-IT Team</strong></span>
+                        <i class="i i-circle-sm text-danger-dk"></i>
+                        <span>Contact BQu</span>
                       </a>
-                    </li>
+                    </li>-->
 
                     @section('main_menu')
                     @show
@@ -395,38 +232,31 @@
             </footer>
           </section>
         </aside>
-        <!-- /.aside -->
-        <section id="content">
-          <section class="vbox">
-             <header class="header bg-light dk">
-                <div class="row">
-                              <div class="col-lg-12">
-                                <!-- .breadcrumb -->
-                                <ul class="breadcrumb">
-                                   @if(!((Request::segment(1) == "students")&(Request::segment(2) == "create")))
-                                    <li><a href="{{ URL::to('/') }}"><i class="fa fa-home"></i> Home</a></li>
-                                @endif
-
-                                  @section('breadcrumb')
-                                  @show
-                                </ul>
-                                <!-- / .breadcrumb -->
-                              </div>
-                              </div>
-            </header>
-            <section class="scrollable wrapper">
-
-
-              @yield('content')
-
+    <!-- /.aside -->
+    <section id="content">
+      <section class="hbox stretch">
+            <section>
+              <section class="vbox">
+                <section class="scrollable wrapper">  
+                  
+				  
+                  @yield('content')
+                </section>
+              </section>
             </section>
+            <aside class="aside-md">
+              <section class="vbox">
+                
+                <section class="scrollable wrapper-md bg-light dker">
+                               
+                </section>
+              </section>
+            </aside>
           </section>
-          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
-        </section>
-      </section>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
     </section>
   </section>
-  {{ HTML::script('js/jquery.min.js'); }}
+   {{ HTML::script('js/jquery.min.js'); }}
    {{ HTML::script('js/chosen/chosen.jquery.min.js'); }}
 
   <!-- Bootstrap -->
@@ -440,8 +270,7 @@
 
     {{ HTML::script('pnotify/pnotify.core.min.js'); }}
     {{ HTML::script('pnotify/pnotify.buttons.min.js'); }}
-
-
+	
 <!-- Notification -->
 <script type="text/javascript">
 var stack_bottomright = {"dir1": "down", "dir2": "left"};

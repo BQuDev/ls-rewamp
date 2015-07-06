@@ -35,7 +35,7 @@
       </div>
 
             <section class="panel panel-default">
-               <header class="panel-heading font-bold">AGENT/ ADMISSION MANAGER INFORMATION</header>
+               <header class="panel-heading font-bold" id="AGENT_INFORMATION">AGENT/ ADMISSION MANAGER INFORMATION</header>
                <div class="panel-body">
                   <div class="form-group">
                      {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
@@ -63,7 +63,7 @@
             </section>
 
                <section class="panel panel-default">
-                     <header class="panel-heading font-bold">PERSONAL DATA</header>
+                     <header class="panel-heading font-bold" id="PERSONAL_DATA">PERSONAL DATA</header>
                      <div class="panel-body">
                         <div class="form-group">
                            <label class="col-sm-3 control-label">Title</label>
@@ -183,7 +183,7 @@
 
 
       <section class="panel panel-default">
-         <header class="panel-heading font-bold">CONTACT INFORMATION</header>
+         <header class="panel-heading font-bold" id="CONTACT_INFORMATION">CONTACT INFORMATION</header>
          <div class="font-bold" style="padding: 10px 15px 0px 15px !important;" href="#">Term time</div>
          <div class="line line-dashed b-b line-lg pull-in"></div>
 
@@ -348,7 +348,7 @@
       </section>
 
       <section class="panel panel-default">
-               <header class="panel-heading font-bold">Next of Kin Details</header>
+               <header class="panel-heading font-bold" id="NEXT_OF_KIN_DETAILS">Next of Kin Details</header>
                <div class="panel-body">
                   <div class="form-group">
                      <label class="col-sm-3 control-label">Title</label>
@@ -425,7 +425,7 @@
             </section>
 
             <section class="panel panel-default">
-                     <header class="panel-heading font-bold">COURSE DETAILS</header>
+                     <header class="panel-heading font-bold" id="COURSE_DETAILS">COURSE DETAILS</header>
                      <div class="panel-body">
                         <div class="form-group">
                            {{ Form::label('course_name', 'Course Name', array('class' => 'col-sm-3 control-label'));  }}
@@ -524,7 +524,7 @@
                      </div>
                   </section>
                   <section class="panel panel-default">
-                           <header class="panel-heading font-bold">EDUCATIONAL QUALIFICATIONS</header>
+                           <header class="panel-heading font-bold" id="EDUCATIONAL_QUALIFICATIONS">EDUCATIONAL QUALIFICATIONS</header>
                            <div class="panel-body">
                               <div class="form-group">
                                  {{ Form::label('english_language_level1', 'English language level', array('class' => 'col-sm-3 control-label'));  }}
@@ -710,7 +710,7 @@
                   </div>
                         </section>
                         <section class="panel panel-default">
-                           <header class="panel-heading font-bold">WORK EXPERIENCE</header>
+                           <header class="panel-heading font-bold" id="WORK_EXPERIENCE">WORK EXPERIENCE</header>
                            <div class="panel-body">
 
                            <div id="occupation_container_1">
@@ -875,8 +875,39 @@
                            </div>
                         </section>
                         <section class="panel panel-default">
-                           <header class="panel-heading font-bold">PAYMENT INFORMATION</header>
+                           <header class="panel-heading font-bold" id="PAYMENT_INFORMATION">PAYMENT INFORMATION</header>
                            <div class="panel-body">
+                           <div class="form-group">
+                              <label class="col-sm-3 control-label">Course fees</label>
+                              <div class="col-sm-9">
+                              <div class="col-sm-2">
+                                 <div class="radio-inline i-checks">
+                                    <label>
+                                    {{ Form::radio('course_fees', 'Self funded',true); }}
+                                    <i></i>
+                                    Self funded
+                                    </label>
+                                 </div>
+                                 </div><div class="col-sm-4">
+                                 <div class="radio-inline i-checks">
+                                    <label>
+                                    {{ Form::radio('course_fees', 'Sponsored by the Company'); }}
+                                    <i></i>
+                                    Sponsored by the Company
+                                    </label>
+                                 </div>
+                                 </div><div class="col-sm-3">
+                                 <div class="radio-inline i-checks">
+                                    <label>
+                                    {{ Form::radio('course_fees', 'Bank Loan'); }}
+                                    <i></i>
+                                    Bank Loan
+                                    </label>
+                                 </div>
+                                 </div>
+                              </div>
+                           </div>
+                                                   <!--
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Course fees', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9 ">
@@ -910,7 +941,39 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div> -->
+
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label">Payment Status</label>
+                                <div class="col-sm-9">
+                                <div class="col-sm-2">
+                                   <div class="radio-inline i-checks">
+                                      <label>
+                                      {{ Form::radio('payment_status', 'Paid in full'); }}
+                                      <i></i>
+                                      Self funded
+                                      </label>
+                                   </div>
+                                   </div><div class="col-sm-4">
+                                   <div class="radio-inline i-checks">
+                                      <label>
+                                      {{ Form::radio('payment_status', 'Unpaid'); }}
+                                      <i></i>
+                                      Sponsored by the Company
+                                      </label>
+                                   </div>
+                                   </div><div class="col-sm-3">
+                                   <div class="radio-inline i-checks">
+                                      <label>
+                                      {{ Form::radio('payment_status', 'Deposit paid',true); }}
+                                      <i></i>
+                                      Bank Loan
+                                      </label>
+                                   </div>
+                                   </div>
+                                </div>
+                             </div>
+                                <!--
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Payment Status', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9 ">
@@ -944,7 +1007,7 @@
                                        </div>
                                     </div>
                                  </div>
-                              </div>
+                              </div>-->
                               <div class="form-group">
                                  {{ Form::label('total_fee', 'Total fee', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9">{{ Form::text('total_fee', '',['placeholder'=>'Total fee','class'=>'form-control']); }}</div>
@@ -1034,7 +1097,7 @@
                            </div>
                         </section>
                         <section class="panel panel-default">
-                           <header class="panel-heading font-bold">BQu only</header>
+                           <header class="panel-heading font-bold" id="BQu_ONLY">BQu only</header>
                            <div class="panel-body">
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Application received to BQu date', array('class' => 'col-sm-3 control-label'));  }}
@@ -1110,8 +1173,15 @@ Added ( Pending for validation )
 
 
  @section('breadcrumb')
-   <li><a href="{{ URL::to('/students') }}">Application</a></li>
-   <li class="active"><a href="{{ URL::to('/students/create') }}">Add New Application</a></li>
+   <li><a href="#AGENT_INFORMATION">AGENT INFORMATION</a></li>
+   <li class="active"><a href="#PERSONAL_DATA">PERSONAL DATA</a></li>
+   <li class="active"><a href="#CONTACT_INFORMATION">CONTACT INFORMATION</a></li>
+   <li class="active"><a href="#NEXT_OF_KIN_DETAILS">NEXT OF KIN DETAILS</a></li>
+   <li class="active"><a href="#COURSE_DETAILS">COURSE DETAILS</a></li>
+   <li class="active"><a href="#EDUCATIONAL_QUALIFICATIONS">EDUCATIONAL QUALIFICATIONS</a></li>
+   <li class="active"><a href="#WORK_EXPERIENCE">WORK EXPERIENCE</a></li>
+   <li class="active"><a href="#PAYMENT_INFORMATION">PAYMENT INFORMATION</a></li>
+   <li class="active"><a href="#BQu_ONLY">BQu ONLY</a></li>
  @stop
 
 
@@ -1122,11 +1192,19 @@ Added ( Pending for validation )
 @section('post_js')
 <script type="text/javascript">
 
+    $('li').click(function () {
+        $('li.selected').removeClass('selected');
+        $(this).addClass('selected');
+    });
 
 
 
 
     $('#information_source').change(function(){
+        if($('#information_source').val()==3){
+            //$('[name="agents_laps"]').prop('disabled', true);
+            //$('[name="agents_laps"]').val(0);
+        }
         $.ajax({
             url: "{{ url('students/create/information_source/dropdown')}}",
             data: {token: $('[name="_token"]').val(),option: $('#information_source').val()},
@@ -1153,12 +1231,12 @@ Added ( Pending for validation )
             data: {token: $('[name="_token"]').val(),option: $('#intake_year').val()},
             success: function (data) {
                 $('[name="intake_month"]').empty();
-                var model = $('[name="intake_month"]');
+                var model = $('[name="intake"]');
                 model.empty();
                 $.each(data, function(index, element) {
                     model.append("<option value='"+ index +"'>" + element + "</option>");
                 });
-                $('[name="intake_month"]').trigger("chosen:updated");
+                $('[name="intake"]').trigger("chosen:updated");
             },
             type: "GET"
         });
@@ -1205,6 +1283,13 @@ Added ( Pending for validation )
   border: 1px solid #EED3D7;
 }
 
+.breadcrumb > li + li::before {
+    color: #ccc;
+    content: "| "!important;
+    padding: 0 5px;
+}
+
+.selected { font-weight: bold }
 </style>
 @stop
 
@@ -1214,7 +1299,5 @@ Added ( Pending for validation )
 
  @section('san')
  <div align="center">
- <span id="top_san_display" class="nav navbar-nav navbar-center input-s-lg m-t m-l-n-xs" style="color: black;font-size: 24px !important">SAN : </span>
- <span id="top_lssn_display" class="nav navbar-nav navbar-center input-s-lg m-t m-l-n-xs" style="color: black;font-size: 24px !important">LS SN : </span>
  </div>
   @stop

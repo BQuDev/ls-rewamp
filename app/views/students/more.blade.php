@@ -573,7 +573,7 @@
                               </div>
                               <div class="form-group">
                                  {{ Form::label('main_duties_and_responsibilities_2', 'Main duties and responsibilities', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->main_duties_3; }}</div>
+                                 <div class="col-sm-9">{{ $studentWorkExperience->main_duties_2; }}</div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Start date', array('class' => 'col-sm-3 control-label'));  }}

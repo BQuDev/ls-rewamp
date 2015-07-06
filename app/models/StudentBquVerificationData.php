@@ -1,15 +1,13 @@
 <?php
 
-class ApplicationStatus extends \Eloquent {
-	protected $fillable = [];
-
-
-    public function scopeGetNameByID($query,$id) {
-        return $query->where('id','=',$id)->first()->name;
-    }
+class StudentBquVerificationData extends \Eloquent {
+    use SoftDeletingTrait;
+    protected $fillable = [];
+    protected $table = 'student_bqu_verification_data';
 
     public function scopeLastRecordBySAN($query,$san) {
         // return DB::table('students')->where('san','=',$san)->orderBy('id', 'desc')->first();
         return $query->where('san','=',$san)->orderBy('id', 'desc')->first();
     }
+
 }

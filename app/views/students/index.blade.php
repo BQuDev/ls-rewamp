@@ -47,12 +47,16 @@
                            <td>{{ $s->ls_student_number }}</td>
                            <td>{{ $s->title.' '.$s->initials_1.' '.$s->initials_2.' '.$s->initials_3.' '.$s->forename_1.' '.$s->forename_2.' '.$s->forename_3.' '.$s->surname }}</td>
                            <td>
-                           @if(!is_null($student_application_status))
-                               @if(intval($student_application_status->status) == 1)
-<span class="label bg-info">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                              @if(!is_null($student_application_status))
+                                                          @if(intval($student_application_status->status) == 1)
+                           <span class="label bg-info">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                           @elseif(intval($student_application_status->status) == 2)
+                           <span class="label bg-primary">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                           @elseif(intval($student_application_status->status) == 3)
+                           <span class="label bg-success">   {{ StaticDataStatus::getNameByID($student_application_status->status) }}</span>
+                                                          @endif
 
-                               @endif
-                           @endif
+                                                      @endif
                           </td>
                            <td style="min-width: 120px;">
 @if (Sentry::getUser()->hasAccess('students.more'))

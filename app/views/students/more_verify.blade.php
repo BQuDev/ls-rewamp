@@ -7,7 +7,7 @@
 <div class="row" style="min-height: 50px;"></div>
 <div class="row">
    <div class="col-sm-12">
-      {{ Form::open(array('url' =>URL::to("/").'/students/validate',  'class'=>'form-horizontal','method' => 'post','data-validate'=>'parsley','id'=>'student_create','style'=>'font-size: 16px;')) }}
+      {{ Form::open(array('url' =>URL::to("/").'/students/verify',  'class'=>'form-horizontal','method' => 'post','data-validate'=>'parsley','id'=>'student_create','style'=>'font-size: 16px;')) }}
 <div class="form-group">
          {{ Form::label('san', 'Student Application Number (SAN)', array('class' => 'col-sm-3 control-label'));  }}
          <div class="col-sm-9">{{ $student->san }} </div>
@@ -401,15 +401,15 @@ Checked
                  <div class="form-inline">
                  <div class="form-group">
 
-                                                                     <div class="col-sm-12" >
-                                                                        <div class="checkbox i-checks" style="padding-bottom: 10px">
-                                                                           <label>
-                                                                           {{ Form::checkbox('admission_manager_information[]', 'NEXT OF KIN DETAILS',false); }}
-                                                                           <i></i>
+			 <div class="col-sm-12" >
+				<div class="checkbox i-checks" style="padding-bottom: 10px">
+				   <label>
+				   {{ Form::checkbox('admission_manager_information[]', 'NEXT OF KIN DETAILS',false); }}
+				   <i></i>
 Checked
-                                                                           </label>
-                                                                        </div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#next_of_kin_form">Amend Data</a>
-                                                                     </div> </div></div>
+				   </label>
+				</div>&nbsp;&nbsp; OR&nbsp;&nbsp; <a data-toggle="modal" class="btn btn-warning" href="#next_of_kin_form">Amend Data</a>
+			 </div> </div></div>
                </div>
              
             </section>
@@ -424,10 +424,6 @@ Checked
                                  @if(intval($student_course_enrolments->course_name)>0)
                                    {{ ApplicationCourse::getNameByID($student_course_enrolments->course_name); }} ( {{ $student_course_enrolments->course_level }} )
                                    @endif
-
-
-
-
                            </div>
                            </div>
                         </div>
@@ -1011,12 +1007,279 @@ Checked
                            </div>
                         </section>
 
+
+                        <section class="panel panel-default">
+                           <header class="panel-heading font-bold" id="verification_information_form">Verification Information</header>
+                           <div class="panel-body">
+                              <div class="form-group">
+                                 {{ Form::label('date_of_birth', 'Have you received any emails from LSM?', array('class' => 'col-sm-3 control-label'));  }}
+                                <div class="col-sm-9">
+
+                                <div class="radio-inline i-checks">
+                                                                 <label>
+                                                                  {{ Form::radio('received_any_emails_from_lsm', 'Yes'); }}
+                                                                 <i></i>
+                                                                 Yes
+                                                                 </label>
+                                                              </div>
+                                                              <div class="radio-inline i-checks">
+                                                                 <label>
+                                                                  {{ Form::radio('received_any_emails_from_lsm', 'No',true); }}
+                                                                 <i></i>
+                                                                 No
+                                                                 </label>
+                                                              </div>
+                                            </div>
+                                            </div>
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'Do you know about the structure of the course, modules, duration, etc.??', array('class' => 'col-sm-3 control-label'));  }}
+                                        <div class="form-inline">
+                                         <div class="col-sm-2">
+
+                                         <div class="radio-inline i-checks">
+                                                                          <label>
+                                                                          {{ Form::radio('know_about_the_structure_of_the_course', 'Yes'); }}
+                                                                          <i></i>
+                                                                          Yes
+                                                                          </label>
+                                                                       </div>
+                                                                       <div class="radio-inline i-checks">
+                                                                          <label>
+                                                                          {{ Form::radio('know_about_the_structure_of_the_course', 'No',true); }}
+                                                                          <i></i>
+                                                                          No
+                                                                          </label>
+                                                                       </div>
+                                                     </div>
+                                                     <div class="col-sm-4">
+                                                      <a data-toggle="modal" class="btn btn-warning" href="#course_details_modal">Course details</a>
+                                                     </div>
+                                                     </div>
+                                                     </div>
+
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'How did you hear about the course?', array('class' => 'col-sm-3 control-label'));  }}
+                                         <div class="col-sm-9">
+				<div class="form-inline">						 
+	   <div class="checkbox i-checks">
+			   <label>
+			  {{ Form::checkbox('how_did_you_hear_about_the_course[]', 'Agent',''); }}
+			   <i></i>
+			  Agent
+			   </label>
+          </div>
+	</div>	
+	<div class="form-inline">	
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('how_did_you_hear_about_the_course[]', 'LAP centre',''); }}<i></i>
+    LAP centre</label>
+	</div>
+	</div>
+	<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('how_did_you_hear_about_the_course[]', 'A friend / colleague or relative',''); }}<i></i>
+    A friend / colleague or relative</label>
+	</div></div>
+	<div class="form-inline">		
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('how_did_you_hear_about_the_course[]', 'Internet',''); }}<i></i>
+    Internet</label>
+	</div><br><br>
+
+                                          {{ Form::textarea('how_did_you_hear_about_the_course_other', '',['placeholder'=>'Please specify if other','class'=>'form-control']); }}
+                                                     </div>
+                                                     </div>
+
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'What do you want to achieve from this course/the purpose ?', array('class' => 'col-sm-3 control-label'));  }}
+                                         <div class="col-sm-9">
+<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>						 
+{{ Form::checkbox('what_do_you_want_to_achieve[]', 'To obtain knowledge / enhance skills',''); }}<i></i>
+    To obtain knowledge / enhance skills</label>
+	</div>
+	</div>	
+	<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('what_do_you_want_to_achieve[]', 'To qualify for a promotion',''); }}<i></i>
+    To qualify for a promotion</label>
+	</div>
+	</div>
+	<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('what_do_you_want_to_achieve[]', 'To apply for a new job',''); }}<i></i>
+    To apply for a new job</label>
+	</div>
+	</div>
+	<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('what_do_you_want_to_achieve[]', 'To start up a company',''); }}<i></i>
+    To start up a company</label>
+	</div>
+	</div>
+	<div class="form-inline">
+<div class="checkbox i-checks">
+			   <label>	
+{{ Form::checkbox('what_do_you_want_to_achieve[]', 'To join the family business',''); }}<i></i>
+    To join the family business</label>
+	</div>
+	</div>
+	<br>
+
+ {{ Form::textarea('what_do_you_want_to_achieve_other', '',['placeholder'=>'Please specify if other','class'=>'form-control']); }}
+                                                     </div>
+                                                     </div>
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'Student Comments', array('class' => 'col-sm-3 control-label'));  }}
+                                         <div class="col-sm-9">
+
+                                          {{ Form::textarea('student_comments', '',['placeholder'=>'Please specify if any','class'=>'form-control']); }}
+                                                     </div>
+                                                     </div>
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'BQu Comments', array('class' => 'col-sm-3 control-label'));  }}
+                                         <div class="col-sm-9">
+
+                                          {{ Form::textarea('bqu_comments', '',['placeholder'=>'Please specify if any','class'=>'form-control']); }}
+                                                     </div>
+                                                     </div>
+                                  <div class="form-group">
+                                          {{ Form::label('date_of_birth', 'Call type', array('class' => 'col-sm-3 control-label'));  }}
+                                          <div class="col-sm-9">
+
+                                         <div class="radio-inline i-checks">
+                                                                          <label>
+                                                                          {{ Form::radio('call_type', 'Incoming'); }}
+                                                                          <i></i>
+                                                                          Incoming call
+                                                                          </label>
+                                                                       </div>
+                                                                       <div class="radio-inline i-checks">
+                                                                          <label>
+                                                                          {{ Form::radio('call_type', 'Outgoing',true); }}
+                                                                          <i></i>
+                                                                          Outgoing call
+                                                                          </label>
+                                                                       </div>
+                                                     </div>
+                                                     </div>
+                           
+                            
+
+							  
+                           </div>
+                           <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+                           <div class="form-group">
+                              <label class="col-sm-3 control-label"> </label>
+                              <div class="col-sm-9">
+
+                              </div>
+                           </div>
+                           </div>
+                        </section>
    </div>
 </div>
 
 
 
 
+
+
+
+<div class="modal fade" id="course_details_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body wrapper-lg">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="row"> <h3 class="m-t-none m-b">Courses Details</h3>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="col-sm-6 b-r">
+
+
+              <h4 class="m-t-none m-b"></h4>
+<div class="row" style="font-size: 16px" ><div class="col-sm-10">
+<div class="form-inline">
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Student selected Course', array('class' => 'col-sm-6 control-label'));  }}
+                                  <div class="col-sm-6">
+                                 @if(intval($student_course_enrolments->course_name)>0)
+                                   {{ ApplicationCourse::getNameByID($student_course_enrolments->course_name); }} ( {{ $student_course_enrolments->course_level }} )
+                                   @endif
+                                  </div>
+                               </div>
+                               </div>
+                     <div class="form-inline">
+                     <div class="form-group">
+                                  {{ Form::label('information_source', 'Courses', array('class' => 'col-sm-6 control-label'));  }}
+								  
+                                  <div class="col-sm-6">
+                                
+                           
+   
+@if(intval($student_course_enrolments->course_name)>0)
+                           
+ {{ Form::select('course_name', $course_names,$student_course_enrolments->course_name,['class'=>'chosen-select col-sm-4']);  }}   
+@else
+	 {{ Form::select('course_name', $course_names,$student_course_enrolments->course_name,['class'=>'chosen-select col-sm-4']);  }} 
+ 
+								  @endif
+
+ 
+								  
+                                  </div>
+                               </div>
+                               </div>
+                               </div>
+                               </div>
+
+
+
+
+            </div>
+            <div class="col-sm-6">
+
+
+              
+<div class="row" style="font-size: 16px" >
+                     <div class="form-group">
+                                  <div class="col-sm-12"><h4 class="m-t-none m-b">Modules list</h4>
+                               <span id="module_list" name="module_list">
+							   @if(intval($student_course_enrolments->course_name)>0)
+							<?php 
+							   $selected_modules_list = Module::where('course_id','=',$student_course_enrolments->course_name)->lists('name','id');
+							?><?php $ii=1; ?>
+							   @foreach( $selected_modules_list  as $modules)
+							   {{ '<br>'.$ii.' '.$modules }}
+							   <?php $ii++; ?>
+							   @endforeach
+								   @endif
+							   </span>
+                                  </div>
+                               </div>
+                               </div>
+<br><br>
+
+            <div class="doc-buttons">
+            		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            		                <a href="#" class="btn btn-s-md btn-primary" id="save_admission_manager_information_form">Save</a>
+            		              </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  </div>
+  
+  
 
 
 
@@ -3422,6 +3685,7 @@ Checked
      <li class="active"><a href="#WORK_EXPERIENCE">WORK EXPERIENCE</a></li>
      <li class="active"><a href="#PAYMENT_INFORMATION">PAYMENT INFORMATION</a></li>
      <li class="active"><a href="#BQu_ONLY">BQu ONLY</a></li>
+     <li class="active"><a href="#verification_information_form">VERIFICATION INFORMATIONS</a></li>
  @stop
 
 
@@ -3482,6 +3746,26 @@ $('[name="country"]').val({{ $studentContactInformation->country }}).trigger("ch
             type: "GET"
         });
     });
+	
+	    $('#course_name').change(function(){
+        $.ajax({
+            url: "{{ url('students/verify/courses/dropdown')}}",
+            data: {token: $('[name="_token"]').val(),option: $('#course_name').val()},
+            success: function (data) {console.log('success');
+                $('[name="module_list"]').empty();
+                var model = $('[name="module_list"]');
+                model.empty();
+				var ii = 1;
+                $.each(data, function(index, element) {
+                    model.append("<br>"+ii+'. '+ element );ii++;
+                });
+               
+                $('[name="agents_laps"]').trigger("chosen:updated");
+            },
+            type: "GET"
+        });
+    });
+	
     $('li').click(function () {
         $('li.selected').removeClass('selected');
         $(this).addClass('selected');
