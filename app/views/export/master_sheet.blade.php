@@ -121,19 +121,24 @@
 
 
 @foreach( $students  as $student)
+<?php Log::info('Enter: '.$student->san); ?>
 <tr>
 <td>{{ $student->san }}</td>
 <td>{{ $student->ls_student_number }}</td>
  <td>
  <?php
  $student_sources = DB::table('student_sources')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
+ if(!is_null( $student_sources)){
  $ams_date = $student_sources->ams_date;
  $source = $student_sources->source;
  $agent_lap = $student_sources->agent_lap;
  $admission_manager = $student_sources->admission_manager;
- $student_details = DB::table('students')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
- ?>
- @if(intval( $ams_date)>0)
+
+ }
+  $student_details = DB::table('students')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
+  ?>
+
+@if(!is_null( $student_sources))
 <?php
 $ams_date = explode('-',$ams_date);
 ?>
@@ -141,24 +146,28 @@ $ams_date = explode('-',$ams_date);
 @endif
 </td>
  <td>
- @if(intval($source)>0) {{
+ @if(!is_null( $student_sources)&($source>0))) {{
 ApplicationSource::getNameByID(intval($source)) }}
  @endif
  </td>
  <td>
- @if(intval($agent_lap) == 1000)
+ @if(!is_null( $student_sources))
+ @if(intval($agent_lap) == 10000)
 {{ $student_sources->agents_laps_other }}
  @elseif((intval($source) ==2)&(intval($agent_lap)>0))
  {{ ApplicationLap::getNameByID($agent_lap)  }}
  @elseif(intval($agent_lap)>0)
  {{ApplicationAgent::getNameByID($agent_lap) }}
  @endif
+ @endif
  </td>
  <td>
-     @if(intval($admission_manager) == 1000)
+ @if(!is_null( $student_sources))
+     @if(intval($admission_manager) == 10000)
     {{ $student_sources->admission_managers_other }}
     @elseif(intval($admission_manager) >0)
     {{ ApplicationAdmissionManager::getNameByID($admission_manager); }}
+    @endif
     @endif
  </td>
  <td>{{ $student_details->title }}</td>
@@ -230,19 +239,31 @@ $studentContactInformationOnline = StudentContactInformationOnline::lastRecordBy
  <td>{{ $studentContactInformationKinDetail->next_of_kin_telephone }}	</td>
  <td>{{ $studentContactInformationKinDetail->next_of_kin_email }}</td>
   <?php
- $studentCourseEnrolment = StudentCourseEnrolment::lastRecordBySAN($student->san);
+ //$studentCourseEnrolment = StudentCourseEnrolment::lastRecordBySAN($student->san);
+ $studentCourseEnrolment = DB::table('student_course_enrolments')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
  ?>
 
- <td>@if($studentCourseEnrolment->course_name >0 ){{ ApplicationCourse::getNameByID($studentCourseEnrolment->course_name) }} @endif</td>
- <td>{{ $studentCourseEnrolment->course_level }}</td>
  <td>
- @if($studentCourseEnrolment->awarding_bod > 0)
- {{ ApplicationAwardingBody::getNameByID($studentCourseEnrolment->awarding_body) }}
+ @if(!is_null($studentCourseEnrolment))
+ @if($studentCourseEnrolment->course_name >0 )
+ {{ ApplicationCourse::getNameByID($studentCourseEnrolment->course_name) }}
+ @endif
  @endif
  </td>
- <td>{{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	</td>
- <td>{{ ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->name }}</td>
- <td>{{ $studentCourseEnrolment->study_mode }}</td>
+ <td>
+ @if(!is_null($studentCourseEnrolment))
+ {{ $studentCourseEnrolment->course_level }}
+  @endif</td>
+ <td>
+  @if(!is_null($studentCourseEnrolment))
+ @if($studentCourseEnrolment->awarding_body > 0)
+ {{ ApplicationAwardingBody::getNameByID($studentCourseEnrolment->awarding_body) }}
+ @endif
+ @endif
+ </td>
+ <td>@if(!is_null($studentCourseEnrolment)) {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	 @endif</td>
+ <td>@if(!is_null($studentCourseEnrolment)) {{ ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->name }} @endif</td>
+ <td>@if(!is_null($studentCourseEnrolment)) {{ $studentCourseEnrolment->study_mode }} @endif</td>
  <td>
  @if(StudentEnglishLangLevels::lastRecordBySAN($student->san)->english_language_level != 'null')
 <?php
@@ -271,7 +292,7 @@ $english_language_level_export= ltrim ($english_language_level_export, ',');
  <?php
  $studentEducationalQualification = StudentEducationalQualification::lastRecordBySAN($student->san);
  ?>
-@if(intval($studentEducationalQualification->qualification_1) == 1000)
+@if(intval($studentEducationalQualification->qualification_1) == 10000)
 
 @elseif(intval($studentEducationalQualification->qualification_1) == 0)
 {{ $studentEducationalQualification->qualification_other_1 }}
@@ -298,7 +319,7 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
  <td>{{ $studentEducationalQualification->qualification_grade_1; }}	</td>
  <td>
  
-@if(intval($studentEducationalQualification->qualification_2) == 1000)
+@if(intval($studentEducationalQualification->qualification_2) == 10000)
 
 @elseif(intval($studentEducationalQualification->qualification_2) == 0)
 {{ $studentEducationalQualification->qualification_other_2 }}
@@ -325,7 +346,7 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
  <td>{{ $studentEducationalQualification->qualification_grade_2; }}	</td>
   <td>
  
-@if(intval($studentEducationalQualification->qualification_3) == 1000)
+@if(intval($studentEducationalQualification->qualification_3) == 10000)
 
 @elseif(intval($studentEducationalQualification->qualification_3) == 0)
 {{ $studentEducationalQualification->qualification_other_3 }}
@@ -496,7 +517,7 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->deposit_date);
 @endif
  </td>
  <td>
- @if(intval($studentPaymentInfo->deposit_method)==1000)
+ @if(intval($studentPaymentInfo->deposit_method)==10000)
 
 @elseif(intval($studentPaymentInfo->deposit_method)>0)
 {{ ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->deposit_method); }}
@@ -512,7 +533,7 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_1_date);
 @endif
  </td>
  <td>
-  @if(intval($studentPaymentInfo->installment_1_method)==1000)
+  @if(intval($studentPaymentInfo->installment_1_method)==10000)
 
 @elseif(intval($studentPaymentInfo->installment_1_method)>0)
 {{ ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_1_method); }}
@@ -528,7 +549,7 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_2_date);
 @endif
  </td>
  <td>
-  @if(intval($studentPaymentInfo->installment_2_method)==1000)
+  @if(intval($studentPaymentInfo->installment_2_method)==10000)
 
 @elseif(intval($studentPaymentInfo->installment_2_method)>0)
 {{ ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_2_method); }}
@@ -544,7 +565,7 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_3_date);
 @endif
  </td>
  <td>
-  @if(intval($studentPaymentInfo->installment_3_method)==1000)
+  @if(intval($studentPaymentInfo->installment_3_method)==10000)
 
 @elseif(intval($studentPaymentInfo->installment_3_method)>0)
 {{ ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_3_method); }}
@@ -560,11 +581,11 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_3_date);
 
   <td>
   <?php
-  $ApplicationStatus = StudentApplicationStatus::lastRecordBySAN($student->san);
-  //$ApplicationStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->firstOrFail();
+  //$ApplicationStatus = StudentApplicationStatus::lastRecordBySAN($student->san);
+  $ApplicationStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
   ?>
-  @if($ApplicationStatus != null)
- {{ StaticDataStatus::getNameById($ApplicationStatus->status)  }}
+  @if(!is_null($ApplicationStatus))
+ {{ $ApplicationStatus->status  }}
  @endif
  </td>
  <td>
@@ -584,42 +605,55 @@ $application_received_date = explode('-', $studentBquData->application_received_
  <td>
  <?php
  //$studentApplicationBasicStatus = StudentApplicationStatus::insertRecordBySAN($student->san);
- $studentApplicationBasicStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
- if($studentApplicationBasicStatus != null)
- $created_at = explode('-', $studentApplicationBasicStatus->created_at);
+ $studentApplicationBasicStatus = DB::table('student_application_status')->where('san','=',$student->san)->where('status','=',1)->orderBy('id', 'desc')->first();
+ if($studentApplicationBasicStatus != null){
+
  ?>
 
- {{ User::getFirstNameByID(intval($studentApplicationBasicStatus->created_by)) }}
-
+ {{ User::getFirstNameByID(intval($studentApplicationBasicStatus->created_by)).' '.User::getLastNameByID(intval($studentApplicationBasicStatus->created_by)) }}
+<?php } ?>
 	</td>
  <td>
- @if(($studentApplicationBasicStatus != null)&(intval( $created_at)>0))
-
-{{ sprintf("%02d", $created_at[0]).'/'.sprintf("%02d", $created_at[1]).'/'.$created_at[2] }}
+ @if(($studentApplicationBasicStatus != null))
+<?php $created_at = explode('-', $studentApplicationBasicStatus->created_at); ?>
+{{ sprintf("%02d", $created_at[0]).'/'.sprintf("%02d", $created_at[1]).'/'.substr($created_at[2], 0, 2); }}
 @endif
 	</td>
 
  <td>
 
 <?php
-$studentApplicationValidateStatus = StudentApplicationStatus::validatedRecordBySAN($student->san);
+//$studentApplicationValidateStatus = StudentApplicationStatus::validatedRecordBySAN($student->san);
+$studentApplicationValidateStatus = DB::table('student_application_status')->where('san','=',$student->san)->where('status','=',2)->orderBy('id', 'desc')->first();
 ?>
-
+@if(!is_null($studentApplicationValidateStatus))
+{{ User::getFirstNameByID(intval($studentApplicationValidateStatus->created_by)).' '.User::getLastNameByID(intval($studentApplicationValidateStatus->created_by)) }}
+@endif
  	</td>
 
  <td>
-
+ @if(($studentApplicationValidateStatus != null))
+<?php $created_at = explode('-', $studentApplicationValidateStatus->created_at); ?>
+{{ sprintf("%02d", $created_at[0]).'/'.sprintf("%02d", $created_at[1]).'/'.substr($created_at[2], 0, 2); }}
+@endif
  	</td>
-
  <td>
-
+<?php
+$studentApplicationVerifiedStatus = DB::table('student_application_status')->where('san','=',$student->san)->where('status','=',3)->orderBy('id', 'desc')->first();
+?>
+@if(!is_null($studentApplicationVerifiedStatus))
+{{ User::getFirstNameByID(intval($studentApplicationVerifiedStatus->created_by)).' '.User::getLastNameByID(intval($studentApplicationVerifiedStatus->created_by)) }}
+@endif
  	</td>
  <td>
-
+ @if(($studentApplicationVerifiedStatus != null))
+<?php $created_at = explode('-', $studentApplicationVerifiedStatus->created_at); ?>
+{{ sprintf("%02d", $created_at[0]).'/'.sprintf("%02d", $created_at[1]).'/'.substr($created_at[2], 0, 2); }}
+@endif
 
  </td>
  <td>
- @if(StudentBquData::lastRecordBySAN($student->san)->supervisor ==1000)
+ @if(StudentBquData::lastRecordBySAN($student->san)->supervisor ==10000)
      @elseif(StudentBquData::lastRecordBySAN($student->san)->supervisor >0)
      {{ User::getFirstNameByID(StudentBquData::lastRecordBySAN($student->san)->supervisor); }}
      @endif
@@ -707,5 +741,6 @@ $studentApplicationValidateStatus = StudentApplicationStatus::validatedRecordByS
  @endif
  </td>
 </tr>
+<?php Log::info('Out: '.$student->san); ?>
 @endforeach
 </html>
