@@ -562,7 +562,7 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_3_date);
   <?php
   $ApplicationStatus = StudentApplicationStatus::lastRecordBySAN($student->san);
   //$ApplicationStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->firstOrFail();
-  ?>{{ dd($ApplicationStatus)}}
+  ?>
   @if($ApplicationStatus != null)
  {{ StaticDataStatus::getNameById($ApplicationStatus->status)  }}
  @endif
