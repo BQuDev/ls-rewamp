@@ -140,245 +140,262 @@
 
                 <!-- nav -->
                 <nav class="nav-primary hidden-xs">
-                  <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Main menu</div>
-                  <ul class="nav nav-main" data-ride="collapse">
+                    <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Main menu</div>
+                        <ul class="nav nav-main" data-ride="collapse">
+                			<li <?php if(Request::segment(1) == "students") echo 'class="active"'; ?>>
+                                <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                        <i class="i i-circle-sm-o text"></i>
+                                        <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="i i-lab icon"></i>
+                                    <span class="font-bold">Applications</span>
+                                </a>
+                                <ul class="nav dk">
+                                    <?php if (Sentry::getUser()->hasAccess('students.index')){  ?>
+                						<li>
+                							 <a href="{{ URL::to('/students') }}/">
+                								   <i class="i i-docs icon">
+                								   </i>
+                								   <span class="font-bold">All Applications</span>
+                							 </a>
+                					   </li>
+                                    <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('students.create')){  ?>
+                                        <li >
+                							 <a href="{{ URL::to('/students/create') }}/">
+                								<i class="i i-file2 icon">
+                								</i>
+                								<span class="font-bold">Add New Application</span>
+                							  </a>
 
-                  <li <?php if(Request::segment(1) == "students") echo 'class="active"'; ?>>
-                                        <a href="#" class="auto">
-                                          <span class="pull-right text-muted">
-                                            <i class="i i-circle-sm-o text"></i>
-                                            <i class="i i-circle-sm text-active"></i>
-                                          </span>
-                                          <i class="i i-lab icon">
-                                          </i>
-                                          <span class="font-bold">Applications</span>
-                                        </a>
-                                        <ul class="nav dk">
-                                            <?php if (Sentry::getUser()->hasAccess('students.index')){  ?>
-                                                            <li>
-                                                             <a href="{{ URL::to('/students') }}/">
-                                                               <i class="i i-docs icon">
-                                                               </i>
-                                                               <span class="font-bold">All Applications</span>
-                                                             </a>
-                                                           </li>
-                                                           <?php } ?>
-                                               <?php if (Sentry::getUser()->hasAccess('students.create')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('/students/create') }}/">
+                                        </li>
+                                    <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('students.validate')){  ?>
+                                        <li >
+                                            <a href="{{ URL::to('students/validate') }}">
+                								<i class="i  i-checked icon"></i>
+                                                    <span class="font-bold">Validate Admissions</span>
+                                            </a>
+                						</li>
+                                    <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
+                                        <li >
+                							<a href="{{ URL::to('students/verify') }}">
+                								 <i class="i  i-phone2 icon">
+                								 </i>
+                							 <span class="font-bold">Verify Admissions</span>
+                						   </a>
+                						</li>
+                                     <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
+                						<li>
+                							<a href="{{ URL::to('students/verify') }}">
+                								<i class="fa fa-edit icon"></i>
+                								<span class="font-bold">Amendments</span>
+                							</a>
+                						</li>
+                                    <?php } ?>
+                                    <?php
+                					/* if (Sentry::getUser()->hasAccess('students.export')){  ?>
+                                        <li >
+                						   <a href="{{ URL::to('/export') }}/">
 
-                                                                            <i class="i i-file2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Add New Application</span>
-                                                                          </a>
+                							  <i class="i i-file-excel icon">
+                							  </i>
+                							  <span class="font-bold">Export</span>
+                							</a>
 
-                                                                        </li>
-                                          <?php } ?>
-                                         <?php if (Sentry::getUser()->hasAccess('students.validate')){  ?>
-                                         <li >
-                                                   <a href="{{ URL::to('students/validate') }}">
+                					  </li>
+                					<?php } */?>
+                				</ul>
+                			</li>
+                            <!--<li <?php if(Request::segment(1) == "modules") echo 'class="active"'; ?>>
+                				  <a href="#" class="auto">
+                					<span class="pull-right text-muted">
+                					  <i class="i i-circle-sm-o text"></i>
+                					  <i class="i i-circle-sm text-active"></i>
+                					</span>
+                					<i class="i i-lab icon">
+                					</i>
+                					<span class="font-bold">Modules</span>
+                				  </a>
+                				<ul class="nav dk">
+                					<?php /*if (Sentry::getUser()->hasAccess('modules.index')){  ?>
+                								<li>
+                								 <a href="{{ URL::to('/modules') }}/">
+                								   <i class="i i-docs icon">
+                								   </i>
+                								   <span class="font-bold">All Modules</span>
+                								 </a>
+                								</li>
+                					<?php } */ ?>
+                                    <?php if (Sentry::getUser()->hasAccess('modules.marks_input.index')){  ?>
+                							<li >
+                								<a href="{{ URL::to('/modules/marks-input') }}/">
+                									<i class="i i-pencil2 icon">
+                									</i>
+                									<span class="font-bold">Marks Input</span>
+                								</a>
+                							</li>
+                					<?php } ?>
+                				</ul>-->
 
-                                                      <i class="i  i-checked icon">
-                                                      </i>
-                                                      <span class="font-bold">Validate Admissions</span>
+                				<li <?php if(Request::segment(1) == "modules") echo 'class="active"'; ?>>
+                                      <a href="#" class="auto">
+                                        <span class="pull-right text-muted">
+                                          <i class="i i-circle-sm-o text"></i>
+                                          <i class="i i-circle-sm text-active"></i>
+                                        </span>
+                                        <i class="i i-lab icon">
+                                        </i>
+                                        <span class="font-bold">Modules</span>
+                                      </a>
+                                <ul class="nav dk">
+                                    <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
+                                        <li >
+                                            <a href="#">
+                                                <i class="i i-pencil2 icon">
+                                                </i>
+                                                <span class="font-bold">Supervisor allocation</span>
+                                            </a>
+                                            <ul class="nav dk">
+                                            <?php
+                                              $all_courses = DB::table('application_courses')->select('*')->get();
+                                             ?>
+                                                @foreach($all_courses as $course)
+                                                <?php $link = "/modules/supervisor-allocation/".$course->name;  ?>
+                                                <li>
+                                                    <a href="{{ URL::to($link) }}">
+                                                        <i class="i i-dot"></i>
+                                                        <span>{{ $course->name }}</span>
                                                     </a>
+                                                </li>
+                                                @endforeach
 
-                                                  </li>
-                                                   <?php } ?>
-                                                   <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
-                                                                                            <li >
-                                                                                                      <a href="{{ URL::to('students/verify') }}">
+                                            </ul>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
+                                        <li >
+                                            <a href="#">
+                                                <i class="i i-pencil2 icon">
+                                                </i>
+                                                <span class="font-bold">Marker allocation</span>
+                                            </a>
+                                            <ul class="nav dk">
+                                            <?php
+                                              $all_courses = DB::table('application_courses')->select('*')->get();
+                                             ?>
+                                                @foreach($all_courses as $course)
+                                                <?php $link = "/modules/supervisor-allocation/".$course->name;  ?>
+                                                <li>
+                                                    <a href="{{ URL::to($link) }}">
+                                                        <i class="i i-dot"></i>
+                                                        <span>{{ $course->name }}</span>
+                                                    </a>
+                                                </li>
+                                                @endforeach
 
-                                                                                                         <i class="i  i-phone2 icon">
-                                                                                                         </i>
-                                                                                                         <span class="font-bold">Verify Admissions</span>
-                                                                                                       </a>
+                                            </ul>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                                <li <?php if(Request::segment(1) == "exports") echo 'class="active"'; ?>>
+                				  <a href="#" class="auto">
+                					<span class="pull-right text-muted">
+                					  <i class="i i-circle-sm-o text"></i>
+                					  <i class="i i-circle-sm text-active"></i>
+                					</span>
+                					<i class="i i-lab icon">
+                					</i>
+                					<span class="font-bold">Exports</span>
+                				  </a>
+                				<ul class="nav dk">
+                					<?php if (Sentry::getUser()->hasAccess('students.export')){  ?>
+                						<li >
+                							<a href="{{ URL::to('students/applications/export') }}/">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Student Applications Sheet</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                					<?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
+                						<li>
+                							<a href="{{ URL::to('/modules') }}">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Marks Input Sheet</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                				</ul>
 
-                                                                                                     </li>
-                                                                                                      <?php } ?>
-                                      <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
-                                                     <li >
-                                                               <a href="{{ URL::to('students/verify') }}">
+                				<li <?php if(Request::segment(1) == "settings") echo 'class="active"'; ?>>
+                					<a href="#" class="auto">
+                						<span class="pull-right text-muted">
+                							<i class="i i-circle-sm-o text"></i>
+                							<i class="i i-circle-sm text-active"></i>
+                						</span>
+                							<i class="i i-lab icon">
+                							</i>
+                						<span class="font-bold">Settings</span>
+                					</a>
+                				<ul class="nav dk">
+                					<?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
+                						<li >
+                							<a href="#">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">User Management</span>
+                							</a>
+                						<ul class="nav dker">
+                							<li >
+                								<a href="{{ URL::to('/settings/user-management/all-users') }}">
+                									<i class="i i-dot"></i>
+                									<span>All Users</span>
+                								</a>
+                							</li>
+                							<?php if (Sentry::getUser()->hasAccess('user_management.create')){  ?>
+                								<li >
+                									<a href="{{ URL::to('/settings/user-management/create') }}">
+                										<i class="i i-dot"></i>
+                										<span>Add User</span>
+                									</a>
+                								</li>
+                							<?php } ?>
+                							<?php if (Sentry::getUser()->hasAccess('user_management.user_groups')){  ?>
+                								<li >
+                									<a href="{{ URL::to('/settings/user-management/user-groups') }}">
+                										<i class="i i-dot"></i>
+                										<span>User Groups</span>
+                									</a>
+                								</li>
+                							<?php } ?>
+                						</ul>
+                						</li>
+                					<?php } ?>
+                				</ul>
+                				<li style="position: absolute; bottom: 5px;width: 100%">
+                					<a href="{{ URL::to('/contact-bqu') }}/">
+                						<i class="i i-circle-sm text-success-dk"></i>
+                						<span>Contact <strong>BQu-IT Team</strong></span>
+                					</a>
+                				</li>
 
-                                                                  <i class="fa fa-edit icon">
-                                                                  </i>
-                                                                  <span class="font-bold">Amendments</span>
-                                                                </a>
-
-                                                              </li>
-                                                               <?php } ?>
-                                                   <?php /* if (Sentry::getUser()->hasAccess('students.export')){  ?>
-                      <li >
-                                                                   <a href="{{ URL::to('/export') }}/">
-
-                                                                      <i class="i i-file-excel icon">
-                                                                      </i>
-                                                                      <span class="font-bold">Export</span>
-                                                                    </a>
-
-                                                                  </li>
-                                                                   <?php } */?>
-
-
-                                          </ul></li>
-                                          <li <?php if(Request::segment(1) == "modules") echo 'class="active"'; ?>>
-                                                                                  <a href="#" class="auto">
-                                                                                    <span class="pull-right text-muted">
-                                                                                      <i class="i i-circle-sm-o text"></i>
-                                                                                      <i class="i i-circle-sm text-active"></i>
-                                                                                    </span>
-                                                                                    <i class="i i-lab icon">
-                                                                                    </i>
-                                                                                    <span class="font-bold">Modules</span>
-                                                                                  </a>
-
-
-<ul class="nav dk">
-                                            <?php /*if (Sentry::getUser()->hasAccess('modules.index')){  ?>
-                                                            <li>
-                                                             <a href="{{ URL::to('/modules') }}/">
-                                                               <i class="i i-docs icon">
-                                                               </i>
-                                                               <span class="font-bold">All Modules</span>
-                                                             </a>
-                                                           </li>
-                                                           <?php } */ ?>
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('/modules/marks-input') }}/">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Marks Input</span>
-                                                                          </a>
-
-                                                                        </li>
-                                          <?php } ?>
-
-
-
-
-
-
-                                          </ul>
-                                          <li <?php if(Request::segment(1) == "exports") echo 'class="active"'; ?>>
-                                                                                  <a href="#" class="auto">
-                                                                                    <span class="pull-right text-muted">
-                                                                                      <i class="i i-circle-sm-o text"></i>
-                                                                                      <i class="i i-circle-sm text-active"></i>
-                                                                                    </span>
-                                                                                    <i class="i i-lab icon">
-                                                                                    </i>
-                                                                                    <span class="font-bold">Exports</span>
-                                                                                  </a>
-
-
-<ul class="nav dk">
-
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('students/applications/export') }}/">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Student Applications Sheet</span>
-                                                                          </a>
-
-                                                                        </li>
-                                          <?php } ?>
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="{{ URL::to('/modules') }}">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">Marks Input Sheet</span>
-                                                                          </a>
-
-                                                                        </li>
-                                          <?php } ?>
-
-
-
-
-
-
-                                          </ul>
-
-                                          <li <?php if(Request::segment(1) == "settings") echo 'class="active"'; ?>>
-                                                                                  <a href="#" class="auto">
-                                                                                    <span class="pull-right text-muted">
-                                                                                      <i class="i i-circle-sm-o text"></i>
-                                                                                      <i class="i i-circle-sm text-active"></i>
-                                                                                    </span>
-                                                                                    <i class="i i-lab icon">
-                                                                                    </i>
-                                                                                    <span class="font-bold">Settings</span>
-                                                                                  </a>
-
-
-<ul class="nav dk">
-
-                                               <?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
-                                                                            <li >
-                                                                         <a href="#">
-
-                                                                            <i class="i i-pencil2 icon">
-                                                                            </i>
-                                                                            <span class="font-bold">User Management</span>
-                                                                          </a>
-<ul class="nav dker">
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/all-users') }}">
-                                <i class="i i-dot"></i>
-                                <span>All Users</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/create') }}">
-                                <i class="i i-dot"></i>
-                                <span>Add User</span>
-                              </a>
-                            </li>
-                            <li >
-                              <a href="{{ URL::to('/settings/user-management/user-groups') }}">
-                                <i class="i i-dot"></i>
-                                <span>User Groups</span>
-                              </a>
-                            </li>
-                          </ul>
-                                                                        </li>
-                                          <?php } ?>
-
-
-
-
-
-
-
-                                          </ul>
-
-
-<li style="position: absolute; bottom: 5px;width: 100%">
-                      <a href="{{ URL::to('/contact-bqu') }}/">
-                        <i class="i i-circle-sm text-success-dk"></i>
-                        <span>Contact <strong>BQu-IT Team</strong></span>
-                      </a>
-                    </li>
-
-                    @section('main_menu')
-                    @show
-                   </ul>
-                  <div class="line dk hidden-nav-xs"></div>
-                  <div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm"></div>
-                  <ul class="nav">
-                    @section('sub_menu')
-                    @show
-                  </ul>
-                  <div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm"></div>
-                  <ul class="nav">
-
-                  </ul>
+                				@section('main_menu')
+                				@show
+                		</ul>
+                	<div class="line dk hidden-nav-xs"></div>
+                	<div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm"></div>
+                	<ul class="nav">
+                		@section('sub_menu')
+                		@show
+                	</ul>
+                	<div class="text-muted text-xs hidden-nav-xs padder m-t-sm m-b-sm"></div>
+                	<ul class="nav">
+                	</ul>
                 </nav>
                 <!-- / nav -->
               </div>

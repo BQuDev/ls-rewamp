@@ -18,11 +18,17 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
  
     Route::get('/modules/marks-input/create','ModulesController@markInputCreate');
+    Route::get('/test',function(){
+        $x = Student::where('san','=','khpsh001')->first();
+        return $x->id;
+    });
 
     Route::post('/modules/marks-input/create','ModulesController@saveMarkInputs');
 
 Route::group(array('before' => 'members_auth'), function()
 {
+
+    Route::post('/modules/supervisor-allocation','ModuleSupervisorAllocationsController@assign_supervisor');
 
     Route::get('/logout', 'UsersController@logout');
     Route::get('/help', 'UsersController@logout');
@@ -31,6 +37,7 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('students/create/intakes/dropdown','StudentsController@intakes_dropdown');
     Route::get('students/verify/courses/dropdown','StudentsController@courses_dropdown');
     Route::get('/students/verify','StudentsController@verify');
+
     Route::post('/students/verify','StudentsController@verify_student');
     Route::get('/students/verify/{san}','StudentsController@more_verify');
     Route::get('/students/validate','StudentsController@validate');
@@ -53,7 +60,7 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('/settings/user-management/all-users','UsersController@index');
     Route::get('/settings/user-management/create','UsersController@create');
     Route::get('/settings/user-management/user-groups','UsersController@user_groups');
-    Route::get('//settings/user-management/user-groups/{group}','UsersController@edit_group');
+    Route::get('/settings/user-management/user-groups/{group}','UsersController@edit_group');
     Route::post('/settings/user-management/user-groups/update_permissions','UsersController@update_permissions');
 
 
@@ -61,4 +68,7 @@ Route::group(array('before' => 'members_auth'), function()
     Route::resource('users','UsersController');
     Route::resource('modules','ModulesController');
     Route::resource('settings','SettingsController');
+    Route::resource('contact-bqu','ContactBquController');
+    Route::resource('migrate','DBMigrationController');
+    Route::resource('modules/supervisor-allocation/{course}', 'ModuleSupervisorAllocationsController');
 });

@@ -1,6 +1,6 @@
 <?php
 
-class StaticPagesController extends \BaseController {
+class ContactBquController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,22 +10,10 @@ class StaticPagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
 
+        return View::make('static.contact_bqu')->with('comments',ContactBqu::where('created_by','=',Sentry::getUser()->id)->orWhere('created_to', '=', Sentry::getUser()->id)->get());
 
-	}
-
-    public function contact_bqu()
-	{
-	return View::make('static.contact_bqu');
-	}
-
-    public function help()
-	{
-		//
-return 'gg';
-
-	}
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -35,7 +23,6 @@ return 'gg';
 	 */
 	public function create()
 	{
-		//
 
 	}
 
@@ -48,8 +35,14 @@ return 'gg';
 	public function store()
 	{
 		//
+        $comment = Input::get('comment');
 
-
+        $contactBqu = new ContactBqu();
+        $contactBqu->message = $comment;
+        $contactBqu->created_by = Sentry::getUser()->id;
+        $contactBqu->created_to = 1;
+        $contactBqu->save();
+        return View::make('static.contact_bqu')->with('comments',ContactBqu::where('created_by','=',Sentry::getUser()->id)->orWhere('created_to', '=', Sentry::getUser()->id)->get());
 	}
 
 	/**
@@ -62,6 +55,10 @@ return 'gg';
 	public function show($id)
 	{
 		//
+	}
+
+	public function user_groups(){
+
 	}
 
 	/**
@@ -99,7 +96,6 @@ return 'gg';
 	{
 		//
 	}
-
 
 
 }

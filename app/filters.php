@@ -11,6 +11,7 @@
 |
 */
 
+
 App::before(function($request)
 {
 	//
@@ -94,5 +95,24 @@ Route::filter('members_auth',function(){
 //If already logged in go to dashboard or else login
     if(!Sentry::check()){
         return Redirect::action('UsersController@login');
+    }
+});
+
+
+App::error(function($exception, $code)
+{
+    switch ($code)
+    {
+        case 403:
+            return Response::view('errors.403', array(), 403);
+
+        case 404:
+            return Response::view('errors.404', array(), 404);
+
+        case 500:
+            return Response::view('errors.500', array(), 500);
+
+        default:
+            return Response::view('errors.default', array(), $code);
     }
 });
