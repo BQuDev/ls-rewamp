@@ -195,7 +195,9 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
         'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
         'Excel'             => 'Maatwebsite\Excel\Facades\Excel',
-        'Notify' => 'Andheiberg\Notify\Facades\Notify',
+        'Notify'            => 'Andheiberg\Notify\Facades\Notify',
+        'View'              => 'Illuminate\Support\Facades\View',
+        'Carbon'            => 'Carbon\Carbon',
 	),
 
 );
