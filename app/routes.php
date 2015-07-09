@@ -70,5 +70,7 @@ Route::group(array('before' => 'members_auth'), function()
     Route::resource('settings','SettingsController');
     Route::resource('contact-bqu','ContactBquController');
     Route::resource('migrate','DBMigrationController');
-    Route::resource('modules/supervisor-allocation/{course}', 'ModuleSupervisorAllocationsController');
+    Route::resource('modules/marker-allocation', 'ModuleMarkerAllocationsController');
+    Route::resource('modules/supervisor-allocation', 'ModuleSupervisorAllocationsController');
+
 });

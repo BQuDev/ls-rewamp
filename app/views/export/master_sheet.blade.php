@@ -293,7 +293,7 @@ $english_language_level_export= ltrim ($english_language_level_export, ',');
  $studentEducationalQualification = StudentEducationalQualification::lastRecordBySAN($student->san);
  ?>
 @if(intval($studentEducationalQualification->qualification_1) == 10000)
-
+{{ $studentEducationalQualification->qualification_other_1 }}
 @elseif(intval($studentEducationalQualification->qualification_1) == 0)
 {{ $studentEducationalQualification->qualification_other_1 }}
 @elseif(intval($studentEducationalQualification->qualification_1) > 0)
@@ -320,7 +320,7 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
  <td>
  
 @if(intval($studentEducationalQualification->qualification_2) == 10000)
-
+{{ $studentEducationalQualification->qualification_other_2 }}
 @elseif(intval($studentEducationalQualification->qualification_2) == 0)
 {{ $studentEducationalQualification->qualification_other_2 }}
 @elseif(intval($studentEducationalQualification->qualification_2) > 0)
@@ -347,7 +347,7 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
   <td>
  
 @if(intval($studentEducationalQualification->qualification_3) == 10000)
-
+{{ $studentEducationalQualification->qualification_other_3 }}
 @elseif(intval($studentEducationalQualification->qualification_3) == 0)
 {{ $studentEducationalQualification->qualification_other_3 }}
 @elseif(intval($studentEducationalQualification->qualification_3) > 0)

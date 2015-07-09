@@ -288,7 +288,7 @@
                                               $all_courses = DB::table('application_courses')->select('*')->get();
                                              ?>
                                                 @foreach($all_courses as $course)
-                                                <?php $link = "/modules/supervisor-allocation/".$course->name;  ?>
+                                                <?php $link = "/modules/marker-allocation/".$course->name;  ?>
                                                 <li>
                                                     <a href="{{ URL::to($link) }}">
                                                         <i class="i i-dot"></i>

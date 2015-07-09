@@ -513,6 +513,7 @@ Checked
                                  {{ Form::label('qualification_1', 'Qualification 1', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-4"></div>
                                                   <div class="col-sm-8"> @if(intval($student_educational_qualifications->qualification_1) == 10000)
+                                                  {{ $student_educational_qualifications->qualification_other_1 }}
                                                                                           @elseif(intval($student_educational_qualifications->qualification_1) == 0)
                                                                                           {{ $student_educational_qualifications->qualification_other_1 }}
                                                                                           @elseif(intval($student_educational_qualifications->qualification_1) > 0)
@@ -551,6 +552,7 @@ Checked
                               <div class="form-group">
                                  {{ Form::label('qualification_2', 'Qualification 2', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-8">@if(intval($student_educational_qualifications->qualification_2) == 10000)
+                                 {{ $student_educational_qualifications->qualification_other_2 }}
                                                      @elseif(intval($student_educational_qualifications->qualification_2) == 0)
                                                      {{ $student_educational_qualifications->qualification_other_2 }}
                                                      @elseif(intval($student_educational_qualifications->qualification_2) > 0)
@@ -589,6 +591,7 @@ Checked
                               <div class="form-group">
                                  {{ Form::label('qualification_3', 'Qualification 3', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-8">@if(intval($student_educational_qualifications->qualification_3) == 10000)
+                                 {{ $student_educational_qualifications->qualification_other_3 }}
                                                                                       @elseif(intval($student_educational_qualifications->qualification_3) == 0)
                                                                                       {{ $student_educational_qualifications->qualification_other_3 }}
                                                                                       @elseif(intval($student_educational_qualifications->qualification_3) > 0)
@@ -2169,6 +2172,7 @@ Checked
                                    {{ Form::label('qualification_1', 'Qualification 1', array('class' => 'col-sm-4 control-label'));  }}
                                   <div class="col-sm-8">
                                   @if(intval($student_educational_qualifications->qualification_1) == 10000)
+                                  {{ $student_educational_qualifications->qualification_other_1 }}
                                                                                           @elseif(intval($student_educational_qualifications->qualification_1) == 0)
                                                                                           {{ $student_educational_qualifications->qualification_other_1 }}
                                                                                           @elseif(intval($student_educational_qualifications->qualification_1) > 0)
@@ -2223,6 +2227,7 @@ Checked
                                    {{ Form::label('qualification_2', 'Qualification 2', array('class' => 'col-sm-4 control-label'));  }}
                                   <div class="col-sm-8">
                                   @if(intval($student_educational_qualifications->qualification_2) == 10000)
+                                  {{ $student_educational_qualifications->qualification_other_2 }}
 											  @elseif(intval($student_educational_qualifications->qualification_2) == 0)
 											  {{ $student_educational_qualifications->qualification_other_2 }}
 											  @elseif(intval($student_educational_qualifications->qualification_2) > 0)
@@ -2277,6 +2282,7 @@ Checked
                                    {{ Form::label('qualification_1', 'Qualification 3', array('class' => 'col-sm-4 control-label'));  }}
                                   <div class="col-sm-8">
                                   @if(intval($student_educational_qualifications->qualification_3) == 10000)
+                                  {{ $student_educational_qualifications->qualification_other_3 }}
 									  @elseif(intval($student_educational_qualifications->qualification_3) == 0)
 									  {{ $student_educational_qualifications->qualification_other_3 }}
 									  @elseif(intval($student_educational_qualifications->qualification_3) > 0)

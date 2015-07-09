@@ -8,7 +8,7 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index($course)
+	public function index()
 	{
 		//return $course;
 		$courses_id = DB::table('application_courses')->where('name','=',$course)->first()->id;
@@ -82,9 +82,26 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($course)
 	{
 		//
+		//return $course;
+        		$courses_id = DB::table('application_courses')->where('name','=',$course)->first()->id;
+
+        		$supervisors = DB::table('modules')->where('course_id','=',$courses_id)
+        							->join('module_supervisors','module_supervisors.module_id','=','modules.id')
+        							->select('module_supervisors.name','module_supervisors.id')
+        							->groupBy('modules.id')
+        							->get();
+
+        		$registered_students = DB::table('student_course_enrolments')
+        									->where('course_name','=',intval($courses_id))->select('san')
+        									->groupBy('san')
+        									->get();
+
+        		return View::make('moduleSupervisorAllocations.index')
+        		->with('students',$registered_students)
+        		->with('supervisors',$supervisors);
 	}
 
 	/**
