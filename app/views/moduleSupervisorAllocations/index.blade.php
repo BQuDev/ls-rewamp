@@ -88,7 +88,7 @@
                            <td style="min-width: 120px;">
 @if (Sentry::getUser()->hasAccess('students.more'))
 
-                           <a class="btn btn-sm btn-primary assign_supervisor" id="{{ $student->san }}" href="#">Assign Markers</a>
+                           <a class="btn btn-sm btn-primary assign_supervisor" id="{{ $student->san }}" href="#">Assign Supervisor</a>
 @endif
                            </td>
                          </tr>

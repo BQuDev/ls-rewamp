@@ -951,7 +951,7 @@
                                       <label>
                                       {{ Form::radio('payment_status', 'Paid in full'); }}
                                       <i></i>
-                                      Self funded
+                                      Paid in full
                                       </label>
                                    </div>
                                    </div><div class="col-sm-4">
@@ -959,7 +959,7 @@
                                       <label>
                                       {{ Form::radio('payment_status', 'Unpaid'); }}
                                       <i></i>
-                                      Sponsored by the Company
+                                      Unpaid
                                       </label>
                                    </div>
                                    </div><div class="col-sm-3">
@@ -967,7 +967,7 @@
                                       <label>
                                       {{ Form::radio('payment_status', 'Deposit paid',true); }}
                                       <i></i>
-                                      Bank Loan
+                                      Deposit paid
                                       </label>
                                    </div>
                                    </div>

@@ -34,6 +34,31 @@ class ModuleMarkerAllocationsController extends \BaseController {
 	public function store()
 	{
 		//
+		$san = Input::get('san');
+		$element = Input::get('element');
+		$marker_1 = Input::get('marker_1');
+		$marker_2 = Input::get('marker_2');
+
+
+		$already_exists = DB::table('student_module_markers_allocation')
+		->where('san','=',$san)
+		->where('element_id','=',$element)
+		->where('marker_1','=',$marker_1)
+		->where('marker_2','=',$marker_2)
+		->get();//return $already_exists;
+		if(!empty($already_exists))return '3';
+
+		$student_module_marker_allocation = new StudentModuleMarkerAllocation();
+		$student_module_marker_allocation->san = $san;
+		$student_module_marker_allocation->element_id = $element;
+		$student_module_marker_allocation->marker_1 = $marker_1;
+		$student_module_marker_allocation->marker_2 = $marker_2;
+
+		if($student_module_marker_allocation->save()){
+		return '1';
+		}else{
+		return '0';
+		}
 	}
 
 	/**
@@ -60,26 +85,28 @@ class ModuleMarkerAllocationsController extends \BaseController {
 	}
 
 	public function assign_marker(){
-
+            return 'kk';
 		$san = Input::get('san');
-		$supervisor = Input::get('supervisor');
 		$element = Input::get('element');
 		$marker_1 = Input::get('marker_1');
 		$marker_2 = Input::get('marker_2');
 
 
-		$supervisor_id = DB::table('module_supervisors')->where('name','=',$supervisor)->get();
-		$supervisor_id = $supervisor_id[0]->id;
-
-		$already_exists = DB::table('student_module_supervisor_allocation')->where('san','=',$san)
-		->where('supervisor_id','=',$supervisor_id)->get();//return $already_exists;
+		$already_exists = DB::table('student_module_markers_allocation')
+		->where('san','=',$san)
+		->where('element_id','=',$element)
+		->where('marker_1','=',$marker_1)
+		->where('marker_2','=',$marker_2)
+		->get();//return $already_exists;
 		if(!empty($already_exists))return '3';
 
-		$student_module_supervisor_allocation = new StudentModuleSupervisorAllocation();
-		$student_module_supervisor_allocation->san = $san;
-		$student_module_supervisor_allocation->supervisor_id = $supervisor_id;
+		$student_module_marker_allocation = new StudentModuleMarkerAllocation();
+		$student_module_marker_allocation->san = $san;
+		$student_module_marker_allocation->element_id = $element;
+		$student_module_marker_allocation->marker_1 = $marker_1;
+		$student_module_marker_allocation->marker_2 = $marker_2;
 
-		if($student_module_supervisor_allocation->save()){
+		if($student_module_marker_allocation->save()){
 		return '1';
 		}else{
 		return '0';

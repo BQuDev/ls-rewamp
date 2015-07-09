@@ -300,6 +300,30 @@
                                             </ul>
                                         </li>
                                     <?php } ?>
+                                    <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
+                                        <li >
+                                            <a href="#">
+                                                <i class="i i-pencil2 icon">
+                                                </i>
+                                                <span class="font-bold">Marks Input</span>
+                                            </a>
+                                            <ul class="nav dk">
+                                            <?php
+                                              $all_courses = DB::table('application_courses')->select('*')->get();
+                                             ?>
+                                                @foreach($all_courses as $course)
+                                                <?php $link = "/modules/marks-input/".$course->name;  ?>
+                                                <li>
+                                                    <a href="{{ URL::to($link) }}">
+                                                        <i class="i i-dot"></i>
+                                                        <span>{{ $course->name }}</span>
+                                                    </a>
+                                                </li>
+                                                @endforeach
+
+                                            </ul>
+                                        </li>
+                                    <?php } ?>
                                 </ul>
                                 <li <?php if(Request::segment(1) == "exports") echo 'class="active"'; ?>>
                 				  <a href="#" class="auto">

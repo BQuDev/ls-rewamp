@@ -1511,8 +1511,7 @@ public function export(){
         return Excel::create('Mastersheet BQu version', function($excel) {
 
 			$excel->sheet('Mastersheet BQu version', function($sheet) {
-			    //$students = Student::all();
-			    $students = Student::groupBy('san')->get();
+			    $students = Student::all();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);
 

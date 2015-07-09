@@ -8,7 +8,7 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($course)
 	{
 		//return $course;
 		$courses_id = DB::table('application_courses')->where('name','=',$course)->first()->id;
@@ -39,7 +39,7 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 		$supervisor_id = $supervisor_id[0]->id;
 
 		$already_exists = DB::table('student_module_supervisor_allocation')->where('san','=',$san)
-		->where('supervisor_id','=',$supervisor_id)->get();//return $already_exists;
+		->where('supervisor_id','=',$supervisor_id)->get();
 		if(!empty($already_exists))return '3';
 
 		$student_module_supervisor_allocation = new StudentModuleSupervisorAllocation();
@@ -73,6 +73,26 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 	public function store()
 	{
 		//
+		$san = Input::get('san');
+        		$supervisor = Input::get('supervisor');
+
+        		$supervisor_id = DB::table('module_supervisors')->where('name','=',$supervisor)->get();
+        		$supervisor_id = $supervisor_id[0]->id;
+
+        		$already_exists = DB::table('student_module_supervisor_allocation')->where('san','=',$san)
+        		->where('supervisor_id','=',$supervisor_id)->get();
+        		if(!empty($already_exists))return '3';
+
+        		$student_module_supervisor_allocation = new StudentModuleSupervisorAllocation();
+        		$student_module_supervisor_allocation->san = $san;
+        		$student_module_supervisor_allocation->supervisor_id = $supervisor_id;
+
+        		if($student_module_supervisor_allocation->save()){
+        		return '1';
+        		}else{
+        		return '0';
+        		}
+
 	}
 
 	/**

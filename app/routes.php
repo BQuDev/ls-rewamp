@@ -17,18 +17,19 @@ Route::post('/login', 'UsersController@authenticate');
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
  
-    Route::get('/modules/marks-input/create','ModulesController@markInputCreate');
+  //  Route::get('/modules/marks-input/create','ModulesController@markInputCreate');
     Route::get('/test',function(){
         $x = Student::where('san','=','khpsh001')->first();
         return $x->id;
     });
 
-    Route::post('/modules/marks-input/create','ModulesController@saveMarkInputs');
+  //  Route::post('/modules/marks-input/create','ModulesController@saveMarkInputs');
 
 Route::group(array('before' => 'members_auth'), function()
 {
 
     Route::post('/modules/supervisor-allocation','ModuleSupervisorAllocationsController@assign_supervisor');
+    //Route::post('/modules/supervisor-allocation','ModuleMarkerAllocationsController@assign_marker');
 
     Route::get('/logout', 'UsersController@logout');
     Route::get('/help', 'UsersController@logout');
@@ -47,13 +48,13 @@ Route::group(array('before' => 'members_auth'), function()
 	// Students Amendments
 	Route::post('students/amendments','StudentsController@amendments');
 
-
+/*
     Route::get('modules/marks-input/get_student_marks','ModulesController@getStudentMarks');
     Route::get('modules/marks-input/create/module/dropdown','ModulesController@getModulesByLsStudentNumber');
     Route::get('modules/marks-input/create/elements/dropdown','ModulesController@getElementsByModuleID');
     Route::get('/modules/marks-input','ModulesController@markInputIndex');
     Route::get('/modules/marks-input/{ls_student_number}','ModulesController@markInputShow');
-    Route::get('modules/marks-input/create/{ls_student_number}','ModulesController@markInputIndex1');
+    Route::get('modules/marks-input/create/{ls_student_number}','ModulesController@markInputIndex1');*/
     Route::get('students/applications/export','StudentsController@export');
 
 // To-Do
@@ -72,5 +73,6 @@ Route::group(array('before' => 'members_auth'), function()
     Route::resource('migrate','DBMigrationController');
     Route::resource('modules/marker-allocation', 'ModuleMarkerAllocationsController');
     Route::resource('modules/supervisor-allocation', 'ModuleSupervisorAllocationsController');
+    Route::resource('modules/marks-input', 'ModuleMarksInputsController');
 
 });

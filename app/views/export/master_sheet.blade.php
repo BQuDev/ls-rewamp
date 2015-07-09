@@ -303,17 +303,17 @@ $english_language_level_export= ltrim ($english_language_level_export, ',');
  <td>
  @if(intval($studentEducationalQualification->qualification_start_date_1)>0)
 <?php
-$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_1);
+//$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_1);
 ?>
-{{ sprintf("%02d", $qualification_start_date[0]).'/'.sprintf("%02d", $qualification_start_date[1]).'/'.$qualification_start_date[2] }}
+{{ $studentEducationalQualification->qualification_start_date_1 }}
 @endif
  </td>
  <td>
  @if(intval($studentEducationalQualification->qualification_end_date_1)>0)
 <?php
-$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_1);
+//$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_1);
 ?>
-{{ sprintf("%02d", $qualification_end_date[0]).'/'.sprintf("%02d", $qualification_end_date[1]).'/'.$qualification_end_date[2] }}
+{{ $studentEducationalQualification->qualification_end_date_1 }}
 @endif
  </td>
  <td>{{ $studentEducationalQualification->qualification_grade_1; }}	</td>
@@ -330,17 +330,17 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
  <td>
  @if(intval($studentEducationalQualification->qualification_start_date_2)>0)
 <?php
-$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_2);
+//$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_2);
 ?>
-{{ sprintf("%02d", $qualification_start_date[0]).'/'.sprintf("%02d", $qualification_start_date[1]).'/'.$qualification_start_date[2] }}
+{{ $studentEducationalQualification->qualification_start_date_2 }}
 @endif
  </td>
  <td>
  @if(intval($studentEducationalQualification->qualification_end_date_2)>0)
 <?php
-$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_2);
+//$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_2);
 ?>
-{{ sprintf("%02d", $qualification_end_date[0]).'/'.sprintf("%02d", $qualification_end_date[1]).'/'.$qualification_end_date[2] }}
+{{ $studentEducationalQualification->qualification_end_date_2 }}
 @endif
  </td>
  <td>{{ $studentEducationalQualification->qualification_grade_2; }}	</td>
@@ -357,17 +357,17 @@ $qualification_end_date = explode('-', $studentEducationalQualification->qualifi
  <td>
  @if(intval($studentEducationalQualification->qualification_start_date_3)>0)
 <?php
-$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_3);
+//$qualification_start_date = explode('-', $studentEducationalQualification->qualification_start_date_3);
 ?>
-{{ sprintf("%02d", $qualification_start_date[0]).'/'.sprintf("%02d", $qualification_start_date[1]).'/'.$qualification_start_date[2] }}
+{{ $studentEducationalQualification->qualification_start_date_3 }}
 @endif
  </td>
  <td>
  @if(intval($studentEducationalQualification->qualification_end_date_3)>0)
 <?php
-$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_3);
+//$qualification_end_date = explode('-', $studentEducationalQualification->qualification_end_date_3);
 ?>
-{{ sprintf("%02d", $qualification_end_date[0]).'/'.sprintf("%02d", $qualification_end_date[1]).'/'.$qualification_end_date[2] }}
+{{ $studentEducationalQualification->qualification_end_date_3 }}
 @endif
  </td>
  <td>{{ $studentEducationalQualification->qualification_grade_3; }}	</td>
@@ -385,17 +385,17 @@ $studentWorkExperiences = StudentWorkExperience::lastRecordBySAN($student->san);
  <td>
 @if(intval($studentWorkExperiences->occupation_start_date_1)>0)
 <?php
-$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_1);
+//$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_1);
 ?>
-{{ sprintf("%02d", $occupation_start_date[0]).'/'.sprintf("%02d", $occupation_start_date[1]).'/'.$occupation_start_date[2] }}
+{{ $studentWorkExperiences->occupation_start_date_1 }}
 @endif
 </td>
  <td>
  @if(intval($studentWorkExperiences->occupation_end_date_1)>0)
 <?php
-$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_1);
+//$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_1);
 ?>
-{{ sprintf("%02d", $occupation_end_date[0]).'/'.sprintf("%02d", $occupation_end_date[1]).'/'.$occupation_end_date[2] }}
+{{ $studentWorkExperiences->occupation_end_date_1 }}
 @endif
  </td>
  <td>
@@ -410,17 +410,17 @@ $occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date
  <td>
 @if(intval($studentWorkExperiences->occupation_start_date_2)>0)
 <?php
-$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_2);
+//$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_2);
 ?>
-{{ sprintf("%02d", $occupation_start_date[0]).'/'.sprintf("%02d", $occupation_start_date[1]).'/'.$occupation_start_date[2] }}
+{{ $studentWorkExperiences->occupation_start_date_2 }}
 @endif
 </td>
  <td>
  @if(intval($studentWorkExperiences->occupation_end_date_2)>0)
 <?php
-$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_2);
+//$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_2);
 ?>
-{{ sprintf("%02d", $occupation_end_date[0]).'/'.sprintf("%02d", $occupation_end_date[1]).'/'.$occupation_end_date[2] }}
+{{ $studentWorkExperiences->occupation_end_date_2 }}
 @endif
  </td>
  <td>
@@ -435,17 +435,17 @@ $occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date
  <td>
 @if(intval($studentWorkExperiences->occupation_start_date_3)>0)
 <?php
-$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_3);
+//$occupation_start_date = explode('-', $studentWorkExperiences->occupation_start_date_3);
 ?>
-{{ sprintf("%02d", $occupation_start_date[0]).'/'.sprintf("%02d", $occupation_start_date[1]).'/'.$occupation_start_date[2] }}
+{{ $studentWorkExperiences->occupation_start_date_3 }}
 @endif
 </td>
  <td>
  @if(intval($studentWorkExperiences->occupation_end_date_3)>0)
 <?php
-$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_3);
+//$occupation_end_date = explode('-', $studentWorkExperiences->occupation_end_date_3);
 ?>
-{{ sprintf("%02d", $occupation_end_date[0]).'/'.sprintf("%02d", $occupation_end_date[1]).'/'.$occupation_end_date[2] }}
+{{ $studentWorkExperiences->occupation_end_date_3 }}
 @endif
  </td>
  <td>
@@ -511,9 +511,9 @@ $studentPaymentInfo = StudentPaymentInfo::lastRecordBySAN($student->san);
  <td>
  @if(intval($studentPaymentInfo->deposit_date)>0)
 <?php
-$studentPaymentInfoDate = explode('-', $studentPaymentInfo->deposit_date);
+//$studentPaymentInfoDate = explode('-', $studentPaymentInfo->deposit_date);
 ?>
-{{ sprintf("%02d", $studentPaymentInfoDate[0]).'/'.sprintf("%02d", $studentPaymentInfoDate[1]).'/'.$studentPaymentInfoDate[2] }}
+{{ $studentPaymentInfo->deposit_date }}
 @endif
  </td>
  <td>
@@ -527,9 +527,9 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->deposit_date);
  <td>
  @if(intval($studentPaymentInfo->installment_1_date)>0)
 <?php
-$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_1_date);
+//$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_1_date);
 ?>
-{{ sprintf("%02d", $studentPaymentInfoDate[0]).'/'.sprintf("%02d", $studentPaymentInfoDate[1]).'/'.$studentPaymentInfoDate[2] }}
+{{ $studentPaymentInfo->installment_1_date }}
 @endif
  </td>
  <td>
@@ -543,9 +543,9 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_1_date);
  <td>
  @if(intval($studentPaymentInfo->installment_2_date)>0)
 <?php
-$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_2_date);
+//$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_2_date);
 ?>
-{{ sprintf("%02d", $studentPaymentInfoDate[0]).'/'.sprintf("%02d", $studentPaymentInfoDate[1]).'/'.$studentPaymentInfoDate[2] }}
+{{ $studentPaymentInfo->installment_2_date }}
 @endif
  </td>
  <td>
@@ -559,9 +559,9 @@ $studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_2_date);
  <td>
  @if(intval($studentPaymentInfo->installment_3_date)>0)
 <?php
-$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_3_date);
+//$studentPaymentInfoDate = explode('-', $studentPaymentInfo->installment_3_date);
 ?>
-{{ sprintf("%02d", $studentPaymentInfoDate[0]).'/'.sprintf("%02d", $studentPaymentInfoDate[1]).'/'.$studentPaymentInfoDate[2] }}
+{{ $studentPaymentInfo->installment_3_date }}
 @endif
  </td>
  <td>
@@ -597,7 +597,7 @@ $application_received_date = explode('-', $studentBquData->application_received_
  
  @if(intval( $studentBquData->application_received_date)>0)
 
-{{ sprintf("%02d", $application_received_date[0]).'/'.sprintf("%02d", $application_received_date[1]).'/'.$application_received_date[2] }}
+{{ $studentBquData->application_received_date }}
 @endif
  
  </td>

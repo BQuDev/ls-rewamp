@@ -103,22 +103,39 @@
                       <div class="row">
                             <div class="col-lg-12">
                             <span id="element_{{ $element->id }}_{{ $student_with_san->san }}" style="visibility:hidden">{{ $element->id }}</span>
+                            <span id="san_{{ $element->id }}_{{ $student_with_san->san }}" style="visibility:hidden">{{ $student_with_san->san }}</span>
                                 <div class="row">
                                     <div class="col-lg-2">
                                         {{ $element->name }}
                                     </div>
                                     <div class="col-lg-4">
                                     <?php
-                                    $marker_1 = 'marker_1_'.$element->id.'_'.$student_with_san->san
+                                    $marker_1 = 'marker_1_'.$element->id.'_'.$student_with_san->san;
+                                    $marker_2 = 'marker_2_'.$element->id.'_'.$student_with_san->san;
+                                    $marker_allocation = DB::table('student_module_markers_allocation')->orderBy('id','desc')->where('san','=',$student_with_san->san)->get();
 
                                     ?>
-                                        {{ Form::select($marker_1, $markers,'',['class'=>'chosen-select col-sm-4' ,'style'=>'min-width:50px !important','id'=>$marker_1]);  }}
+                                    @if((!empty($marker_allocation))&&($marker_allocation[0]->element_id == $element->id))
+                                         <?php
+                                            $selected_marker_1 = $marker_allocation[0]->marker_1;
+                                            $selected_marker_2 = $marker_allocation[0]->marker_2;
+                                              echo '<script>  $("#{{$marker_1}}").chosen({width: "100%"}).prepend("oo").val(0).trigger("chosen:updated");$("#{{$marker_2}}").chosen({width: "100%"}).prepend("hh").val(0).trigger("chosen:updated");</script>';  ?>
+
+                                       @else
+                                        <?php
+                                            $selected_marker_1 = '';
+                                            $selected_marker_2 = '';
+                                            echo '<script>  $("#{{$marker_1}}").val(0).trigger("chosen:updated");$("#{{$marker_2}}").val(0).trigger("chosen:updated");</script>';  ?>
+                                       @endif
+
+
+                                        {{ Form::select($marker_1, $markers,$selected_marker_1,['class'=>'chosen-select col-sm-4' ,'style'=>'min-width:50px !important','id'=>$marker_1]);  }}
                                     </div>
                                     <div class="col-lg-4">
                                     <?php
                                     $marker_2 = 'marker_2_'.$element->id.'_'.$student_with_san->san
                                     ?>
-                                         {{ Form::select($marker_2, $markers,'',['class'=>'chosen-select col-sm-4' ,'style'=>'width:50px !important','id'=>$marker_2]);  }}
+                                         {{ Form::select($marker_2, $markers,$selected_marker_2,['class'=>'chosen-select col-sm-4' ,'style'=>'width:50px !important','id'=>$marker_2]);  }}
                                     </div>
                                     <div class="col-lg-2">
                                         <a class="btn btn-sm btn-primary save_markers" id="{{ $element->id.'_'.$student_with_san->san }}" href="#">Save</a>
@@ -164,8 +181,9 @@
        {{ HTML::script('pnotify/pnotify.buttons.min.js'); }}
 
   <script>
-  fixChoosen()
-  $(".chosen-select").chosen({width: "100%"}).prepend("<option value='0'>Please Select an Option</option>").val(0).trigger("chosen:updated");
+  fixChoosen();
+  $(".chosen-select").chosen({width: "100%"}).prepend("<option value='0'>Please Select an Option</option>").trigger("chosen:updated");
+ // $(".chosen-select").chosen({width: "100%"}).prepend("<option value='0'>Please Select an Option</option>").val(0).trigger("chosen:updated");
 var stack_bottomright = {"dir1": "down", "dir2": "left"};
     $('#student_datatable').dataTable({
 "sPaginationType": "full_numbers"
@@ -191,7 +209,8 @@ var stack_bottomright = {"dir1": "down", "dir2": "left"};
         var element_id = $('#element_'+$(this).attr('id'));
        // console.log($(this).attr('id'));
         //console.log($(element_id).html());
-        //console.log($(san).html());
+        console.log(san);
+        console.log($(san).html());
         //var selectedVal =$(select).val();
 if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
 {
@@ -211,7 +230,12 @@ if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
 }else{
         $.ajax({
             url: "{{ url('modules/marker-allocation')}}",
-            data: {token: $('[name="_token"]').val(),san: $(san).html(),element:$(element_id).html(),marker_1:$(marker_1).val(),marker_2:$(marker_2).val()},
+            data: {token: $('[name="_token"]').val(),
+            san: $(san).html(),
+            element:$(element_id).html(),
+            marker_1:$(marker_1).val(),
+            marker_2:$(marker_2).val()
+            },
             success: function (data) {
                if(data == 1){
                new PNotify({
