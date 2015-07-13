@@ -77,7 +77,7 @@ class StudentsController extends \BaseController {
                     ->with('method_of_payment',ApplicationPaymentInfoMethodsOfPayment::lists('name','id'))
                     ->with('application_status',ApplicationStatus::lists('name','id'))
                     ->with('intake_year',StaticYear::lists('name','id'))
-                    ->with('intake',ApplicationIntake::lists('name','id'))
+                    ->with('intake',ApplicationIntake::where('year','=',1)->lists('name','id'))
                     ->with('supervisors',$supervisors);
 	}
 
@@ -394,7 +394,7 @@ return View::make('students.index')
                     ->with('application_status',ApplicationStatus::lists('name','id'))
                     ->with('intake_year',StaticYear::lists('name','id'))
                     ->with('intake_month',StaticMonth::lists('name','id'))
-                     ->with('intake',ApplicationIntake::lists('name','id'))
+                     ->with('intake',ApplicationIntake::where('year','=',1)->lists('name','id'))
                     // Getting Saved DATA
                     ->with('student',Student::where('san','=',$san)->orderBy('id','desc')->first())
                     ->with('studentSource',StudentSource::where('san','=',$san)->orderBy('id','desc')->first())
@@ -1263,7 +1263,7 @@ public function amendments(){
     }
     public function saveStudentEducationalQualification($is_verified){
         $english_language_level = Input::get('english_language_level');
-        $english_language_level_other = '';/*Input::get('english_language_level_other');*/
+        $english_language_level_other = Input::get('english_language_level_other');
         $institution_1 = Input::get('institution_1');
         $institution_2 = Input::get('institution_2');
         $institution_3 = Input::get('institution_3');
@@ -1511,7 +1511,8 @@ public function export(){
         return Excel::create('Mastersheet BQu version', function($excel) {
 
 			$excel->sheet('Mastersheet BQu version', function($sheet) {
-			    $students = Student::all();
+			    //$students = Student::all();
+			    $students = Student::groupBy('san')->get();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);
 

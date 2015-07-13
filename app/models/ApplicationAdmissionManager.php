@@ -6,4 +6,8 @@ class ApplicationAdmissionManager extends \Eloquent {
     public function scopeGetNameByID($query,$id) {
         return $query->where('id','=',$id)->first()->name;
     }
+
+    public function scopeGetExportNameByID($query,$id) {
+        return $query->where('id','=',$id)->first()->export_name;
+    }
 }

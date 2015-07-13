@@ -8,7 +8,7 @@
  <th>Agent /LAP</th>
  <th>Admission Manager</th>
  <th>Title</th>
- <th>	Initial 1</th>
+ <th>Initial 1</th>
  <th>Initial 2</th>
  <th>Initial 3</th>
  <th>Forename 1</th>
@@ -107,7 +107,7 @@
   <th>App Validated date	</th>
  <th>App verified by</th>
  <th>App verified date (dd/mm/yyyy)	</th>
- <th>Supervisor	</th>
+ <!--<th>Supervisor	</th>-->
  <th>Notes</th>
  <th>Received any emails?</th>
  <th>Know about course structure</th>
@@ -146,7 +146,7 @@ $ams_date = explode('-',$ams_date);
 @endif
 </td>
  <td>
- @if(!is_null( $student_sources)&($source>0))) {{
+ @if(!is_null( $student_sources)&($source>0)) {{
 ApplicationSource::getNameByID(intval($source)) }}
  @endif
  </td>
@@ -166,7 +166,7 @@ ApplicationSource::getNameByID(intval($source)) }}
      @if(intval($admission_manager) == 10000)
     {{ $student_sources->admission_managers_other }}
     @elseif(intval($admission_manager) >0)
-    {{ ApplicationAdmissionManager::getNameByID($admission_manager); }}
+    {{ ApplicationAdmissionManager::getExportNameByID($admission_manager); }}
     @endif
     @endif
  </td>
@@ -261,7 +261,7 @@ $studentContactInformationOnline = StudentContactInformationOnline::lastRecordBy
  @endif
  @endif
  </td>
- <td>@if(!is_null($studentCourseEnrolment)) {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	 @endif</td>
+ <td>@if((!is_null($studentCourseEnrolment))&&(!is_null($studentCourseEnrolment->intake))) {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	 @endif</td>
  <td>@if(!is_null($studentCourseEnrolment)) {{ ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->name }} @endif</td>
  <td>@if(!is_null($studentCourseEnrolment)) {{ $studentCourseEnrolment->study_mode }} @endif</td>
  <td>
@@ -585,7 +585,7 @@ $studentPaymentInfo = StudentPaymentInfo::lastRecordBySAN($student->san);
   $ApplicationStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
   ?>
   @if(!is_null($ApplicationStatus))
- {{ $ApplicationStatus->status  }}
+ {{ StaticDataStatus::getNameByID($ApplicationStatus->status)  }}
  @endif
  </td>
  <td>
@@ -655,7 +655,7 @@ $studentApplicationVerifiedStatus = DB::table('student_application_status')->whe
  <td>
  @if(StudentBquData::lastRecordBySAN($student->san)->supervisor ==10000)
      @elseif(StudentBquData::lastRecordBySAN($student->san)->supervisor >0)
-     {{ User::getFirstNameByID(StudentBquData::lastRecordBySAN($student->san)->supervisor); }}
+     <!--{{ User::getFirstNameByID(StudentBquData::lastRecordBySAN($student->san)->supervisor); }}-->
      @endif
      	</td>
  <td>{{ StudentBquData::lastRecordBySAN($student->san)->notes; }}</td>

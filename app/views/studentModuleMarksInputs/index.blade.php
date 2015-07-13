@@ -146,7 +146,7 @@
                                                    <td style="min-width: 120px;">
                         @if (Sentry::getUser()->hasAccess('students.more'))
 
-                                                   <a class="btn btn-sm btn-primary" id="{{ $student->san }}" href="#modal_{{ $student_with_san->san }}" data-toggle="modal">Update Marks</a>
+                                                   <a class="btn btn-sm btn-primary" id="{{ $element->id.'_'.$student_with_san->san }}" href="#modal_{{ $element->id.'_'.$student_with_san->san }}" data-toggle="modal">Update Marks</a>
                         @endif
                                                    </td>
                                                  </tr>
@@ -162,6 +162,146 @@
                   </table>
                 </div>
  </section>
+
+
+
+
+
+            @foreach ($modules as $module)
+                <?php
+                    $elements = DB::table('module_elements')->where('module_id','=',$module->id)->get();
+                ?>
+                @foreach ($elements as $element)
+                         @foreach ($students as $student_with_san)
+
+                <?php
+                    $student = DB::table('students')->where('san','=',$student_with_san->san)->orderBy('id','desc')->first();
+
+                   ?>
+                    <?php /* ?><tr>
+                       <td><span id="san_{{ $student->san }}">{{ $student->san }}</span></td>
+                       <td>{{ $student->ls_student_number  }}</td>
+                       <td>
+                       @if(!is_null($student))
+                       {{ $student->title.' '.
+                        $student->initials_1.' '.
+                        $student->initials_2.' '.
+                        $student->initials_3.' '.
+                        $student->forename_1.' '.
+                        $student->forename_2.' '.
+                        $student->forename_3.' '.
+                        $student->surname }}
+                       @endif
+                       </td>
+                        <td>{{ $module->name }}</td>
+                        <td>{{ $element->name }}</td>
+                        <td>
+
+                        <?php
+                        $markers = DB::table('student_module_markers_allocation')
+                        		->where('san','=',$student->san)
+                        		->where('element_id','=',$element->id)
+                        		->get();//return $already_exists;
+
+
+                        ?>
+                        @if(!empty($markers))
+                            {{ ModuleMarker::getNameByID( $markers[0]->marker_1) }}
+                        @endif
+                        </td>
+                        <td>                        @if(!empty($markers))
+                                                        {{ ModuleMarker::getNameByID( $markers[0]->marker_2) }}
+                                                    @endif</td>
+                                                   <td style="min-width: 120px;">
+                        @if (Sentry::getUser()->hasAccess('students.more'))
+
+                                                   <a class="btn btn-sm btn-primary" id="{{ $element->id.'_'.$student_with_san->san }}" href="#modal_{{ $element->id.'_'.$student_with_san->san }}" data-toggle="modal">Update Marks</a>
+                        @endif
+                       </td>
+                     </tr><?php */ ?>
+
+                     <div class="modal fade" id="modal_{{ $element->id.'_'.$student_with_san->san }}">
+                         <div class="modal-dialog" style="width:80%">
+                           <div class="modal-content">
+                               <div class="modal-header">
+                                 <button data-dismiss="modal" class="close" type="button">×</button>
+                                 <h4 class="modal-title">Student({{ $student->ls_student_number }}) Marks input</h4>
+                                 <div class="row">
+                                     <div class="col-sm-6 b-r">
+                                    <p>{{ urldecode(Request::segment(3)) }} - {{ $module->name }} - {{ $element->name }}</p>
+                                    <p>LS Student Number - <a class="text-info" target="_blank" href="{{ URL::to('students').'/'.$student->san }}">{{ $student->ls_student_number }}</a> | SAN -  <a class="text-info" target="_blank" href="{{ URL::to('students').'/'.$student->san }}">{{ $student->san }}</a></p>
+                                     </div>
+
+                                     <div class="col-sm-6 b-r">
+                                     <?php
+                                     $markers = DB::table('student_module_markers_allocation')
+                                            ->where('san','=',$student->san)
+                                            ->where('element_id','=',$element->id)
+                                            ->get();//return $already_exists;
+                                     ?>
+                                      @if(!empty($markers))
+                                         <p>Marker 1 - {{ ModuleMarker::getNameByID( $markers[0]->marker_1) }}</p>
+                                         <p>Marker 2 - {{ ModuleMarker::getNameByID( $markers[0]->marker_2) }}</p>
+                                      @endif
+                                     </div>
+                                 </div>
+
+                               </div>
+                               <div class="modal-body">
+                               <div class="row">
+                                 <div class="col-sm-8">
+                                     <?php
+                                         $marking_criterias = DB::table('module_element_marking_criteria')->where('element_id','=',$element->id)->get();
+                                     ?>
+                                     <section class="panel panel-default">
+                                     <div class="table-responsive">
+                                                       <table class="table table-striped b-t b-light">
+                                                         <thead>
+                                                           <tr>
+                                                              <th data-toggle="class" class="th-sortable active">Criteria
+
+                                                               </span>
+                                                             </th>
+                                                             <th>Marks</th>
+                                                             <th></th>
+                                                           </tr>
+                                                         </thead>
+                                                         <tbody>
+
+
+
+                                     @foreach ($marking_criterias as $marking_criteria)
+
+                                                           <tr>
+                                                             <td>{{$marking_criteria->name }}</td>
+                                                             <td><input type="text" id="marks_{{$marking_criteria->id.'_'.$student->san }}"></td>
+                                                             <td> <a class="btn btn-primary save_marks" href="#" id="{{$marking_criteria->id.'_'.$student->san }}" class="">Update Marks</a></td>
+                                                           </tr>
+<span id="san_{{$marking_criteria->id.'_'.$student->san }}" style="display: none">{{ $student->san }}</span>
+<span id="marking_criteria_{{$marking_criteria->id.'_'.$student->san }}" style="display: none">{{ $marking_criteria->id }}</span>
+                                     @endforeach
+                                                            </tbody>
+                                                       </table>
+                                                        </div>
+
+                                                                     </section>
+                                                   
+                                  </div>
+                                  <div class="col-sm-4">
+                                  </div>
+                                 </div>
+                               </div>
+                               <div class="modal-footer">
+                                 <a data-dismiss="modal" class="btn btn-default" href="#">Close</a>
+                                 <a class="btn btn-primary" href="#">Save</a>
+                               </div>
+                             </div><!-- /.modal-content -->
+                         </div><!-- /.modal-dialog -->
+                     </div>
+
+                        @endforeach
+                 @endforeach
+            @endforeach
 
 
 @stop
@@ -236,17 +376,18 @@ $('[name="marker_2"]').change(function(){
   $('#student_datatable_filter').hide();
 
 
-  $('.save_markers').click(function(){
+  $('.save_marks').click(function(){
         //console.log($(this).attr('id'));
-        var marker_1 = '#marker_1_'+$(this).attr('id');
-        var marker_2 = '#marker_2_'+$(this).attr('id');
+        var marks = '#marks_'+$(this).attr('id');
+       // var marker_2 = '#marker_2_'+$(this).attr('id');
+        var marking_criteria_id = '#marking_criteria_'+$(this).attr('id');
         var san = '#san_'+$(this).attr('id');
-        //console.log(marker_2);
+       // console.log(marker_1);
         //console.log($(select).attr('id'));
         var element_id = $('#element_'+$(this).attr('id'));
        // console.log($(this).attr('id'));
         //console.log($(element_id).html());
-        console.log(san);
+        //console.log(san);
         console.log($(san).html());
         //var selectedVal =$(select).val();
 if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
@@ -266,12 +407,11 @@ if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
                   })
 }else{
         $.ajax({
-            url: "{{ url('modules/marker-allocation')}}",
+            url: "{{ url('modules/mar0ker-allocation')}}",
             data: {token: $('[name="_token"]').val(),
             san: $(san).html(),
-            element:$(element_id).html(),
-            marker_1:$(marker_1).val(),
-            marker_2:$(marker_2).val()
+            marking_criteria:$(marking_criteria_id).html(),
+            marks:$(marks).val()
             },
             success: function (data) {
                if(data == 1){

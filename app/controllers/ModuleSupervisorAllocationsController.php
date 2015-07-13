@@ -106,7 +106,8 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 	{
 		//
 		//return $course;
-        		$courses_id = DB::table('application_courses')->where('name','=',$course)->first()->id;
+		//return urldecode($course);
+        		$courses_id = DB::table('application_courses')->where('name','=',urldecode($course))->first()->id;
 
         		$supervisors = DB::table('modules')->where('course_id','=',$courses_id)
         							->join('module_supervisors','module_supervisors.module_id','=','modules.id')

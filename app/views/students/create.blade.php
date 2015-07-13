@@ -19,18 +19,19 @@
       </div>
 <div class="form-group">
          <div class="form-inline">
-            {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
-            <div class="col-sm-3">
-               {{ Form::text('app_date_date', '',['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
-               {{ Form::text('app_date_month', '',['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
-               {{ Form::text('app_date_year', '',['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
-            </div>
-            {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-2 control-label'));  }}
+
+            {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
             <div class="col-sm-3">
                {{ Form::text('ams_date_date', '',['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
                {{ Form::text('ams_date_month', '',['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
                {{ Form::text('ams_date_year', '',['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
             </div>
+            <!--{{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
+            <div class="col-sm-3">
+               {{ Form::text('app_date_date', '',['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+               {{ Form::text('app_date_month', '',['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+               {{ Form::text('app_date_year', '',['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+            </div>-->
          </div>
       </div>
 

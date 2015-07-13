@@ -409,11 +409,12 @@
                                  {{ Form::label('qualification_1', 'Qualification 1', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-4"></div>
                                                   <div class="col-sm-8"> @if(intval($student_educational_qualifications->qualification_1) == 10000)
-                                                                                          @elseif(intval($student_educational_qualifications->qualification_1) == 0)
-                                                                                          {{ $student_educational_qualifications->qualification_other_1 }}
-                                                                                          @elseif(intval($student_educational_qualifications->qualification_1) > 0)
-                                                                                          {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_1) }}
-                                                                                          @endif</div>
+                                                                                                           {{ $student_educational_qualifications->qualification_other_1 }}
+                                                                                                                                   @elseif(intval($student_educational_qualifications->qualification_1) == 0)
+                                                                                                                                   {{ $student_educational_qualifications->qualification_other_1 }}
+                                                                                                                                   @elseif(intval($student_educational_qualifications->qualification_1) > 0)
+                                                                                                                                   {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_1) }}
+                                                                                                                                   @endif</div>
                                                </div>
                               <div class="form-group">
                                  {{ Form::label('institution_1', 'Institution', array('class' => 'col-sm-3 control-label'));  }}
@@ -446,12 +447,13 @@
                   <div id="qualification_container_2">
                               <div class="form-group">
                                  {{ Form::label('qualification_2', 'Qualification 2', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-8">@if(intval($student_educational_qualifications->qualification_2) == 10000)
-                                                     @elseif(intval($student_educational_qualifications->qualification_2) == 0)
-                                                     {{ $student_educational_qualifications->qualification_other_2 }}
-                                                     @elseif(intval($student_educational_qualifications->qualification_2) > 0)
-                                                     {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_2) }}
-                                                     @endif</div>
+                                 <div class="col-sm-8">  @if(intval($student_educational_qualifications->qualification_2) == 10000)
+                                                                                         {{ $student_educational_qualifications->qualification_other_2 }}
+                                                       											  @elseif(intval($student_educational_qualifications->qualification_2) == 0)
+                                                       											  {{ $student_educational_qualifications->qualification_other_2 }}
+                                                       											  @elseif(intval($student_educational_qualifications->qualification_2) > 0)
+                                                       											  {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_2) }}
+                                                       											  @endif</div>
 
                                 </div>
                               <div class="form-group">
@@ -485,11 +487,12 @@
                               <div class="form-group">
                                  {{ Form::label('qualification_3', 'Qualification 3', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-8">@if(intval($student_educational_qualifications->qualification_3) == 10000)
-                                                                                      @elseif(intval($student_educational_qualifications->qualification_3) == 0)
-                                                                                      {{ $student_educational_qualifications->qualification_other_3 }}
-                                                                                      @elseif(intval($student_educational_qualifications->qualification_3) > 0)
-                                                                                      {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_3) }}
-                                                                                      @endif</div>
+                                                                                         {{ $student_educational_qualifications->qualification_other_3 }}
+                                                       									  @elseif(intval($student_educational_qualifications->qualification_3) == 0)
+                                                       									  {{ $student_educational_qualifications->qualification_other_3 }}
+                                                       									  @elseif(intval($student_educational_qualifications->qualification_3) > 0)
+                                                       									  {{ ApplicationEducationalQualification::getNameByID($student_educational_qualifications->qualification_3) }}
+                                                       									  @endif</div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('institution_3', 'Institution', array('class' => 'col-sm-3 control-label'));  }}
@@ -825,7 +828,13 @@
                                  <label class="col-sm-2 control-label">Status </label>
                                  <div class="col-sm-9">
 
-Added ( Pending for validation )
+ <?php
+  //$ApplicationStatus = StudentApplicationStatus::lastRecordBySAN($student->san);
+  $ApplicationStatus = DB::table('student_application_status')->where('san','=',$student->san)->orderBy('id', 'desc')->first();
+  ?>
+  @if(!is_null($ApplicationStatus))
+ {{ StaticDataStatus::getNameByID($ApplicationStatus->status)  }}
+ @endif
 
                                  </div>
                               </div>

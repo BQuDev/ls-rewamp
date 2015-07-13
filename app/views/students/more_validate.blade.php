@@ -19,12 +19,12 @@
       </div>
 <div class="form-group">
          <div class="form-inline">
-            {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
-            <div class="col-sm-3">
-               {{ $studentSource->app_date }}</div>
-            {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-2 control-label'));  }}
+            {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
             <div class="col-sm-3">
                 {{ $studentSource->ams_date }}</div>
+           <!--  {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
+                         <div class="col-sm-3">
+                            {{ $studentSource->app_date }}</div>   -->
          </div>
       </div>
 
@@ -448,8 +448,9 @@ Checked
                      <div class="form-group">
                         {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-3 control-label'));  }}
                         <div class="col-sm-9">
+                        @if($student_course_enrolments->intake >0)
                           {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->year).'-'.ApplicationIntake::getRowByID($student_course_enrolments->intake)->name }}
-
+                        @endif
                         </div>
                      </div>
                      <div class="form-group">
@@ -949,7 +950,7 @@ Checked
                                  {{ Form::label('application_input_by', 'Application input by', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9">{{ User::getFirstNameByID( $student_bqu_data->created_by); }}&nbsp;&nbsp;{{ User::getLastNameByID( $student_bqu_data->created_by); }}</div>
                               </div>
-                              <div class="form-group">
+                              <!--<div class="form-group">
                                  {{ Form::label('supervisor', 'Supervisor ', array('class' => 'col-sm-3 control-label'));  }}
 
                                  <div class="col-sm-9">
@@ -960,7 +961,7 @@ Checked
     @endif
 
                                  </div>
-                              </div>
+                              </div>-->
                               <!--<div class="form-group">
                                  {{ Form::label('date_of_birth', 'Applicant verified by BQu date', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-3"><div class="form-inline">
@@ -2008,7 +2009,10 @@ Checked
 <div class="row" style="font-size: 16px">
              <div class="form-group">
                          {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-4 control-label'));  }}
-                          <div class="col-sm-8">   {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->year).'-'.ApplicationIntake::getRowByID($student_course_enrolments->intake)->name; }}
+                          <div class="col-sm-8">
+                          @if($student_course_enrolments->intake >0)
+                            {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($student_course_enrolments->intake)->year).'-'.ApplicationIntake::getRowByID($student_course_enrolments->intake)->name; }}
+                            @endif
 </div>
 
                                         </div>
@@ -2086,7 +2090,9 @@ Checked
 <div class="row" style="font-size: 16px">
              <div class="form-group">
                          {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-4 control-label'));  }}
-                          <div class="col-sm-8"> {{ Form::select('intake_year', $intake_year,ApplicationIntake::getRowByID($student_course_enrolments->intake)->year,['class'=>'chosen-select col-sm-4','style'=>'max-width:100px !important']);  }}
+                          <div class="col-sm-8">@if($student_course_enrolments->intake >0)
+                          {{ Form::select('intake_year', $intake_year,ApplicationIntake::getRowByID($student_course_enrolments->intake)->year,['class'=>'chosen-select col-sm-4','style'=>'max-width:100px !important']);  }}
+                          @endif
 </div>
 
                                         </div>
@@ -2351,7 +2357,8 @@ Checked
     {{ Form::checkbox('english_language_level[]', 'ESOL',strpos($student_english_lang_levels->english_language_level,'ESOL')!==false); }}
     ESOL
     {{ Form::checkbox('english_language_level[]', 'Other',strpos($student_english_lang_levels->english_language_level,'Other')!==false); }}
-    Other
+    Other <br>
+    {{ Form::text('english_language_level_other', $student_english_lang_levels->english_language_level_other,['placeholder'=>'Please Specify','class'=>'form-control']); }}
                                   </div>
                                </div>
                                </div>
@@ -2407,7 +2414,7 @@ Checked
                      <div class="form-group">
                                  {{ Form::label('qualification_2', 'Qualification 2', array('class' => 'col-sm-4 control-label'));  }}
                                  <div class="col-sm-8">{{ Form::select('qualification_2', $education_qualifications,'',['style'=>'width:350px !important','class'=>'chosen-select']);  }}<br>
-                                   {{ Form::text('qualification_2_other', $student_educational_qualifications->qualification_2,['placeholder'=>'Please Specify','class'=>'form-control']); }}</div>
+                                   {{ Form::text('qualification_2_other', $student_educational_qualifications->qualification_other_2,['placeholder'=>'Please Specify','class'=>'form-control']); }}</div>
                                 </div>
                                </div>
 
@@ -3330,7 +3337,7 @@ Checked
                               </div>
                                         </div>
 
-<div class="row" style="font-size: 16px">
+<!--<div class="row" style="font-size: 16px">
           <div class="form-group">
                                  {{ Form::label('supervisor', 'Supervisor ', array('class' => 'col-sm-3 control-label'));  }}
 
@@ -3343,7 +3350,7 @@ Checked
 
                                  </div>
                               </div>
-                                        </div>
+                                        </div>-->
             </div>
             <div class="col-sm-6">
 
@@ -3369,7 +3376,7 @@ Checked
                                         </div>
                                         </div>
 
-<div class="row" style="font-size: 16px">
+<!--<div class="row" style="font-size: 16px">
              <div class="form-group">
                          {{ Form::label('supervisor', 'Supervisor ', array('class' => 'col-sm-3 control-label'));  }}
                           <div class="col-sm-9">
@@ -3379,7 +3386,8 @@ Checked
     @endif {{ Form::select('supervisor', $supervisors,$student_bqu_data->supervisor,['class'=>'chosen-select col-sm-12']);  }}
                                         </div>
                                         </div>
-            </div><br><br>
+            </div>-->
+            <br><br>
 
             <div class="doc-buttons">
             		                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -3469,8 +3477,34 @@ width: 250px !important;
  
 <script>
 
-$('[name="tt_country"]').val({{ $ttStudentContactInformation->country }}).trigger("chosen:updated");
-$('[name="country"]').val({{ $studentContactInformation->country }}).trigger("chosen:updated");
+
+$(function() {
+  // Handler for .ready() called.
+  $('[name="tt_country"]').val({{ $ttStudentContactInformation->country }}).trigger("chosen:updated");
+  $('[name="country"]').val({{ $studentContactInformation->country }}).trigger("chosen:updated");
+
+  $('[name="qualification_1"]').val({{ $student_educational_qualifications->qualification_1 }}).trigger("chosen:updated");
+  $('[name="qualification_2"]').val({{ $student_educational_qualifications->qualification_2 }}).trigger("chosen:updated");
+  $('[name="qualification_3"]').val({{ $student_educational_qualifications->qualification_3 }}).trigger("chosen:updated");
+
+
+if({{ $student_educational_qualifications->qualification_1 }} == 10000){$('[name="qualification_1_other"]').show();}
+if({{ $student_educational_qualifications->qualification_2 }} == 10000){$('[name="qualification_2_other"]').show();}
+if({{ $student_educational_qualifications->qualification_3 }} == 10000){$('[name="qualification_3_other"]').show();}
+
+  $('[name="agents_laps"]').val({{ $studentSource->agent_lap }}).trigger("chosen:updated");
+  $('[name="admission_managers"]').val({{ $studentSource->admission_manager }}).trigger("chosen:updated");
+if({{ $studentSource->agent_lap }} == 10000){$('[name="agents_laps_other"]').show();}
+if({{ $studentSource->admission_manager }} == 10000){$('[name="admission_managers_other"]').show();}
+
+    $('[name="deposit_method"]').val({{ $studentPaymentInfo->deposit_method }}).trigger("chosen:updated");
+    $('[name="installment_1_method"]').val({{ $studentPaymentInfo->installment_1_method }}).trigger("chosen:updated");
+    $('[name="installment_2_method"]').val({{ $studentPaymentInfo->installment_2_method }}).trigger("chosen:updated");
+    $('[name="installment_3_method"]').val({{ $studentPaymentInfo->installment_3_method }}).trigger("chosen:updated");
+});
+
+
+
     
     $('#information_source').change(function(){
         $.ajax({
