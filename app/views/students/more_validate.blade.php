@@ -2033,7 +2033,9 @@ Checked
                                   <div class="col-sm-8">
                                     @if(intval($student_course_enrolments->course_name)>0)
                            
- {{ Form::select('course_name', $course_names,$student_course_enrolments->course_name,['class'=>'chosen-select col-sm-4']);  }}   
+ {{ Form::select('course_name', $course_names,$student_course_enrolments->course_name,['class'=>'chosen-select col-sm-4']);  }}
+   @else
+   {{ Form::select('course_name', $course_names,'',['class'=>'chosen-select col-sm-4']);  }}
 
  
 								  @endif
