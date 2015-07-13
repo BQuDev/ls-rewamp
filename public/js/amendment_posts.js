@@ -289,6 +289,7 @@ $('#save_educational_qualifications_form').click(function(){
         english_language_level: $('[name="english_language_level[]"]:checked').map(function () {
             return this.value;
         }).get(),
+        english_language_level_other: $('[name="english_language_level_other"]').val(),
         qualification_1: $('[name="qualification_1"]').val(),
         qualification_1_other: $('[name="qualification_1_other"]').val(),
         institution_1: $('[name="institution_1"]').val(),

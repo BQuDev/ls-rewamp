@@ -37,6 +37,7 @@ $(function() {
     $('[name="country"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
     $('[name="course_name"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
     $('[name="awarding_body"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
+    $('[name="intake"]').prepend("<option value='0'>Please Select an Option</option>").val('0').trigger("chosen:updated");
 
 
     /*
