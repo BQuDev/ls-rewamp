@@ -30,7 +30,7 @@
 </style>
  <section class="panel panel-default">
 <div class="ssc">
-                <a href="#" class="btn btn-sm btn-success btncustom">Add New User Group</a></div>
+                <a href="#modal-form" class="btn btn-sm btn-success btncustom"  data-toggle="modal">Add New User Group</a></div>
 
                 <div class="table-responsive">
 
@@ -53,7 +53,7 @@
                            <td style="min-width: 120px;">
 @if (Sentry::getUser()->hasAccess('students.more'))
                            <a class="btn btn-sm btn-warning" href="{{ URL::to('/settings/user-management/user-groups/'.$group->name) }}">Edit Permissions</a>&nbsp;&nbsp;
-                           <a class="btn btn-sm btn-danger" href="{{ URL::to('/students/') }}">Delete</a>&nbsp;&nbsp;
+                           <a class="btn btn-sm btn-danger" href="{{ URL::to('/settings/user-management/user-groups/delete/'.$group->name) }}">Delete</a>&nbsp;&nbsp;
 @endif
                            </td>
                          </tr>
@@ -63,6 +63,39 @@
                   </table>
                 </div>
               </section>
+
+                  <div class="modal fade" id="modal-form">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-body wrapper-lg">
+                        <div class="row">
+                          <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b">Add a User Group</h3>
+                            {{ Form::open(array('url' =>URL::to("settings/user-management/user-groups"),  'class'=>'form-horizontal','method' => 'post','data-validate'=>'parsley','id'=>'group_add')) }}
+                              <div class="form-group">
+                                <label>User Group Name</label>
+                                {{ Form::text('group_name', '',['placeholder'=>'Enter Group Name','class'=>'form-control']); }}
+                              </div>
+                              <div class="checkbox m-t-lg">
+                                 <label>
+                                  <input type="checkbox"> Confirm adding User Group
+                                </label>
+                              </div>
+                               {{ Form::submit('Save', array('class' => 'btn btn-s-md btn-primary')) }}
+                            {{ Form::close() }}
+                          </div>
+                          <div class="col-sm-6">
+                            <h4>Guide</h4>
+                            <p>Befor you add a user group .... ........ ....... </p>
+                            <p>OR</p>
+                            asfsd set edg erghertherth eyth tyjhrt yjrthj yukm<br>
+                            asfsd set edg erghertherth eyth tyjhrt yjrthj yukm<br>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div>
 @stop
 
 

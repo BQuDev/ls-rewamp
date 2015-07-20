@@ -1113,7 +1113,7 @@
                                  {{ Form::label('application_input_by', 'Application input by', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-9">{{ Form::hidden('application_input_by', Sentry::getUser()->id) }} {{Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name}}</div>
                               </div>
-                              <div class="form-group">
+                              <!--<div class="form-group">
                                  {{ Form::label('supervisor', 'Supervisor ', array('class' => 'col-sm-3 control-label'));  }}
 
                                  <div class="col-sm-9">
@@ -1125,7 +1125,7 @@
                                 @endforeach
                                 </select>
                                  </div>
-                              </div>
+                              </div>-->
                               <!--<div class="form-group">
                                  {{ Form::label('date_of_birth', 'Applicant verified by BQu date', array('class' => 'col-sm-3 control-label'));  }}
                                  <div class="col-sm-3"><div class="form-inline">

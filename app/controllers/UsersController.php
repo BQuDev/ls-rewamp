@@ -79,6 +79,26 @@ class UsersController extends \BaseController {
 
 	}
 
+    public function add_user_groups(){
+
+        try {
+            // Create the group
+            $permissionArray =[];
+            $group = Sentry::createGroup(array(
+                'name' => Input::get('group_name'),
+                'permissions' => $permissionArray,
+            ));
+            Notify::success(Input::get('group_name'). ' added  successfully');
+            return Redirect::to('settings/user-management/user-groups')->withErrors('Group already exists');
+        } catch (Cartalyst\Sentry\Groups\NameRequiredException $e) {
+            echo 'Name field is required';
+        } catch (Cartalyst\Sentry\Groups\GroupExistsException $e) {
+            //echo 'Group already exists';
+            Notify::error('Group '.Input::get('group_name'). ' already exists');
+            return Redirect::to('settings/user-management/user-groups');
+
+        }
+    }
 	/**
 	 * Display the specified resource.
 	 * GET /user/{id}
@@ -89,6 +109,78 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		//
+	}
+
+	public function update_permissions()
+	{
+		//return Input::all();
+        //
+        // create the validation rules ------------------------
+        $rules = array(
+            'group_name'               => 'required',                      // just a normal required validation
+            'permissions'               => 'required'
+        );
+
+        $messages = array(
+            'required' => 'The :attribute required.',
+            'permissions.required' => 'permissions.required',
+        );
+        // do the validation ----------------------------------
+        // validate against the inputs from our form
+        $validator = Validator::make(Input::all(), $rules,$messages);
+
+        // check if the validator failed -----------------------
+        if ($validator->fails()) {
+
+            // get the error messages from the validator
+            $messages = $validator->messages();
+
+            // redirect our user back to the form with the errors from the validator
+            return Redirect::to('settings/user-management/user-groups')
+                ->withErrors($validator)->withInput();
+
+        } else {
+
+
+            // validation successful ---------------------------
+
+            $permissionArray =array();
+
+            // Creating permission array
+            foreach(Input::get('permissions') as $permission){
+                $permissionArray[$permission]=1;
+            }
+
+            $is_group_exists = DB::table('groups')->where('name','=',urldecode(Input::get('group_name')))->get();
+            if($is_group_exists){
+                $sucsess =  DB::table('groups')
+                    ->where('name','=',urldecode(Input::get('group_name')))
+                    ->update(array('permissions' => json_encode($permissionArray)));
+               if($sucsess == 1){
+                   Notify::success('Permissions Successfully Updated');
+                   return Redirect::to('settings/user-management/user-groups');
+               }
+			}else {
+
+                try {
+                    // Create the group
+                    $group = Sentry::createGroup(array(
+                        'name' => Input::get('group_name'),
+                        'permissions' => $permissionArray,
+                    ));
+                } catch (Cartalyst\Sentry\Groups\NameRequiredException $e) {
+                    echo 'Name field is required';
+                } catch (Cartalyst\Sentry\Groups\GroupExistsException $e) {
+                    //echo 'Group already exists';
+                    Notify::error('Group already exists');
+                    return Redirect::to('settings/user-management/user-groups')
+                        ->withErrors('Group already exists');
+                }
+            }
+            // redirect ----------------------------------------
+            return Redirect::to('settings/user-management/user-groups');
+
+        }
 	}
 
 	public function user_groups(){

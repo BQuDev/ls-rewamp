@@ -440,6 +440,11 @@ return View::make('students.index')
 
 
 
+    public function teststudents()
+	{
+	return Student::all();
+
+	}
     public function more_validate($san)
 	{
 		// Select agent or lap

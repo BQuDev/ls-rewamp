@@ -22,7 +22,7 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
         $x = Student::where('san','=','khpsh001')->first();
         return $x->id;
     });
-
+    Route::get('/teststudents', 'StudentsController@teststudents');
   //  Route::post('/modules/marks-input/create','ModulesController@saveMarkInputs');
 
 Route::group(array('before' => 'members_auth'), function()
@@ -30,6 +30,10 @@ Route::group(array('before' => 'members_auth'), function()
 
     Route::post('/modules/supervisor-allocation','ModuleSupervisorAllocationsController@assign_supervisor');
     //Route::post('/modules/supervisor-allocation','ModuleMarkerAllocationsController@assign_marker');
+
+    Route::get('/testpage',function(){
+       return View::make('test');
+    });
 
     Route::get('/logout', 'UsersController@logout');
     Route::get('/help', 'UsersController@logout');
@@ -61,9 +65,9 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('/settings/user-management/all-users','UsersController@index');
     Route::get('/settings/user-management/create','UsersController@create');
     Route::get('/settings/user-management/user-groups','UsersController@user_groups');
+    Route::post('/settings/user-management/user-groups','UsersController@add_user_groups');
     Route::get('/settings/user-management/user-groups/{group}','UsersController@edit_group');
     Route::post('/settings/user-management/user-groups/update_permissions','UsersController@update_permissions');
-
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');

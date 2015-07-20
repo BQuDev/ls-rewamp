@@ -47,8 +47,8 @@
  <th>Course Name	</th>
  <th>Top up / Advanced entry	</th>
  <th>Awarding body	</th>
+  <th>Intake</th>
  <th>Intake	Year	</th>
- <th>Intake</th>
  <th>Study mode	</th>
  <th>English language level</th>
  <th>Qualification 1	</th>
@@ -261,8 +261,9 @@ $studentContactInformationOnline = StudentContactInformationOnline::lastRecordBy
  @endif
  @endif
  </td>
- <td>@if((!is_null($studentCourseEnrolment))&&(!is_null($studentCourseEnrolment->intake))) {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	 @endif</td>
- <td>@if(!is_null($studentCourseEnrolment)) {{ ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->name }} @endif</td>
+ <td>@if((!is_null($studentCourseEnrolment))&&($studentCourseEnrolment->intake >0)) {{ ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->name }} @endif</td>
+ <td>@if((!is_null($studentCourseEnrolment))&&($studentCourseEnrolment->intake>0)) {{ StaticYear::getNameByID(ApplicationIntake::getRowByID($studentCourseEnrolment->intake)->year) }}	 @endif</td>
+
  <td>@if(!is_null($studentCourseEnrolment)) {{ $studentCourseEnrolment->study_mode }} @endif</td>
  <td>
  @if(StudentEnglishLangLevels::lastRecordBySAN($student->san)->english_language_level != 'null')
