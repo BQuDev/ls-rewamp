@@ -1036,6 +1036,21 @@ Checked
 
 
               <h4 class="m-t-none m-b">Existing Data</h4>
+              <div class="row" style="font-size: 16px" >
+<div class="form-group">
+         <div class="form-inline">
+            {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
+            <div class="col-sm-3">
+                {{ $studentSource->ams_date }}</div>
+           <!--  {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
+                         <div class="col-sm-3">
+                            {{ $studentSource->app_date }}</div>   -->
+         </div>
+      </div>
+
+
+              </div>
+
 <div class="row" style="font-size: 16px" >
                      <div class="form-group">
                                   {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
@@ -1080,6 +1095,24 @@ Checked
 
 
               <h4 class="m-t-none m-b">New Data</h4>
+
+
+                            <div class="row" style="font-size: 16px" >
+              <div class="form-group">
+                       <div class="form-inline">
+                          {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
+                          <div class="col-sm-3">
+                               {{ Form::text('ams_date',$studentSource->ams_date,['placeholder'=>'AMS Date ( DD-MM-YYYY )','class'=>'form-control','style'=>'width:250px']); }}
+                                                      </div>
+                         <!--  {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
+                                       <div class="col-sm-3">
+                                          {{ $studentSource->app_date }}</div>   -->
+                       </div>
+                    </div>
+
+
+                            </div>
+
 <div class="row" style="font-size: 16px" >
                      <div class="form-group">
                                   {{ Form::label('information_source', 'Information Source', array('class' => 'col-sm-3 control-label'));  }}
@@ -2091,7 +2124,7 @@ Checked
              <div class="form-group">
                          {{ Form::label('intake1', 'Intake', array('class' => 'col-sm-4 control-label'));  }}
                           <div class="col-sm-8">@if($student_course_enrolments->intake >0)
-                          {{ Form::select('intake_year', $intake_year,ApplicationIntake::getRowByID($student_course_enrolments->intake)->year,['class'=>'chosen-select col-sm-4','style'=>'max-width:100px !important']);  }}
+                          {{ Form::select('intake_year', $intake_year,ApplicationIntake::getRowByID($student_course_enrolments->intake)->year,['class'=>'chosen-select col-sm-4','style'=>'max-width:100px !important','id'=>'intake_year']);  }}
                           @endif
 </div>
 
@@ -3527,6 +3560,24 @@ if({{ $studentSource->admission_manager }} == 10000){$('[name="admission_manager
     $('li').click(function () {
         $('li.selected').removeClass('selected');
         $(this).addClass('selected');
+    });
+
+
+    $('#intake_year').change(function(){
+        $.ajax({
+            url: "{{ url('students/create/intakes/dropdown')}}",
+            data: {token: $('[name="_token"]').val(),option: $('#intake_year').val()},
+            success: function (data) {
+                $('[name="intake_month"]').empty();
+                var model = $('[name="intake"]');
+                model.empty();
+                $.each(data, function(index, element) {
+                    model.append("<option value='"+ index +"'>" + element + "</option>");
+                });
+                $('[name="intake"]').trigger("chosen:updated");
+            },
+            type: "GET"
+        });
     });
 </script>
 @stop

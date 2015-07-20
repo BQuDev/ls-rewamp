@@ -1042,6 +1042,7 @@ public function amendments(){
 
 
     public function saveStudentSource($is_verified){
+        $ams_date       = Input::get('ams_date');
         $information_source       = Input::get('information_source');
         $admission_manager        = Input::get('admission_manager');
         $admission_managers_other = Input::get('admission_managers_other');
@@ -1055,12 +1056,13 @@ public function amendments(){
 
 
         $student_sources = new StudentSource();
+        $student_sources->ams_date = $ams_date;
         $student_sources->source = $information_source;
         $student_sources->agent_lap = $agents_laps;
         $student_sources->agents_laps_other = $agents_laps_other;
         $student_sources->admission_manager = $admission_manager;
         $student_sources->admission_managers_other = $admission_managers_other;
-        $student_sources->ams_date = DB::table('student_sources')->where('san','=',$san)->orderBy('id','desc')->first()->ams_date;
+        //$student_sources->ams_date = DB::table('student_sources')->where('san','=',$san)->orderBy('id','desc')->first()->ams_date;
         $student_sources->is_verified = $is_verified;
         $student_sources->san = $san;
         $student_sources->amendment = 0;
