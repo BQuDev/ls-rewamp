@@ -101,6 +101,42 @@ class ModulesController extends \BaseController {
 		//
 	}
 
+    public function addMarks(){
+        $san = Input::get('san');
+        $marking_criteria = Input::get('marking_criteria');
+        $marks = Input::get('marks');
+
+        // check marker 1 or 2
+        $module_element_marking_criteria = DB::table('module_element_marking_criteria')->where('id','=',$marking_criteria)->get();
+        /*foreach($module_element_marking_criteria as $module_element_markin){
+            return $module_element_markin->id;
+        }*/
+        //return $module_element_marking_criteria[0]->element_id;
+        if($module_element_marking_criteria){
+
+            $markers = DB::table('student_module_markers_allocation')->where('element_id','=',$module_element_marking_criteria[0]->element_id)->get();
+            /*********************** Marker 1 != Marker 2***************/
+            if($markers){
+                if(intval($markers[0]->marker_1) == Sentry::getUser()->id){
+                    $add_marks = new StudentMark();
+                    $add_marks->marker_1 = $marks;
+                    $add_marks->marking_criteria_id = $marking_criteria;
+                    $add_marks->san = $san;
+                    $add_marks->save();
+                    return '1';
+                }else{
+                    $add_marks = new StudentMark();
+                    $add_marks->marker_2 = $marks;
+                    $add_marks->marking_criteria_id = $marking_criteria;
+                    $add_marks->san = $san;
+                    $add_marks->save();
+                    return '1';
+                }
+            }
+            //return '3';
+        }
+    }
+
     public function markInputIndex(){
         return View::make('modules.index_mark_input')->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
             ->groupBy('san')

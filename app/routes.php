@@ -61,6 +61,8 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('modules/marks-input/create/{ls_student_number}','ModulesController@markInputIndex1');*/
     Route::get('students/applications/export','StudentsController@export');
 
+    Route::post('modules/marks','ModulesController@addMarks');
+
 // To-Do
     Route::get('/settings/user-management/all-users','UsersController@index');
     Route::get('/settings/user-management/create','UsersController@create');

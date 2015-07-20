@@ -262,7 +262,8 @@
 
                                                                </span>
                                                              </th>
-                                                             <th>Marks</th>
+                                                             <th>Marks ( Marker 1 )</th>
+                                                             <th>Marks ( Marker 2 )</th>
                                                              <th></th>
                                                            </tr>
                                                          </thead>
@@ -274,6 +275,7 @@
 
                                                            <tr>
                                                              <td>{{$marking_criteria->name }}</td>
+                                                             <td><input type="text" id="marks_{{$marking_criteria->id.'_'.$student->san }}"></td>
                                                              <td><input type="text" id="marks_{{$marking_criteria->id.'_'.$student->san }}"></td>
                                                              <td> <a class="btn btn-primary save_marks" href="#" id="{{$marking_criteria->id.'_'.$student->san }}" class="">Update Marks</a></td>
                                                            </tr>
@@ -389,11 +391,12 @@ $('[name="marker_2"]').change(function(){
         //console.log($(element_id).html());
         //console.log(san);
         console.log($(san).html());
+        console.log($(marks).val());
         //var selectedVal =$(select).val();
-if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
+if($(marks).val() == '' )
 {
                new PNotify({
-                     title: 'Please select a Markers',
+                     title: 'Please insert marks',
                     notice:'info',
                     type : 'info',
                     buttons: {
@@ -405,19 +408,20 @@ if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
                     hide: true,
                     stack: stack_bottomright
                   })
-}else{
+}else{/*
         $.ajax({
-            url: "{{ url('modules/mar0ker-allocation')}}",
+            url: "{{ url('modules/marks')}}",
             data: {token: $('[name="_token"]').val(),
             san: $(san).html(),
             marking_criteria:$(marking_criteria_id).html(),
             marks:$(marks).val()
             },
-            success: function (data) {
-               if(data == 1){
+            success: function (data){
+            console.log(data);*/
+              // if(data == 1){
                new PNotify({
-                       title: 'Marker Successfully assigned',
-                       text: ' Marker Successfully assigned to '+$(san).html(),
+                       title: 'Marks Added Successfully',
+                       text: ' Marks Added Successfully to '+$(san).html(),
                        notice:'success',
                        type : 'success',
                        buttons: {
@@ -429,7 +433,7 @@ if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
                        hide: true,
                        stack: stack_bottomright
                    })
-                   }else if(data == 0){
+                  /* }else if(data == 0){
                    new PNotify({
                           title: 'Marker not assigned',
                           text: 'Please contact BQu IT team',
@@ -459,12 +463,12 @@ if(($(marker_1).val() == 0 )&($(marker_2).val() == 0 ))
                               hide: true,
                               stack: stack_bottomright
                           });
-                       }
+                       }*/
 
-
+/*
             },
             type: "POST"
-        });}
+        });*/}
 
   });
 
