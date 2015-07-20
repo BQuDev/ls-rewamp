@@ -44,6 +44,7 @@ $('#save_admission_manager_information_form').click(function(){
 
     $.post( base_url+"students/amendments", {
         token: $('[name="_token"]').val(),
+        ams_date: $('[name="ams_date"]').val(),
         information_source: $('[name="information_source"]').val(),
         admission_manager: $('[name="admission_manager"]').val(),
         admission_managers_other: $('[name="admission_managers_other"]').val(),
