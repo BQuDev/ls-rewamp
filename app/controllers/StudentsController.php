@@ -338,7 +338,8 @@ class StudentsController extends \BaseController {
                 $bqu_application_data = new StudentBquData();
                 $bqu_application_data->application_received_date =  Input::get('application_received_to_bqu_date').'-'.Input::get('application_received_to_bqu_month').'-'.Input::get('application_received_to_bqu_year');
 
-                $bqu_application_data->supervisor =Input::get('supervisor');
+               // $bqu_application_data->supervisor =Input::get('supervisor');
+                $bqu_application_data->supervisor =7;
 
                 $bqu_application_data->notes = Input::get('notes');
                 $bqu_application_data->san = Input::get('san');
@@ -1485,7 +1486,8 @@ public function amendments(){
 	public function saveBQuOnly($is_verified){
 		
         $application_received_date = Input::get('application_received_date');
-        $supervisor = Input::get('supervisor');
+        //$supervisor = Input::get('supervisor');
+        $supervisor = 7;
 
 
         $t = Input::get('t');
