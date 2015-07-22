@@ -3,47 +3,28 @@
 
 class StudentsController extends \BaseController {
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /students
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+	public function index(){
 		//
 		return View::make('students.index')
                         ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
                             ->groupBy('san')
                             ->get());
 	}
-
-
-    public function validate()
-    {
+    public function validate(){
         //
         return View::make('students.validate')
             ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
                 ->groupBy('san')
                 ->get());
     }
-
-    public function verify()
-    {
+    public function verify(){
         //
         return View::make('students.verify')
             ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
                 ->groupBy('san')
                 ->get());
     }
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /students/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
+	public function create(){
 		//
 		try
             {
@@ -80,15 +61,7 @@ class StudentsController extends \BaseController {
                     ->with('intake',ApplicationIntake::where('year','=',1)->lists('name','id'))
                     ->with('supervisors',$supervisors);
 	}
-
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /students
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
+	public function store(){
 		//
 
 		$student_exists = Student::where('san','=',Input::get('san'))->first();
@@ -367,16 +340,7 @@ return View::make('students.index')
                             ->groupBy('san')
                             ->get());
 	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /students/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($san)
-	{
+	public function show($san){
 		//
 		 return View::make('students.more')
                     ->with('information_sources',ApplicationSource::lists('name','id'))
@@ -436,18 +400,11 @@ return View::make('students.index')
                         ->first())
                     ;
 	}
-
-
-
-
-
-    public function teststudents()
-	{
+    public function teststudents()	{
 	return Student::all();
 
 	}
-    public function more_validate($san)
-	{
+    public function more_validate($san)	{
 		// Select agent or lap
 
 		if(StudentSource::where('san','=',$san)->orderBy('id','desc')->first()->source == 2){
@@ -531,8 +488,74 @@ return View::make('students.index')
 
 
 	}
+	
+	public function amendment(){
+			return View::make('students.amendment')
+                ->with('students', DB::table('students')->select(DB::raw('max(id) as id,title,initials_1,initials_2,initials_3,forename_1,forename_2,forename_3,surname,ls_student_number ,san'))
+                    ->groupBy('san')
+                    ->get());
+	}
+	
+	public function more_amendment($san){
+		return View::make('students.more_amendment')
+                    ->with('information_sources',ApplicationSource::lists('name','id'))
+                    ->with('admission_managers',ApplicationAdmissionManager::lists('name','id'))
 
+                    ->with('application_agents',ApplicationAgent::lists('name','id'))
+                    ->with('application_laps',ApplicationLap::lists('name','id'))
 
+                    ->with('nationalities',StaticNationality::lists('name','id'))
+                    ->with('countries',StaticCountry::lists('name','id'))
+                    ->with('course_names',ApplicationCourse::lists('name','id'))
+                    ->with('awarding_bodies',ApplicationAwardingBody::lists('name','id'))
+
+                    ->with('education_qualifications',ApplicationEducationalQualification::lists('name','id'))
+                    ->with('method_of_payment',ApplicationPaymentInfoMethodsOfPayment::lists('name','id'))
+                    ->with('application_status',ApplicationStatus::lists('name','id'))
+                    ->with('intake_year',StaticYear::lists('name','id'))
+                    ->with('intake_month',StaticMonth::lists('name','id'))
+                     ->with('intake',ApplicationIntake::where('year','=',1)->lists('name','id'))
+                    // Getting Saved DATA
+                    ->with('student',Student::where('san','=',$san)->orderBy('id','desc')->first())
+                    ->with('studentSource',StudentSource::where('san','=',$san)->orderBy('id','desc')->first())
+                    ->with('ttStudentContactInformation',DB::table('student_contact_informations')
+                        ->where('student_contact_information_type','=',1)
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentContactInformation',DB::table('student_contact_informations')
+                        ->where('student_contact_information_type','=',2)
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentContactInformationOnline',DB::table('student_contact_information_onlines')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_contact_information_kin_detailes',DB::table('student_contact_information_kin_detailes')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_course_enrolments',DB::table('student_course_enrolments')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('student_educational_qualifications',DB::table('student_educational_qualifications')
+                                                                                        ->where('san','=',$san)->orderBy('id','desc')
+                                                                                        ->first())
+                    ->with('student_english_lang_levels',DB::table('student_english_lang_levels')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentWorkExperience',DB::table('student_work_experiences')
+                                                                              ->where('san','=',$san)->orderBy('id','desc')
+                                                                              ->first())
+                    ->with('student_payment_info_metadata',DB::table('student_payment_info_metadatas')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ->with('studentPaymentInfo',DB::table('student_payment_infos')
+                           ->where('san','=',$san)->orderBy('id','desc')
+                           ->first())
+                    ->with('student_bqu_data',DB::table('student_bqu_data')
+                        ->where('san','=',$san)->orderBy('id','desc')
+                        ->first())
+                    ;
+		
+	}
 	public function more_verify($san){
 	if(StudentSource::where('san','=',$san)->orderBy('id','desc')->first()->source == 2){
                            $agents_laps = ApplicationLap::lists('name','id');
@@ -613,20 +636,10 @@ return View::make('students.index')
 
                         ;
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /students/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
+	public function edit($id){
 		//
 	}
-
-public function snapshot($san , $table_name , $latest_value, $client_time){
+	public function snapshot($san , $table_name , $latest_value, $client_time){
     $tables = ['student_bqu_data','student_contact_information_kin_detailes','student_contact_information_onlines',
     'student_contact_informations','student_course_enrolments','student_educational_qualifications','student_english_lang_levels',
     'student_payment_info_metadatas','student_payment_infos','student_sources','student_work_experiences',
@@ -653,18 +666,15 @@ public function snapshot($san , $table_name , $latest_value, $client_time){
         return 'Snapshot Failed';
         }
 }
-
-
-public function latestRecord($table , $san){
+	public function latestRecord($table , $san){
     $latest_record = DB::table($table)->where('san','=',$san)->orderBy('id', 'desc')->first();
     return  json_decode(json_encode($latest_record), true);
 }
-
-public function saveAmendmentLog($old_value,$new_value,$old_value,$column,$table,$table_id,$client_time,$san){
+	public function saveAmendmentLog($old_value,$new_value,$old_value,$column,$table,$table_id,$client_time,$san){
 
 
 }
-public function amendment_log_raw($san , $old_array, $new_array ,$client_time){
+	public function amendment_log_raw($san , $old_array, $new_array ,$client_time){
 
    /* if ( strcmp ( $old_value, $new_value) != 0  ){
 
@@ -673,8 +683,7 @@ public function amendment_log_raw($san , $old_array, $new_array ,$client_time){
     }*/
 
 }
-
-public function amendments(){
+	public function amendments(){
     switch (Input::get('se')) {
         case 'admission_manager_information_form':
 
@@ -982,34 +991,13 @@ public function amendments(){
                 break;
     }
     }
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /students/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
+	public function update($id)	{
 		//
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /students/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
+	public function destroy($id){
 		//
 	}
-
-
-    public function checkSanAvailability()
-    {
+    public function checkSanAvailability(){
 
        $clanCount = Student::where('san', '=', Input::get('option'))->count();
         if ($clanCount == 0) {
@@ -1018,7 +1006,6 @@ public function amendments(){
             return 'Not Available';
         }
     }
-
     public function information_source_dropdown(){
         $source = Input::get('option');
         if(intval($source) == 1)
@@ -1029,7 +1016,6 @@ public function amendments(){
             return ApplicationLap::lists('name','id');
         }
     }
-
     public function intakes_dropdown(){
         $year = Input::get('option');
        return ApplicationIntake::where('year','=',$year)->lists('name','id');
@@ -1040,10 +1026,9 @@ public function amendments(){
        return Module::where('course_id','=',$course_id)->lists('name','id');
       // return DB::table('application_intakes')->select('name','id')->where('year','=',$year)->get();
     }
-
-
     public function saveStudentSource($is_verified){
-        $ams_date       = Input::get('ams_date');
+      //  $ams_date       = Input::get('ams_date');
+        $ams_date       = Input::get('ams_date_date') . '-' . Input::get('ams_date_month') . '-' . Input::get('ams_date_year');
         $information_source       = Input::get('information_source');
         $admission_manager        = Input::get('admission_manager');
         $admission_managers_other = Input::get('admission_managers_other');
@@ -1281,12 +1266,18 @@ public function amendments(){
         $qualification_1_other = Input::get('qualification_1_other');
         $qualification_2_other = Input::get('qualification_2_other');
         $qualification_3_other = Input::get('qualification_3_other');
-        $qualification_start_date_1 = Input::get('qualification_start_date_1');
-        $qualification_start_date_2 = Input::get('qualification_start_date_2');
-        $qualification_start_date_3 = Input::get('qualification_start_date_3');
-        $qualification_end_date_1 = Input::get('qualification_end_date_1');
-        $qualification_end_date_2 = Input::get('qualification_end_date_2');
-        $qualification_end_date_3 = Input::get('qualification_end_date_3');
+        //$qualification_start_date_1 = Input::get('qualification_start_date_1');
+        //$qualification_start_date_2 = Input::get('qualification_start_date_2');
+        //$qualification_start_date_3 = Input::get('qualification_start_date_3');
+        $qualification_start_date_1 = Input::get('qualification_start_date_1_date').'-'.Input::get('qualification_start_date_1_month').'-'.Input::get('qualification_start_date_1_year');
+        $qualification_start_date_2 = Input::get('qualification_start_date_2_date').'-'.Input::get('qualification_start_date_2_month').'-'.Input::get('qualification_start_date_2_year');
+        $qualification_start_date_3 = Input::get('qualification_start_date_3_date').'-'.Input::get('qualification_start_date_3_month').'-'.Input::get('qualification_start_date_3_year');
+        //$qualification_end_date_1 = Input::get('qualification_end_date_1');
+        //$qualification_end_date_2 = Input::get('qualification_end_date_2');
+        //$qualification_end_date_3 = Input::get('qualification_end_date_3');
+        $qualification_end_date_1 = Input::get('qualification_end_date_1_date').'-'.Input::get('qualification_end_date_1_month').'-'.Input::get('qualification_end_date_1_year');
+        $qualification_end_date_1 = Input::get('qualification_end_date_2_date').'-'.Input::get('qualification_end_date_2_month').'-'.Input::get('qualification_end_date_2_year');
+        $qualification_end_date_1 = Input::get('qualification_end_date_3_date').'-'.Input::get('qualification_end_date_3_month').'-'.Input::get('qualification_end_date_3_year');
         $qualification_grade_1 = Input::get('qualification_grade_1');
         $qualification_grade_2 = Input::get('qualification_grade_2');
         $qualification_grade_3 = Input::get('qualification_grade_3');
@@ -1315,22 +1306,28 @@ public function amendments(){
         $studentEducationalQualification->qualification_1 = $qualification_1;
         $studentEducationalQualification->qualification_other_1 = $qualification_1_other;
         $studentEducationalQualification->institution_1 = $institution_1;
-        $studentEducationalQualification->qualification_start_date_1 = $qualification_start_date_1;
-        $studentEducationalQualification->qualification_end_date_1 = $qualification_end_date_1;
+        //$studentEducationalQualification->qualification_start_date_1 = $qualification_start_date_1;
+        //$studentEducationalQualification->qualification_end_date_1 = $qualification_end_date_1;
+        $studentEducationalQualification->qualification_start_date_1 = Input::get('qualification_start_date_1_date').'-'.Input::get('qualification_start_date_1_month').'-'.Input::get('qualification_start_date_1_year');
+        $studentEducationalQualification->qualification_end_date_1 = Input::get('qualification_end_date_1_date').'-'.Input::get('qualification_end_date_1_month').'-'.Input::get('qualification_end_date_1_year');
         $studentEducationalQualification->qualification_grade_1 = $qualification_grade_1;
 
         $studentEducationalQualification->qualification_2 = $qualification_2;
         $studentEducationalQualification->qualification_other_2 = $qualification_2_other;
         $studentEducationalQualification->institution_2 = $institution_2;
-        $studentEducationalQualification->qualification_start_date_2 = $qualification_start_date_2;
-        $studentEducationalQualification->qualification_end_date_2 = $qualification_end_date_2;
+        //$studentEducationalQualification->qualification_start_date_2 = $qualification_start_date_2;
+        //$studentEducationalQualification->qualification_end_date_2 = $qualification_end_date_2;
+		$studentEducationalQualification->qualification_start_date_2 = Input::get('qualification_start_date_2_date').'-'.Input::get('qualification_start_date_2_month').'-'.Input::get('qualification_start_date_2_year');
+        $studentEducationalQualification->qualification_end_date_2 = Input::get('qualification_end_date_2_date').'-'.Input::get('qualification_end_date_2_month').'-'.Input::get('qualification_end_date_2_year');
         $studentEducationalQualification->qualification_grade_2 = $qualification_grade_2;
 
         $studentEducationalQualification->qualification_3 = $qualification_3;
         $studentEducationalQualification->qualification_other_3 = $qualification_3_other;
         $studentEducationalQualification->institution_3 = $institution_3;
-        $studentEducationalQualification->qualification_start_date_3 = $qualification_start_date_3;
-        $studentEducationalQualification->qualification_end_date_3 = $qualification_end_date_3;
+        //$studentEducationalQualification->qualification_start_date_3 = $qualification_start_date_3;
+        //$studentEducationalQualification->qualification_end_date_3 = $qualification_end_date_3;
+		$studentEducationalQualification->qualification_start_date_3 = Input::get('qualification_start_date_3_date').'-'.Input::get('qualification_start_date_3_month').'-'.Input::get('qualification_start_date_2_year');
+        $studentEducationalQualification->qualification_end_date_3 = Input::get('qualification_end_date_3_date').'-'.Input::get('qualification_end_date_3_month').'-'.Input::get('qualification_end_date_3_year');
         $studentEducationalQualification->qualification_grade_3 = $qualification_grade_3;
 
         $studentEducationalQualification->is_verified = $is_verified;
@@ -1353,13 +1350,17 @@ public function amendments(){
         $main_duties_and_responsibilities_2 = Input::get('main_duties_and_responsibilities_2');
         $main_duties_and_responsibilities_3 = Input::get('main_duties_and_responsibilities_3');
 
-        $occupation_start_date_1 = Input::get('occupation_start_date_1');
-        $occupation_start_date_2 = Input::get('occupation_start_date_2');
-        $occupation_start_date_3 = Input::get('occupation_start_date_3');
+        $occupation_start_date_1 = Input::get('occupation_start_date_1_date').'-'.Input::get('occupation_start_date_1_month').'-'.Input::get('occupation_start_date_1_year');
+        $occupation_start_date_2 = Input::get('occupation_start_date_2_date').'-'.Input::get('occupation_start_date_2_month').'-'.Input::get('occupation_start_date_2_year');
+        $occupation_start_date_3 = Input::get('occupation_start_date_3_date').'-'.Input::get('occupation_start_date_3_month').'-'.Input::get('occupation_start_date_3_year');
+        //$occupation_start_date_2 = Input::get('occupation_start_date_2');
+        //$occupation_start_date_3 = Input::get('occupation_start_date_3');
 
-        $occupation_end_date_1 = Input::get('occupation_end_date_1');
-        $occupation_end_date_2 = Input::get('occupation_end_date_2');
-        $occupation_end_date_3 = Input::get('occupation_end_date_3');
+        $occupation_end_date_1 = Input::get('occupation_end_date_1_date').'-'.Input::get('occupation_end_date_1_month').'-'.Input::get('occupation_end_date_1_year');
+        $occupation_end_date_2 = Input::get('occupation_end_date_2_date').'-'.Input::get('occupation_end_date_2_month').'-'.Input::get('occupation_end_date_2_year');
+        $occupation_end_date_3 = Input::get('occupation_end_date_3_date').'-'.Input::get('occupation_end_date_3_month').'-'.Input::get('occupation_end_date_3_year');
+        //$occupation_end_date_2 = Input::get('occupation_end_date_2');
+        //$occupation_end_date_3 = Input::get('occupation_end_date_3');
 
         $currently_working_1 = Input::get('currently_working_1');
         $currently_working_2 = Input::get('currently_working_2');
@@ -1421,19 +1422,23 @@ public function amendments(){
 
 
         $deposit = Input::get('deposit');
-        $deposit_date = Input::get('deposit_date');
+        //$deposit_date = Input::get('deposit_date');
+        $deposit_date = Input::get('deposit_date_date').'-'.Input::get('deposit_date_month').'-'.Input::get('deposit_date_year');
         $deposit_method = Input::get('deposit_method');
 
         $installment_1 = Input::get('installment_1');
-        $installment_1_date = Input::get('installment_1_date');
+        //$installment_1_date = Input::get('installment_1_date');
+        $installment_1_date = Input::get('installment_1_date_date').'-'.Input::get('installment_1_date_month').'-'.Input::get('installment_1_date_year');
         $installment_1_method = Input::get('installment_1_method');
 
         $installment_2 = Input::get('installment_2');
-        $installment_2_date = Input::get('installment_2_date');
+        //$installment_2_date = Input::get('installment_2_date');
+        $installment_2_date = Input::get('installment_2_date_date').'-'.Input::get('installment_2_date_month').'-'.Input::get('installment_2_date_year');
         $installment_2_method = Input::get('installment_2_method');
 
         $installment_3 = Input::get('installment_3');
-        $installment_3_date = Input::get('installment_3_date');
+        //$installment_3_date = Input::get('installment_3_date');
+		$installment_3_date = Input::get('installment_3_date_date').'-'.Input::get('installment_3_date_month').'-'.Input::get('installment_3_date_year');
         $installment_3_method = Input::get('installment_3_method');
 
         $t = Input::get('t');
@@ -1497,7 +1502,8 @@ public function amendments(){
         $ls_student_number = Input::get('ls_student_number');
 
         $studentBquData = new StudentBquData();
-        $studentBquData->application_received_date = $application_received_date;
+        //$studentBquData->application_received_date = $application_received_date;
+        $studentBquData->application_received_date = Input::get('application_received_date_date').'-'.Input::get('application_received_date_month').'-'.Input::get('application_received_date_year');
         $studentBquData->supervisor = $supervisor;
         $studentBquData->notes = '';
 
@@ -1509,10 +1515,8 @@ public function amendments(){
                     $studentBquData->amendment = 0;
                     $studentBquData->save();
         return $studentBquData->id;
-    }
-
-	
-public function export(){
+    }	
+	public function export(){
 	//$students = Student::all();
 	
 
@@ -1533,7 +1537,6 @@ public function export(){
 
 		})->download('xls');
     }
-
     public function validate_student(){
 
     $studentApplicationStatus = new StudentApplicationStatus();
@@ -1549,7 +1552,6 @@ public function export(){
                     ->get());
      return Input::all();
     }
-
     public function verify_student(){
  //return Input::all();
     $studentBquVerificationData = new StudentBquVerificationData();

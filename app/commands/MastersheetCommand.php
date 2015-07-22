@@ -44,7 +44,8 @@ class MastersheetCommand extends Command {
 
             if(!is_null( $student_sources)){
 
-                $mastersheet->ams_date =  $student_sources->ams_date;
+                //$mastersheet->ams_date =  $student_sources->ams_date;
+                $mastersheet->ams_date =  DateTime::createFromFormat('j-m-Y H:i:s', $student_sources->ams_date.'00:00:00');
 
                 if(!is_null( $student_sources)&($student_sources->source>0)){
                     $mastersheet->source  =   ApplicationSource::getNameByID(intval($student_sources->source));
@@ -77,7 +78,8 @@ class MastersheetCommand extends Command {
             $mastersheet->surname       = $student_details->surname;
             $mastersheet->gender        = $student_details->gender;
 
-            $mastersheet->date_of_birth = $student_details->date_of_birth;
+            //$mastersheet->date_of_birth = $student_details->date_of_birth;
+            $mastersheet->date_of_birth = DateTime::createFromFormat('j-m-Y H:i:s', $student_details->date_of_birth.'00:00:00');
             if($student_details->nationality > 0){
                 $mastersheet->nationality = StaticNationality::getNameByID($student_details->nationality);
             }
@@ -186,10 +188,12 @@ class MastersheetCommand extends Command {
 
             $mastersheet->institution_1               = $studentEducationalQualification->institution_1;
             if(intval($studentEducationalQualification->qualification_start_date_1)>0) {
-                $mastersheet->qualification_start_date_1 = $studentEducationalQualification->qualification_start_date_1;
+                //$mastersheet->qualification_start_date_1 = $studentEducationalQualification->qualification_start_date_1;
+				$mastersheet->qualification_start_date_1 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_start_date_1.'00:00:00');
             }
             if(intval($studentEducationalQualification->qualification_end_date_1)>0) {
-                $mastersheet->qualification_end_date_1 = $studentEducationalQualification->qualification_end_date_1;
+                //$mastersheet->qualification_end_date_1 = $studentEducationalQualification->qualification_end_date_1;
+				$mastersheet->qualification_end_date_1 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_end_date_1.'00:00:00');
             }
             $mastersheet->qualification_grade_1       = $studentEducationalQualification->qualification_grade_1;
 
@@ -204,10 +208,12 @@ class MastersheetCommand extends Command {
 
             $mastersheet->institution_2               = $studentEducationalQualification->institution_2;
             if(intval($studentEducationalQualification->qualification_start_date_2)>0) {
-                $mastersheet->qualification_start_date_2 = $studentEducationalQualification->qualification_start_date_2;
+                //$mastersheet->qualification_start_date_2 = $studentEducationalQualification->qualification_start_date_2;
+				$mastersheet->qualification_start_date_2 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_start_date_2.'00:00:00');
             }
             if(intval($studentEducationalQualification->qualification_end_date_2)>0) {
-                $mastersheet->qualification_end_date_2 = $studentEducationalQualification->qualification_end_date_2;
+                //$mastersheet->qualification_end_date_2 = $studentEducationalQualification->qualification_end_date_2;
+				$mastersheet->qualification_end_date_2 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_end_date_2.'00:00:00');
             }
             $mastersheet->qualification_grade_2       = $studentEducationalQualification->qualification_grade_2;
 
@@ -222,10 +228,12 @@ class MastersheetCommand extends Command {
 
             $mastersheet->institution_3               = $studentEducationalQualification->institution_3;
             if(intval($studentEducationalQualification->qualification_start_date_3)>0) {
-                $mastersheet->qualification_start_date_3 = $studentEducationalQualification->qualification_start_date_3;
+                //$mastersheet->qualification_start_date_3 = $studentEducationalQualification->qualification_start_date_3;
+				$mastersheet->qualification_start_date_3 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_start_date_3.'00:00:00');
             }
             if(intval($studentEducationalQualification->qualification_end_date_2)>0) {
-                $mastersheet->qualification_end_date_3 = $studentEducationalQualification->qualification_end_date_3;
+                //$mastersheet->qualification_end_date_3 = $studentEducationalQualification->qualification_end_date_3;
+				$mastersheet->qualification_end_date_3 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentEducationalQualification->qualification_end_date_3.'00:00:00');
             }
             $mastersheet->qualification_grade_3       = $studentEducationalQualification->qualification_grade_3;
 
@@ -236,10 +244,12 @@ class MastersheetCommand extends Command {
             $mastersheet->company_name_1           = $studentWorkExperiences->company_name_1;
             $mastersheet->main_duties_1            = $studentWorkExperiences->main_duties_1;
             if(intval($studentWorkExperiences->occupation_start_date_1)>0) {
-                $mastersheet->occupation_start_date_1 = $studentWorkExperiences->occupation_start_date_1;
+                //$mastersheet->occupation_start_date_1 = $studentWorkExperiences->occupation_start_date_1;
+				$mastersheet->occupation_start_date_1 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_start_date_1.'00:00:00');
             }
             if(intval($studentWorkExperiences->occupation_end_date_1)>0) {
-                $mastersheet->occupation_end_date_1 = $studentWorkExperiences->occupation_end_date_1;
+                //$mastersheet->occupation_end_date_1 = $studentWorkExperiences->occupation_end_date_1;
+				$mastersheet->occupation_end_date_1 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_end_date_1.'00:00:00');
             }
             if($studentWorkExperiences->currently_working_1 == 'Yes') {
                 $mastersheet->currently_working_1 = $studentWorkExperiences->currently_working_1;
@@ -249,10 +259,12 @@ class MastersheetCommand extends Command {
             $mastersheet->company_name_2           = $studentWorkExperiences->company_name_2;
             $mastersheet->main_duties_2            = $studentWorkExperiences->main_duties_2;
             if(intval($studentWorkExperiences->occupation_start_date_2)>0) {
-                $mastersheet->occupation_start_date_2 = $studentWorkExperiences->occupation_start_date_2;
+                //$mastersheet->occupation_start_date_2 = $studentWorkExperiences->occupation_start_date_2;
+				$mastersheet->occupation_start_date_2 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_start_date_2.'00:00:00');
             }
             if(intval($studentWorkExperiences->occupation_end_date_2)>0) {
-                $mastersheet->occupation_end_date_2 = $studentWorkExperiences->occupation_end_date_2;
+                //$mastersheet->occupation_end_date_2 = $studentWorkExperiences->occupation_end_date_2;
+				$mastersheet->occupation_end_date_2 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_end_date_2.'00:00:00');
             }
             if($studentWorkExperiences->currently_working_2 == 'Yes') {
                 $mastersheet->currently_working_2 = $studentWorkExperiences->currently_working_2;
@@ -262,10 +274,12 @@ class MastersheetCommand extends Command {
             $mastersheet->company_name_3           = $studentWorkExperiences->company_name_3;
             $mastersheet->main_duties_3            = $studentWorkExperiences->main_duties_3;
             if(intval($studentWorkExperiences->occupation_start_date_3)>0) {
-                $mastersheet->occupation_start_date_3 = $studentWorkExperiences->occupation_start_date_3;
+                //$mastersheet->occupation_start_date_3 = $studentWorkExperiences->occupation_start_date_3;
+				$mastersheet->occupation_start_date_3 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_start_date_3.'00:00:00');
             }
             if(intval($studentWorkExperiences->occupation_end_date_3)>0) {
-                $mastersheet->occupation_end_date_3 = $studentWorkExperiences->occupation_end_date_3;
+                //$mastersheet->occupation_end_date_3 = $studentWorkExperiences->occupation_end_date_3;
+				$mastersheet->occupation_end_date_3 =  DateTime::createFromFormat('j-m-Y H:i:s', $studentWorkExperiences->occupation_end_date_3.'00:00:00');
             }
             if($studentWorkExperiences->currently_working_3 == 'Yes') {
                 $mastersheet->currently_working_3 = $studentWorkExperiences->currently_working_3;
@@ -308,24 +322,28 @@ class MastersheetCommand extends Command {
 
             $studentPaymentInfo = StudentPaymentInfo::lastRecordBySAN($student->san);
             $mastersheet->deposit        = $studentPaymentInfo->deposit;
-            $mastersheet->deposit_date   = $studentPaymentInfo->deposit_date;
+            //$mastersheet->deposit_date   = $studentPaymentInfo->deposit_date;
+			$mastersheet->deposit_date =  DateTime::createFromFormat('j-m-Y H:i:s', $studentPaymentInfo->deposit_date.'00:00:00');
             if(intval($studentPaymentInfo->deposit_method)>0){
                 $mastersheet->deposit_method =ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->deposit_method);
             }
             $mastersheet->installment_1        = $studentPaymentInfo->installment_1;
-            $mastersheet->installment_1_date   = $studentPaymentInfo->installment_1_date;
+            //$mastersheet->installment_1_date   = $studentPaymentInfo->installment_1_date;
+			$mastersheet->installment_1_date =  DateTime::createFromFormat('j-m-Y H:i:s', $studentPaymentInfo->installment_1_date.'00:00:00');
             if(intval($studentPaymentInfo->installment_1_method)>0){
                 $mastersheet->installment_1_method =ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_1_method);
             }
 
             $mastersheet->installment_2        = $studentPaymentInfo->installment_2;
-            $mastersheet->installment_2_date   = $studentPaymentInfo->installment_2_date;
+            //$mastersheet->installment_2_date   = $studentPaymentInfo->installment_2_date;
+			$mastersheet->installment_2_date =  DateTime::createFromFormat('j-m-Y H:i:s', $studentPaymentInfo->installment_2_date.'00:00:00');
             if(intval($studentPaymentInfo->installment_2_method)>0){
                 $mastersheet->installment_2_method =ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_2_method);
             }
 
             $mastersheet->installment_3        = $studentPaymentInfo->installment_3;
-            $mastersheet->installment_3_date   = $studentPaymentInfo->installment_3_date;
+            //$mastersheet->installment_3_date   = $studentPaymentInfo->installment_3_date;
+			$mastersheet->installment_3_date =  DateTime::createFromFormat('j-m-Y H:i:s', $studentPaymentInfo->installment_3_date.'00:00:00');
             if(intval($studentPaymentInfo->installment_3_method)>0){
                 $mastersheet->installment_3_method = ApplicationPaymentInfoMethodsOfPayment::getNameByID($studentPaymentInfo->installment_3_method);
             }
@@ -348,6 +366,7 @@ class MastersheetCommand extends Command {
                 $mastersheet->application_created_by = User::getFirstNameByID(intval($studentApplicationBasicStatus->created_by)) . ' ' . User::getLastNameByID(intval($studentApplicationBasicStatus->created_by));
 
                 $mastersheet->application_created_at = $studentApplicationBasicStatus->created_at;
+				//$mastersheet->application_created_at =  DateTime::createFromFormat('j-m-Y H:i:s', $studentApplicationBasicStatus->created_at);
             }
 
             $studentApplicationValidateStatus = DB::table('student_application_status')->where('san','=',$student->san)->where('status','=',2)->orderBy('id', 'desc')->first();
@@ -355,6 +374,7 @@ class MastersheetCommand extends Command {
                 $mastersheet->application_validated_by = User::getFirstNameByID(intval($studentApplicationValidateStatus->created_by)) . ' ' . User::getLastNameByID(intval($studentApplicationValidateStatus->created_by));
 
                 $mastersheet->application_validated_at = $studentApplicationValidateStatus->created_at;
+                //$mastersheet->application_validated_at =  DateTime::createFromFormat('j-m-Y H:i:s', $studentApplicationValidateStatus->created_at);
             }
 
             $studentApplicationVerifiedStatus = DB::table('student_application_status')->where('san','=',$student->san)->where('status','=',3)->orderBy('id', 'desc')->first();
@@ -362,6 +382,7 @@ class MastersheetCommand extends Command {
                 $mastersheet->application_verified_by = User::getFirstNameByID(intval($studentApplicationVerifiedStatus->created_by)) . ' ' . User::getLastNameByID(intval($studentApplicationVerifiedStatus->created_by));
 
                 $mastersheet->application_verified_at = $studentApplicationVerifiedStatus->created_at;
+				//$mastersheet->application_verified_at =  DateTime::createFromFormat('j-m-Y H:i:s', $studentApplicationVerifiedStatus->created_at);
             }
 
             $mastersheet->notes = StudentBquData::lastRecordBySAN($student->san)->notes;

@@ -45,6 +45,8 @@ Route::group(array('before' => 'members_auth'), function()
 
     Route::post('/students/verify','StudentsController@verify_student');
     Route::get('/students/verify/{san}','StudentsController@more_verify');
+    Route::get('/students/amendments','StudentsController@amendment');
+    Route::get('/students/amendment/{san}','StudentsController@more_amendment');
     Route::get('/students/validate','StudentsController@validate');
     Route::post('/students/validate','StudentsController@validate_student');
     Route::get('/students/validate/{san}','StudentsController@more_validate');

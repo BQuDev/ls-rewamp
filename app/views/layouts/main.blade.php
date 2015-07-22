@@ -190,7 +190,7 @@
                                      <?php } ?>
                                     <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
                 						<li>
-                							<a href="{{ URL::to('students/verify') }}">
+                							<a href="{{ URL::to('students/amendments') }}">
                 								<i class="fa fa-edit icon"></i>
                 								<span class="font-bold">Amendments</span>
                 							</a>

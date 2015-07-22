@@ -1101,9 +1101,17 @@ Checked
               <div class="form-group">
                        <div class="form-inline">
                           {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
-                          <div class="col-sm-3">
-                               {{ Form::text('ams_date',$studentSource->ams_date,['placeholder'=>'AMS Date ( DD-MM-YYYY )','class'=>'form-control','style'=>'width:250px']); }}
-                                                      </div>
+                        
+							<div class="col-sm-9">
+	  	<?php
+				$ams_date = explode('-',$studentSource->ams_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('ams_date_date',  $ams_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('ams_date_month',  $ams_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('ams_date_year',  $ams_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>								  
                          <!--  {{ Form::label('app_date', 'App Date', array('class' => 'col-sm-3 control-label'));  }}
                                        <div class="col-sm-3">
                                           {{ $studentSource->app_date }}</div>   -->
@@ -2401,7 +2409,8 @@ Checked
                                  {{ Form::label('qualification_1', 'Qualification 1', array('class' => 'col-sm-4 control-label'));  }}
                                  <div class="col-sm-8">{{ Form::select('qualification_1', $education_qualifications,$student_educational_qualifications->qualification_1,['class'=>'chosen-select','style'=>'width:350px !important']);  }}<br>
                                                   {{ Form::text('qualification_1_other', $student_educational_qualifications->qualification_other_1,['placeholder'=>'Please Specify','class'=>'form-control']); }}</div>
-                                               </div>
+                                              
+											  </div>
 					
                                </div>
 
@@ -2419,8 +2428,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-								  {{ Form::text('qualification_start_date_1', $student_educational_qualifications->qualification_start_date_1,['placeholder'=>'Start date','class'=>'form-control']); }}
-                                 
+								  <?php
+									$qualification_start_date_1 = explode('-',$student_educational_qualifications->qualification_start_date_1);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_start_date_1_date',  $qualification_start_date_1[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_1_month',  $qualification_start_date_1[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_1_year',  $qualification_start_date_1[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>
@@ -2429,8 +2444,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_end_date', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-								  {{ Form::text('qualification_end_date_1', $student_educational_qualifications->qualification_end_date_1,['placeholder'=>'End date','class'=>'form-control']); }}
-                             
+								  <?php
+									$qualification_end_date_1 = explode('-',$student_educational_qualifications->qualification_end_date_1);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_end_date_1_date',  $qualification_end_date_1[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_1_month',  $qualification_end_date_1[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_1_year',  $qualification_end_date_1[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>							   
@@ -2465,8 +2486,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-								  {{ Form::text('qualification_start_date_2', $student_educational_qualifications->qualification_start_date_2,['placeholder'=>'Start date','class'=>'form-control']); }}
-                                 
+								  <?php
+									$qualification_start_date_2 = explode('-',$student_educational_qualifications->qualification_start_date_2);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_start_date_2_date',  $qualification_start_date_2[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_2_month',  $qualification_start_date_2[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_2_year',  $qualification_start_date_2[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>
@@ -2475,8 +2502,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_end_date', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-                                 {{ Form::text('qualification_end_date_2', $student_educational_qualifications->qualification_end_date_2,['placeholder'=>'End date','class'=>'form-control']); }}
-                             
+                                 <?php
+									$qualification_end_date_2 = explode('-',$student_educational_qualifications->qualification_end_date_2);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_end_date_2_date',  $qualification_end_date_2[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_2_month',  $qualification_end_date_2[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_2_year',  $qualification_end_date_2[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>							   
@@ -2514,8 +2547,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-                                 {{ Form::text('qualification_start_date_3', $student_educational_qualifications->qualification_start_date_3,['placeholder'=>'Start date','class'=>'form-control']); }}
-                                 
+                                    <?php
+									$qualification_start_date_3 = explode('-',$student_educational_qualifications->qualification_start_date_3);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_start_date_3_date',  $qualification_start_date_3[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_3_month',  $qualification_start_date_3[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_start_date_3_year',  $qualification_start_date_3[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>
@@ -2524,8 +2563,14 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('qualification_end_date', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-9">
-                                 {{ Form::text('qualification_end_date_3', $student_educational_qualifications->qualification_end_date_3,['placeholder'=>'End date','class'=>'form-control']); }}
-                             
+                                 <?php
+									$qualification_end_date_3 = explode('-',$student_educational_qualifications->qualification_end_date_3);
+								?>
+										<div class="form-inline">
+                                          {{ Form::text('qualification_end_date_3_date',  $qualification_end_date_3[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_3_month',  $qualification_end_date_3[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+                                          {{ Form::text('qualification_end_date_3_year',  $qualification_end_date_3[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+                                       </div>
                                   </div>
                                </div>
                                </div>							   
@@ -2760,8 +2805,14 @@ Checked
         <div class="form-group">
 	 {{ Form::label('date_of_birth', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
 	  <div class="col-sm-9">
-	  {{ Form::text('occupation_start_date_1', $studentWorkExperience->occupation_start_date_1,['placeholder'=>'Start date','class'=>'form-control']); }}
-
+	  	<?php
+				$occupation_start_date_1 = explode('-',$studentWorkExperience->occupation_start_date_1);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_start_date_1_date',  $occupation_start_date_1[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_1_month',  $occupation_start_date_1[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_1_year',  $occupation_start_date_1[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
 				 </div>
 				 </div>
                                         </div>
@@ -2769,10 +2820,17 @@ Checked
 <div class="row" style="font-size: 16px">
  <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
-                                  <div class="col-sm-9">
-								  {{ Form::text('occupation_end_date_1',  $studentWorkExperience->occupation_end_date_1,['placeholder'=>'End date','class'=>'form-control']); }}
-                                   
-                                             </div>
+                                 
+								 <div class="col-sm-9">
+	  	<?php
+				$occupation_end_date_1 = explode('-',$studentWorkExperience->occupation_end_date_1);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_end_date_1_date',  $occupation_end_date_1[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_1_month',  $occupation_end_date_1[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_1_year',  $occupation_end_date_1[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>			 
                                              </div>
                                         </div>
 
@@ -2824,23 +2882,37 @@ Checked
 <div class="row" style="font-size: 16px">
         <div class="form-group">
 	 {{ Form::label('date_of_birth_2', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
-	  <div class="col-sm-3"><div class="form-inline">
-					
-{{ Form::text('occupation_start_date_2', $studentWorkExperience->occupation_start_date_2,['placeholder'=>'Start date','class'=>'form-control',]); }}
-					</div>
+	  
+	  
+	   <div class="col-sm-9">
+	  	<?php
+				$occupation_start_date_2 = explode('-',$studentWorkExperience->occupation_start_date_2);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_start_date_2_date',  $occupation_start_date_2[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_2_month',  $occupation_start_date_2[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_2_year',  $occupation_start_date_2[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
 				 </div>
+				 
 				 </div>
                                         </div>
 
 <div class="row" style="font-size: 16px">
  <div class="form-group">
                                  {{ Form::label('date_of_birth_2', 'End date', array('class' => 'col-sm-3 control-label'));  }}
-                                  <div class="col-sm-3"><div class="form-inline">
-                                              
-{{ Form::text('occupation_end_date_2',  $studentWorkExperience->occupation_end_date_2,['placeholder'=>'End date','class'=>'form-control']); }}
-                                   
-											  </div>
-                                             </div>
+                                  
+						 <div class="col-sm-9">
+	  	<?php
+				$occupation_end_date_2 = explode('-',$studentWorkExperience->occupation_end_date_2);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_end_date_2_date',  $occupation_end_date_2[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_2_month',  $occupation_end_date_2[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_2_year',  $occupation_end_date_2[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>						 
+											 
                                              </div>
                                         </div>
 
@@ -2893,9 +2965,17 @@ Checked
 <div class="row" style="font-size: 16px">
         <div class="form-group">
 	 {{ Form::label('date_of_birth_3', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
-	  <div class="col-sm-3"><div class="form-inline">
-{{ Form::text('occupation_start_date_3', $studentWorkExperience->occupation_start_date_3,['placeholder'=>'Start date','class'=>'form-control',]); }}
-					</div>
+	 
+				 
+				 <div class="col-sm-9">
+	  	<?php
+				$occupation_start_date_3 = explode('-',$studentWorkExperience->occupation_start_date_3);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_start_date_3_date',  $occupation_start_date_3[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_3_month',  $occupation_start_date_3[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_start_date_3_year',  $occupation_start_date_3[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
 				 </div>
 				 </div>
                                         </div>
@@ -2903,11 +2983,18 @@ Checked
 <div class="row" style="font-size: 16px">
  <div class="form-group">
                                  {{ Form::label('date_of_birth_3', 'End date', array('class' => 'col-sm-3 control-label'));  }}
-                                  <div class="col-sm-3"><div class="form-inline">
-                                          
-{{ Form::text('occupation_end_date_3',  $studentWorkExperience->occupation_end_date_3,['placeholder'=>'End date','class'=>'form-control']); }}
-											  </div>
-                                             </div>
+                                 
+					 <div class="col-sm-9">
+	  	<?php
+				$occupation_end_date_3 = explode('-',$studentWorkExperience->occupation_end_date_3);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('occupation_end_date_3_date',  $occupation_end_date_3[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_3_month',  $occupation_end_date_3[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('occupation_end_date_3_year',  $occupation_end_date_3[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>								 
+											 
                                              </div>
                                         </div>
 
@@ -3229,10 +3316,18 @@ Checked
 <div class="row" style="font-size: 16px" >
 <div class="form-group">
                               {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9"> 
-								 {{ Form::text('deposit_date', $studentPaymentInfo->deposit_date,['placeholder'=>'DD','class'=>'form-control']); }}
-          
-								 </div>
+                               
+					 <div class="col-sm-9">
+	  	<?php
+				$deposit_date = explode('-',$studentPaymentInfo->deposit_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('deposit_date_date',  $deposit_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('deposit_date_month',  $deposit_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('deposit_date_year',  $deposit_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>					 
+								 
                               </div>              
                                </div>
 <div class="row" style="font-size: 16px" >
@@ -3257,9 +3352,18 @@ Checked
 <div class="row" style="font-size: 16px" >
 <div class="form-group">
                               {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9"> 
-								  {{ Form::text('installment_1_date', $studentPaymentInfo->installment_1_date,['placeholder'=>'Date','class'=>'form-control']); }}
-								 </div>
+                                 
+			<div class="col-sm-9">
+	  	<?php
+				$installment_1_date = explode('-',$studentPaymentInfo->installment_1_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('installment_1_date_date',  $installment_1_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_1_date_month',  $installment_1_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_1_date_year',  $installment_1_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>				 
+								 
                               </div>              
                                </div>
 <div class="row" style="font-size: 16px" >
@@ -3280,8 +3384,19 @@ Checked
 <div class="row" style="font-size: 16px" >
 <div class="form-group">
                               {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ Form::text('installment_2_date', $studentPaymentInfo->installment_2_date,['placeholder'=>'Date','class'=>'form-control']); }}
-								 </div>
+                                 
+						<div class="col-sm-9">
+	  	<?php
+				$installment_2_date = explode('-',$studentPaymentInfo->installment_2_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('installment_2_date_date',  $installment_2_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_2_date_month',  $installment_2_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_2_date_year',  $installment_2_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>			 
+								 
+								 
                               </div>              
                                </div>
 <div class="row" style="font-size: 16px" >
@@ -3301,7 +3416,18 @@ Checked
 <div class="row" style="font-size: 16px" >
 <div class="form-group">
                               {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ Form::text('installment_3_date', $studentPaymentInfo->installment_3_date,['placeholder'=>'Date','class'=>'form-control']); }}</div>
+                                
+			<div class="col-sm-9">
+	  	<?php
+				$installment_3_date = explode('-',$studentPaymentInfo->installment_3_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('installment_3_date_date',  $installment_3_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_3_date_month',  $installment_3_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('installment_3_date_year',  $installment_3_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>					 
+								 
                               </div>              
                                </div>
 <div class="row" style="font-size: 16px" >
@@ -3393,10 +3519,17 @@ Checked
                      <div class="form-group">
                                    {{ Form::label('date_of_birth', 'Application received to BQu date', array('class' => 'col-sm-3 control-label'));  }}
                                
-                                  <div class="col-sm-9">
-								  {{ Form::text('application_received_date',$student_bqu_data->application_received_date,['placeholder'=>'Application received to BQu date','class'=>'form-control']); }}
-								
-                                 </div>
+					<div class="col-sm-9">
+	  	<?php
+				$application_received_date = explode('-',$student_bqu_data->application_received_date);
+			?>
+		<div class="form-inline">
+			  {{ Form::text('application_received_date_date',  $application_received_date[0],['placeholder'=>'DD','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('application_received_date_month',  $application_received_date[1],['placeholder'=>'MM','class'=>'form-control','style'=>'width:50px !important','data-type'=>'number','maxlength'=>"2",'data-parsley-type'=>'digits']); }}
+			  {{ Form::text('application_received_date_year',  $application_received_date[2],['placeholder'=>'YYYY','class'=>'form-control','style'=>'width:60px !important','data-type'=>'number','maxlength'=>"4",'data-parsley-type'=>'digits']); }}
+		   </div>
+				 </div>				 
+								 
                                </div>
                                </div>
 

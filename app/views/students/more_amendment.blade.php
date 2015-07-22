@@ -15,7 +15,9 @@
 
       <div class="form-group">
          {{ Form::label('ls_student_number', 'LS Student Number', array('class' => 'col-sm-3 control-label'));  }}
-         <div class="col-sm-9">{{ $student->ls_student_number }}</div>
+         <div class="col-sm-9">
+		 <a href="#" id="username" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click">{{ $student->ls_student_number }}</a>
+		 </div>
       </div>
 <div class="form-group">
          <div class="form-inline">
@@ -24,7 +26,9 @@
                {{ $studentSource->app_date }}</div>-->
             {{ Form::label('ams_date', 'AMS Date', array('class' => 'col-sm-3 control-label'));  }}
             <div class="col-sm-9">
-                {{ $studentSource->ams_date }}</div>
+			
+				<a href="#" id="ams_date" data-type="combodate" data-pk="2" data-title="Select date" data-url="/post">{{ $studentSource->ams_date }}</a>
+				</div>
          </div>
       </div>
 
@@ -78,13 +82,14 @@
                            <div class="col-sm-9">
 
                              {{ $student->title }}
+							 
                            </div>
                         </div>
                         <div class="form-group">
                            {{ Form::label('initials', 'Initials', array('class' => 'col-sm-3 control-label'));  }}
                            <div class="form-inline">
                               <div class="col-sm-9">
-                              {{ $student->initials_1 }}&nbsp;{{ $student->initials_2 }}&nbsp;{{ $student->initials_3 }}
+                              <a href="#" id="initials_1" data-type="text" data-pk="6">{{ $student->initials_1 }}</a>&nbsp;&nbsp; <a href="#" id="initials_2" data-type="text" data-pk="7">{{ $student->initials_2 }}</a>&nbsp;&nbsp; <a href="#" id="initials_3" data-type="text" data-pk="8">{{ $student->initials_3 }}</a>
                               </div>
 
 
@@ -850,6 +855,7 @@
                               </div>
                            </div>
                         </section>
+						
 {{ Form::close() }}
    </div>
 </div>
@@ -870,6 +876,8 @@
 
 
 @section('post_css')
+{{ HTML::style('bootstrap3-editable/css/bootstrap-editable.css'); }}
+{{ HTML::style('bootstrap3-editable/css/datetimepicker.css'); }}
 <style>
 .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     padding-top: 6px;
@@ -879,6 +887,15 @@
 
 @section('post_js')
 
+  {{ HTML::script('bootstrap3-editable/js/bootstrap-editable.js'); }}
+  
+  {{ HTML::script('bootstrap3-editable/js/bootstrap-datetimepicker.js'); }}
+  {{ HTML::script('bootstrap3-editable/js/moment.min.js'); }}
+  {{ HTML::script('js/amendment-x-edit-config.js'); }}
+  <script>
+  
+ 
+  </script>
 @stop
 
 @section('main_menu')
