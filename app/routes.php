@@ -72,6 +72,20 @@ Route::group(array('before' => 'members_auth'), function()
     Route::post('/settings/user-management/user-groups','UsersController@add_user_groups');
     Route::get('/settings/user-management/user-groups/{group}','UsersController@edit_group');
     Route::post('/settings/user-management/user-groups/update_permissions','UsersController@update_permissions');
+	
+			
+    Route::get('students_for_marks_IM_A_01_glanced','StudentMarksIMA01GlancedsController@students_for_marks_IM_A_01_glanced');
+    Route::post('save_marks_for_IM_A_01_glanced','StudentMarksIMA01GlancedsController@save_marks_for_IM_A_01_glanced');
+    Route::get('save_marks_for_IM_A_01_glanced_excel_export','StudentMarksIMA01GlancedsController@excel_export');
+    Route::get('save_marks_for_IM_A_01_glanced_word', 'StudentMarksIMA01GlancedsController@to_word');
+	Route::resource('student-marks-IM-A-01-glanced', 'StudentMarksIMA01GlancedsController');
+	
+    Route::get('students_for_marks_IM_A_02','StudentMarksIMA02Controller@students_for_marks_IM_A_02');
+    Route::post('save_marks_for_IM_A_02','StudentMarksIMA02Controller@save_marks_for_IM_A_02');
+    Route::get('save_marks_for_IM_A_02_excel_export','StudentMarksIMA02Controller@excel_export');
+    Route::get('save_marks_for_IM_A_02_word', 'StudentMarksIMA02Controller@to_word');
+	Route::resource('student-marks-IM-A-02', 'StudentMarksIMA02Controller');
+	
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');
