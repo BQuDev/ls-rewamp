@@ -15,18 +15,37 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
  
   $scope.gridOptions.columnDefs = [
-    { name: 'san', enableFiltering: false,enableCellEdit: false, displayName: 'SAN', width: '7%' },
-    { name: 'ls_student_number', enableCellEdit: false, displayName: 'LSM Number', width: '10%' },
-    { name: 'c1', enableFiltering: false,cellClass:'editable', displayName: 'Range and use of secondary sources', width: '10%' },
-    { name: 'c2', enableFiltering: false,cellClass:'editable', displayName: 'Theoretical context' , width: '10%' },
-    { name: 'c3', enableFiltering: false,cellClass:'editable', displayName: 'Brand context ', width: '10%'},
-    { name: 'c4', enableFiltering: false,cellClass:'editable', displayName: 'Evaluation', width: '8%'},
-    { name: 'c5', enableFiltering: false,cellClass:'editable', displayName: 'Quality of presentation', width: '10%'},
-    { name: 'c6', enableFiltering: false,cellClass:'editable', displayName: 'Communication of ideas', width: '10%'},
-    { name: 'm1', enableFiltering: false, displayName: 'First Marker\'s Mark',enableCellEdit: false, width: '7%'},
-    { name: 'm2', enableFiltering: false,cellClass:'editable', displayName: 'Second Marker\'s Mark', width: '8%'},
-    { name: 'ageed_mark', enableFiltering: false,cellClass:'editable', displayName: 'Agreed Mark', width: '5%'},
-	{name: 'edit', enableFiltering: false, displayName: '', enableCellEdit: false,cellTemplate: '<button id="editBtn" type="button" class="btn btn-success no_padding_btn" ng-click="grid.appScope.edit(row.entity)" >Export</button> '}
+    { name: 'scj_number', enableCellEdit: false, displayName: 'ARU SID', width: '10%' },
+    { name: 'ls_student_number', enableCellEdit: false, displayName: 'LSM', width: '10%' },
+    { name: 'forename_1', enableCellEdit: false, displayName: 'Name', width: '10%' },
+    { name: 'c1', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 1', width: '10%' , cellTooltip: 
+        function( row, col ) {
+          return 'critically analyse the extent that the chosen brand’s marketing mix is standardised and/or adapted across international markets using the following elements of the marketing mix - Product,Price,Place, Promotion.Evidence of a range of theories';
+        }, headerTooltip: 
+        function( col ) {
+          return 'critically analyse the extent that the chosen brand’s marketing mix is standardised and/or adapted across international markets using the following elements of the marketing mix - Product,Price,Place, Promotion.Evidence of a range of theories';
+        }
+	},
+    { name: 'c2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 2' , width: '10%', cellTooltip: 
+        function( row, col ) {
+          return 'required to discuss which IPT ‘best’ describes the internationalisation process that the chosen global brand has undertaken - Review of main IP theories,Discussion which ‘best’ applies’. This may include Born Global, Uppsala, stages etc.Analysis of advantages and disadvantages of the best IP theory selected';
+        }, headerTooltip: 
+        function( col ) {
+          return 'required to discuss which IPT ‘best’ describes the internationalisation process that the chosen global brand has undertaken - Review of main IP theories,Discussion which ‘best’ applies’. This may include Born Global, Uppsala, stages etc.Analysis of advantages and disadvantages of the best IP theory selected';
+        }
+	},
+    { name: 'c3', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 3', width: '10%', cellTooltip: 
+        function( row, col ) {
+          return 'Presentation - Well structured, theory applied to the case, good range of references, Harvard Referencing System usage in citing references.';
+        }, headerTooltip: 
+        function( col ) {
+          return 'Presentation - Well structured, theory applied to the case, good range of references, Harvard Referencing System usage in citing references.';
+        }
+	},
+    { name: 'm1', type: 'number', enableFiltering: false, displayName: 'First Marker\'s Mark',enableCellEdit: false, width: '10%'},
+    { name: 'm2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Second Marker\'s Mark', width: '10%'},
+    { name: 'ageed_mark', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Agreed Mark', width: '10%'},
+	{name: 'edit', enableFiltering: false, enableSorting: false, displayName: '', enableCellEdit: false,cellTemplate: '<button id="editBtn" type="button" class="btn btn-success no_padding_btn" ng-click="grid.appScope.edit(row.entity)" >Export</button> '}
 	/*
 	{ name: 'san', enableCellEdit: false, displayName: 'SAN' },
     { name: 'ls_student_number', enableCellEdit: false, displayName: 'LSM Number' },
@@ -50,8 +69,10 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
           gridApi.edit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
             $scope.msg.lastCellEdited = 'edited row id:' + rowEntity.id + ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue ;
 
-			if(!newValue.match(/[^0-9]/)) {
-					if(newValue>100){
+			//if(!newValue.match(/[^0-9]/)) { 
+
+			
+			if(newValue>100){
 						
 						new PNotify({
                         title: 'Please enter a value less than 100',
@@ -72,7 +93,8 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 						
 						
 					}else{
-
+						
+						
               $scope.$apply();
               // get the form data
               var formData = {
@@ -86,12 +108,12 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 			  if((oldValue != newValue)/*&&(newValue>0)*/){
           $.ajax({
                   type        : 'POST',
-                  url         : 'save_marks_for_IM_A_01_glanced',
+                  url         : 'save_marks_for_IM_A_02',
                   data        : formData,
                   dataType    : 'json',
                   success     : function(data) {
 					  if((data == 1)&&(document.getElementById('auto_refresh').checked)){
-						  $http.get('students_for_marks_IM_A_01_glanced')
+						  $http.get('students_for_marks_IM_A_02')
             .success(function(data) {
                 $scope.gridOptions.data = data;
 				
@@ -115,10 +137,8 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 					  }
                   }
               });
-		  }
-					}
-					
-					}else{
+					}}
+			/*}else{
 				new PNotify({
                                     title: 'Not a number',
                                     text: 'Please enter number for '+rowEntity.ls_student_number,
@@ -134,7 +154,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
                                     stack: stack_bottomright
                                 });
 				
-			}
+			}*/
 
 
           });
@@ -142,7 +162,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.refreshData = function(){
 
-        $http.get('students_for_marks_IM_A_01_glanced')
+        $http.get('students_for_marks_IM_A_02')
             .success(function(data) {
                 $scope.gridOptions.data = data;
                 
@@ -183,7 +203,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
                         stack: stack_bottomright
                     });
                     
-					 window.open("save_marks_for_IM_A_01_glanced_excel_export", '_blank');
+					 window.open("save_marks_for_IM_A_02_excel_export", '_blank');
           
 }
 	
@@ -204,15 +224,17 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
                   success     : function(data) {
                   }
               });*/
-			  console.log("save_marks_for_IM_A_01_glanced_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
+			//  console.log("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
+			  //console.log("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
 			  //window.location = "save_marks_for_IM_A_01_glanced_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value;
 
-    window.open("save_marks_for_IM_A_01_glanced_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value, '_blank');
+    //window.open("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value, '_blank');
+    window.open("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type=word", '_blank');
 	}
 
 
 
-  $http.get('students_for_marks_IM_A_01_glanced')
+  $http.get('students_for_marks_IM_A_02')
     .success(function(data) {
       $scope.gridOptions.data = data;
     });
