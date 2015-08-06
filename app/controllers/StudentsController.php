@@ -1530,7 +1530,7 @@ return View::make('students.index')
 				//->where('san','=','9sbj6xcz')
 				//->where('san','=','i5uc9xcz')
 				//->where('san','=','a9z7mxcz')
-				->where('san','=','tqfynxcz')
+				//->where('san','=','tqfynxcz')
 				->get();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);
