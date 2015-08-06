@@ -1525,7 +1525,13 @@ return View::make('students.index')
 
 			$excel->sheet('Mastersheet BQu version', function($sheet) {
 			    //$students = Student::all();
-			    $students = Student::groupBy('san')->get();
+			    //$students = Student::groupBy('san')->skip(750)->take(1000)->get();
+			    $students = Student::groupBy('san')
+				//->where('san','=','9sbj6xcz')
+				//->where('san','=','i5uc9xcz')
+				//->where('san','=','a9z7mxcz')
+				->where('san','=','tqfynxcz')
+				->get();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);
 
@@ -1553,7 +1559,7 @@ return View::make('students.index')
      return Input::all();
     }
     public function verify_student(){
- //return Input::all();
+	//return Input::all();
     $studentBquVerificationData = new StudentBquVerificationData();
     $studentBquVerificationData->mails_from_lsm = Input::get('received_any_emails_from_lsm');
     $studentBquVerificationData->know_structure_of_the_course = Input::get('know_about_the_structure_of_the_course');

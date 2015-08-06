@@ -81,7 +81,9 @@
                            <label class="col-sm-3 control-label">Title</label>
                            <div class="col-sm-9">
 
-                             {{ $student->title }}
+                             
+							 <a href="#" id="username" data-type="text" data-pk="6" data-title="Enter Title" class="editable editable-click">{{ $student->title }}</a>
+						
 							 
                            </div>
                         </div>
@@ -89,28 +91,33 @@
                            {{ Form::label('initials', 'Initials', array('class' => 'col-sm-3 control-label'));  }}
                            <div class="form-inline">
                               <div class="col-sm-9">
-                              <a href="#" id="initials_1" data-type="text" data-pk="6">{{ $student->initials_1 }}</a>&nbsp;&nbsp; <a href="#" id="initials_2" data-type="text" data-pk="7">{{ $student->initials_2 }}</a>&nbsp;&nbsp; <a href="#" id="initials_3" data-type="text" data-pk="8">{{ $student->initials_3 }}</a>
+                              <a href="#" id="initials_1" data-type="text" data-pk="7">{{ $student->initials_1 }}</a>&nbsp;&nbsp; <a href="#" id="initials_2" data-type="text" data-pk="8">{{ $student->initials_2 }}</a>&nbsp;&nbsp; <a href="#" id="initials_3" data-type="text" data-pk="9">{{ $student->initials_3 }}</a>
                               </div>
-
-
-
                            </div>
                         </div>
                         <div class="form-group">
                            {{ Form::label('forename_1', 'Forename 1', array('class' => 'col-sm-3 control-label'));  }}
-                           <div class="col-sm-9">{{ $student->forename_1 }}</div>
+                           <div class="col-sm-9">
+								<a href="#" id="forename_1" data-type="text" data-pk="9" data-title="Forename 1" class="editable editable-click">{{ $student->forename_1 }}</a>
+						   </div>
                         </div>
                         <div class="form-group">
                            {{ Form::label('forename_2', 'Forename 2', array('class' => 'col-sm-3 control-label'));  }}
-                           <div class="col-sm-9">{{ $student->forename_2 }}</div>
+                           <div class="col-sm-9">
+								<a href="#" id="forename_2" data-type="text" data-pk="10" data-title="Forename 2" class="editable editable-click">{{ $student->forename_2 }}</a>
+						   </div>
                         </div>
                         <div class="form-group">
                            {{ Form::label('forename_3', 'Forename 3', array('class' => 'col-sm-3 control-label'));  }}
-                           <div class="col-sm-9">{{ $student->forename_3 }}</div>
+                           <div class="col-sm-9">
+								<a href="#" id="forename_3" data-type="text" data-pk="11" data-title="Forename 3" class="editable editable-click">{{ $student->forename_3 }}</a>
+						   </div>
                         </div>
                         <div class="form-group">
                            {{ Form::label('surname', 'Surname', array('class' => 'col-sm-3 control-label'));  }}
-                           <div class="col-sm-9">{{ $student->surname }}</div>
+                           <div class="col-sm-9">
+									<a href="#" id="surname" data-type="text" data-pk="12" data-title="Surname" class="editable editable-click">{{ $student->surname }}</a>
+						   </div>
                         </div>
                         <div class="form-group">
                            <label class="col-sm-3 control-label">Gender</label>
@@ -121,6 +128,7 @@
                         <div class="form-group">
                            {{ Form::label('date_of_birth', 'Date of birth', array('class' => 'col-sm-3 control-label'));  }}
                            <div class="col-sm-3">{{ $student->date_of_birth }}
+						   <a href="#" id="date_of_birth" data-type="text" data-pk="14" data-title="Date of birth" class="editable editable-click">{{ $student->date_of_birth }}</a>
                                        </div>
                            </div>
                         <div class="form-group">
@@ -134,7 +142,9 @@
                         </div>
                         <div class="form-group">
                            {{ Form::label('passport', 'Passport number', array('class' => 'col-sm-3 control-label'));  }}
-                           <div class="col-sm-9"> {{ $student->passport }}</div>
+                           <div class="col-sm-9">
+								<a href="#" id="date_of_birth" data-type="text" data-pk="16" data-title="Passport number" class="editable editable-click">{{ $student->passport }}</a>
+						   </div>
                         </div>
                      </div>
                   </section>
@@ -150,28 +160,29 @@
                           <label class="col-sm-1 control-label">Address</label>
                           <label class="col-sm-2 control-label">Address line 1</label>
                           <div class="col-sm-9">
-                            {{ $ttStudentContactInformation->address_1 }}
+                            
+							<a href="#" id="tt_address_1" data-type="text" data-pk="17" data-title="Address line 1" class="editable editable-click">{{ $ttStudentContactInformation->address_1 }}</a>
                           </div>
                        </div>
                        <div class="form-group">
                           <label class="col-sm-1 control-label"></label>
                           <label class="col-sm-2 control-label">Address line 2</label>
                           <div class="col-sm-9">
-                             {{ $ttStudentContactInformation->address_2 }}
+							 <a href="#" id="tt_address_2" data-type="text" data-pk="18" data-title="Address line 2" class="editable editable-click">{{ $ttStudentContactInformation->address_2 }}</a>
                           </div>
                        </div>
                        <div class="form-group">
                           <label class="col-sm-1 control-label"></label>
                           <label class="col-sm-2 control-label">Town/City</label>
                           <div class="col-sm-9">
-                             {{ $ttStudentContactInformation->city }}
+							 <a href="#" id="tt_city" data-type="text" data-pk="19" data-title="Town/City" class="editable editable-click">{{ $ttStudentContactInformation->city }}</a>
                           </div>
                        </div>
                        <div class="form-group">
                           <label class="col-sm-1 control-label"></label>
                           <label class="col-sm-2 control-label">Post code</label>
                           <div class="col-sm-9">
-                             {{ $ttStudentContactInformation->post_code }}
+							  <a href="#" id="tt_post_code" data-type="text" data-pk="20" data-title="Post code" class="editable editable-click">{{ $ttStudentContactInformation->post_code }}</a>
                           </div>
                        </div>
                        <div class="form-group">
@@ -189,7 +200,8 @@
                           <div class="col-sm-9">
                              <div class="form-inline">
                                +&nbsp;&nbsp;
-                               {{ $ttStudentContactInformation->mobile }}</div>
+							   <a href="#" id="tt_mobile" data-type="text" data-pk="22" data-title="Mobile" class="editable editable-click">{{ $ttStudentContactInformation->mobile }}</a>
+							   </div>
                           </div>
                        </div>
                        <div class="form-group">
@@ -198,7 +210,9 @@
                           <div class="col-sm-9">
                              <div class="form-inline">
                                                  +&nbsp;&nbsp;
-                                                  {{ $ttStudentContactInformation->landline }}  </div>
+                                                 
+								<a href="#" id="tt_landline" data-type="text" data-pk="23" data-title="Landline" class="editable editable-click"> {{ $ttStudentContactInformation->landline }}</a>
+												  </div>
                           </div>
 
                        </div>
@@ -211,28 +225,28 @@
                <label class="col-sm-1 control-label">Address</label>
                <label class="col-sm-2 control-label">Address line 1</label>
                <div class="col-sm-9">
-                 {{ $studentContactInformation->address_1 }}
+				 <a href="#" id="address_1" data-type="text" data-pk="24" data-title="Address line 1" class="editable editable-click">{{ $studentContactInformation->address_1 }}</a>
                </div>
             </div>
             <div class="form-group">
                <label class="col-sm-1 control-label"></label>
                <label class="col-sm-2 control-label">Address line 2</label>
                <div class="col-sm-9">
-                  {{ $studentContactInformation->address_2 }}
+				   <a href="#" id="address_2" data-type="text" data-pk="25" data-title="Address line 2" class="editable editable-click">{{ $studentContactInformation->address_2 }}</a>
                </div>
             </div>
             <div class="form-group">
                <label class="col-sm-1 control-label"></label>
                <label class="col-sm-2 control-label">Town/City</label>
                <div class="col-sm-9">
-                  {{ $studentContactInformation->city }}
+				   <a href="#" id="city" data-type="text" data-pk="25" data-title="Town/City" class="editable editable-click">{{ $studentContactInformation->city }}</a>
                </div>
             </div>
             <div class="form-group">
                <label class="col-sm-1 control-label"></label>
                <label class="col-sm-2 control-label">Post code</label>
                <div class="col-sm-9">
-                  {{ $studentContactInformation->post_code }}
+				  <a href="#" id="post_code" data-type="text" data-pk="26" data-title="Post code" class="editable editable-click">{{ $studentContactInformation->post_code }}</a>
                </div>
             </div>
             <div class="form-group">
@@ -252,7 +266,8 @@
                <div class="col-sm-9">
                   <div class="form-inline">
                     +&nbsp;&nbsp;
-                    {{ $studentContactInformation->mobile }}</div>
+					  <a href="#" id="mobile" data-type="text" data-pk="28" data-title="Mobile" class="editable editable-click">{{ $studentContactInformation->mobile }}</a>
+					</div>
                </div>
             </div>
             <div class="form-group">
@@ -261,33 +276,47 @@
                <div class="col-sm-9">
                   <div class="form-inline">
                                       +&nbsp;&nbsp;
-                                      {{ $studentContactInformation->landline }}   </div>
+					<a href="#" id="landline" data-type="text" data-pk="28" data-title="Landline" class="editable editable-click">{{ $studentContactInformation->landline }}</a>
+									  </div>
                </div>
             </div>
             <div class="form-group">
                {{ Form::label('email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9">{{ $studentContactInformationOnline->email }}</div>
+               <div class="col-sm-9">
+			   <a href="#" id="email" data-type="text" data-pk="29" data-title="Landline" class="editable editable-click">{{ $studentContactInformationOnline->email }}</a>
+			   </div>
             </div>
             <div class="form-group">
                {{ Form::label('alternative_email', 'Alternative Email', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9"> {{ $studentContactInformationOnline->alternative_email }}</div>
+               <div class="col-sm-9">
+			   <a href="#" id="alternative_email" data-type="text" data-pk="30" data-title="Alternative Email" class="editable editable-click">{{ $studentContactInformationOnline->alternative_email }}</a>
+			   </div>
             </div>
             <div class="form-group">
                <div class="line line-dashed b-b line-lg pull-in"></div>
                {{ Form::label('forename_3', 'Social Accounts', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9">{{ $studentContactInformationOnline->facebook }}</div>
+               <div class="col-sm-9">
+			   <a href="#" id="facebook" data-type="text" data-pk="31" data-title="Facebook" class="editable editable-click">{{ $studentContactInformationOnline->facebook }}</a>
+			   
+			   </div>
             </div>
             <div class="form-group">
                {{ Form::label('forename_3', ' ', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9">{{ $studentContactInformationOnline->linkedin }}</div>
+               <div class="col-sm-9">
+			   <a href="#" id="linkedin" data-type="text" data-pk="32" data-title="Linkedin" class="editable editable-click">{{ $studentContactInformationOnline->linkedin }}</a>
+			   </div>
             </div>
             <div class="form-group">
                {{ Form::label('forename_3', ' ', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9">{{ $studentContactInformationOnline->twitter}}</div>
+               <div class="col-sm-9">{{ $studentContactInformationOnline->twitter}}
+			   <a href="#" id="twitter" data-type="text" data-pk="33" data-title="Twitter" class="editable editable-click">{{ $studentContactInformationOnline->twitter }}</a>
+			   </div>
             </div>
             <div class="form-group">
                {{ Form::label('forename_3', ' ', array('class' => 'col-sm-3 control-label'));  }}
-               <div class="col-sm-9">{{ $studentContactInformationOnline->other_social }}</div>
+               <div class="col-sm-9">{{ $studentContactInformationOnline->other_social }}
+				<a href="#" id="other_social" data-type="text" data-pk="34" data-title="Other social" class="editable editable-click">{{ $studentContactInformationOnline->other_social }}</a>
+			   </div>
             </div>
          </div>
          <div class="line line-dashed b-b line-lg pull-in"></div>
@@ -299,29 +328,37 @@
                   <div class="form-group">
                      <label class="col-sm-3 control-label">Title</label>
                      <div class="col-sm-9">
-                        {{ $student_contact_information_kin_detailes->next_of_kin_title }}
+						<a href="#" id="next_of_kin_title" data-type="text" data-pk="35" data-title="Title" class="editable editable-click">{{ $student_contact_information_kin_detailes->next_of_kin_title }}</a>
                      </div>
                   </div>
                   <div class="form-group">
                      {{ Form::label('next_of_kin_forename', 'Forename', array('class' => 'col-sm-3 control-label'));  }}
-                     <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_forename }}</div>
+                     <div class="col-sm-9">
+					 <a href="#" id="next_of_kin_forename" data-type="text" data-pk="36" data-title="Forename" class="editable editable-click">{{ $student_contact_information_kin_detailes->next_of_kin_forename }}</a>
+					 </div>
                   </div>
                   <div class="form-group">
                      {{ Form::label('next_of_kin_surname', 'Surname', array('class' => 'col-sm-3 control-label'));  }}
-                     <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_surname }}</div>
+                     <div class="col-sm-9">
+						<a href="#" id="next_of_kin_surname" data-type="text" data-pk="37" data-title="Surname" class="editable editable-click">{{ $student_contact_information_kin_detailes->next_of_kin_surname }}</a>
+					 </div>
                   </div>
                   <div class="form-group">
                      <label class="col-sm-3 control-label">Telephone</label>
                        <div class="col-sm-9">
                                       <div class="form-inline">
                                                           +&nbsp;&nbsp;
-                                                          {{ $student_contact_information_kin_detailes->next_of_kin_telephone }} </div>
+                                                         
+										<a href="#" id="next_of_kin_telephone" data-type="text" data-pk="38" data-title="Telephone" class="editable editable-click"> {{ $student_contact_information_kin_detailes->next_of_kin_telephone }}</a>				  
+														  </div>
                                    </div>
                   </div>
                </div>
                <div class="form-group">
                   {{ Form::label('next_of_kin_email', 'Email ', array('class' => 'col-sm-3 control-label'));  }}
-                  <div class="col-sm-9">{{ $student_contact_information_kin_detailes->next_of_kin_email }}</div>
+                  <div class="col-sm-9">
+				  <a href="#" id="next_of_kin_email" data-type="text" data-pk="39" data-title="Email" class="editable editable-click">{{ $student_contact_information_kin_detailes->next_of_kin_email }}</a>				  
+				  </div>
                </div>
             </section>
 
@@ -424,24 +461,30 @@
                                                </div>
                               <div class="form-group">
                                  {{ Form::label('institution_1', 'Institution', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_educational_qualifications->institution_1; }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="institution_1" data-type="text" data-pk="46" data-title="Institution" class="editable editable-click">{{ $student_educational_qualifications->institution_1; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3">
                                   <div class="form-inline">
-                                               {{ $student_educational_qualifications->qualification_start_date_1; }} </div>
+												<a href="#" id="qualification_start_date_1" data-type="text" data-pk="47" data-title="Start date" class="editable editable-click">{{ $student_educational_qualifications->qualification_start_date_1; }}</a>
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                               {{ $student_educational_qualifications->qualification_end_date_1; }} </div>
+									<a href="#" id="qualification_end_date_1" data-type="text" data-pk="48" data-title="End date" class="editable editable-click">{{ $student_educational_qualifications->qualification_end_date_1 }}</a>
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('qualification_grade', 'Grade', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_educational_qualifications->qualification_grade_1; }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="qualification_grade_1" data-type="text" data-pk="49" data-title="Grade" class="editable editable-click">{{ $student_educational_qualifications->qualification_grade_1; }}</a>
+								 </div>
                               </div>
                               <div class="line line-dashed b-b line-lg pull-in"></div>
 
@@ -464,24 +507,31 @@
                                 </div>
                               <div class="form-group">
                                  {{ Form::label('institution_2', 'Institution', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_educational_qualifications->institution_2; }}</div>
+                                 <div class="col-sm-9">
+								<a href="#" id="institution_2" data-type="text" data-pk="50" data-title="Institution" class="editable editable-click">{{ $student_educational_qualifications->institution_2; }}</a> 
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3">
                                   <div class="form-inline">
-                                               {{ $student_educational_qualifications->qualification_start_date_2; }}  </div>
+                                               
+											<a href="#" id="qualification_start_date_2" data-type="text" data-pk="51" data-title="Start date" class="editable editable-click">{{ $student_educational_qualifications->qualification_start_date_2; }}</a> 
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
-                                  <div class="col-sm-3"><div class="form-inline">
-                                         {{ $student_educational_qualifications->qualification_end_date_2; }}   </div>
+                                  <div class="col-sm-3"><div class="form-inline">  
+										<a href="#" id="qualification_end_date_2" data-type="text" data-pk="52" data-title="End date" class="editable editable-click">{{ $student_educational_qualifications->qualification_end_date_2; }}</a> 
+										 </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('qualification_grade', 'Grade', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_educational_qualifications->qualification_grade_2; }}</div>
+                                 <div class="col-sm-9">
+									<a href="#" id="qualification_grade_2" data-type="text" data-pk="53" data-title="Grade" class="editable editable-click">{{ $student_educational_qualifications->qualification_grade_2; }}</a>  
+								 </div>
                               </div>
                               <div class="line line-dashed b-b line-lg pull-in"></div>
 
@@ -508,18 +558,23 @@
                                  {{ Form::label('qualification_start_date', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3">
                                   <div class="form-inline">
-                                               {{ $student_educational_qualifications->qualification_start_date_3; }}</div>
+								<a href="#" id="qualification_start_date" data-type="text" data-pk="55" data-title="Start date" class="editable editable-click">{{ $student_educational_qualifications->qualification_start_date_3; }}</a>			   
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                                {{ $student_educational_qualifications->qualification_end_date_3; }} </div>
+                                                
+<a href="#" id="qualification_end_date_3" data-type="text" data-pk="56" data-title="End date" class="editable editable-click">{{ $student_educational_qualifications->qualification_end_date_3; }}</a>
+												</div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('qualification_grade', 'Grade', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_educational_qualifications->qualification_grade_3; }}</div>
+                                 <div class="col-sm-9">
+			<a href="#" id="qualification_grade_3" data-type="text" data-pk="57" data-title="Grade" class="editable editable-click">{{ $student_educational_qualifications->qualification_grade_3; }}</a>					 
+								 </div>
                               </div>
                               <div class="line line-dashed b-b line-lg pull-in"></div>
 
@@ -541,22 +596,30 @@
                               </div>
                               <div class="form-group">
                                  {{ Form::label('company_name_1', 'Company Name - Address', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->company_name_1; }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="company_name_1" data-type="text" data-pk="57" data-title="Company Name - Address" class="editable editable-click">{{ $studentWorkExperience->company_name_1; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('main_duties_and_responsibilities_1', 'Main duties and responsibilities', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->main_duties_1; }}</div>
+                                 <div class="col-sm-9">
+									<a href="#" id="main_duties_and_responsibilities_1" data-type="text" data-pk="57" data-title="Main duties and responsibilities" class="editable editable-click">{{ $studentWorkExperience->main_duties_1; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                                {{ $studentWorkExperience->occupation_start_date_1; }}  </div>
+                                                
+								<a href="#" id="occupation_start_date_1" data-type="text" data-pk="57" data-title="Start date" class="editable editable-click">{{ $studentWorkExperience->occupation_start_date_1; }}</a>
+												</div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                              {{ $studentWorkExperience->occupation_end_date_1; }} </div>
+                                          
+<a href="#" id="occupation_end_date_1" data-type="text" data-pk="57" data-title="End date" class="editable editable-click">{{ $studentWorkExperience->occupation_end_date_1; }}</a>
+											  </div>
                                              </div>
                                              </div>
                               <div class="form-group">{{ Form::label('date_of_birth', 'Currently working', array('class' => 'col-sm-3 control-label'));  }}
@@ -574,26 +637,36 @@
                            <div class="line line-dashed b-b line-lg pull-in"></div>
                               <div class="form-group">
                                  {{ Form::label('forename_2', 'Occupation 2', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->occupation_2; }}</div>
+                                 <div class="col-sm-9">{{ $studentWorkExperience->occupation_2; }}
+				<a href="#" id="occupation_end_date_1" data-type="text" data-pk="57" data-title="End date" class="editable editable-click">{{ $studentWorkExperience->occupation_end_date_1; }}</a>				 
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('company_name_2', 'Company Name - Address', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->company_name_2; }}</div>
+                                 <div class="col-sm-9">
+				<a href="#" id="company_name_2" data-type="text" data-pk="57" data-title="Company Name - Address" class="editable editable-click">{{ $studentWorkExperience->company_name_2; }}</a>				 
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('main_duties_and_responsibilities_2', 'Main duties and responsibilities', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->main_duties_2; }}</div>
+                                 <div class="col-sm-9">
+									<a href="#" id="main_duties_and_responsibilities_2" data-type="text" data-pk="57" data-title="Main duties and responsibilities" class="editable editable-click">{{ $studentWorkExperience->main_duties_2; }}</a>	
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                               {{ $studentWorkExperience->occupation_start_date_2; }}</div>
+                                             
+									<a href="#" id="occupation_start_date_2" data-type="text" data-pk="57" data-title="Start date" class="editable editable-click">{{ $studentWorkExperience->occupation_start_date_2; }}</a>		   
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                               {{ $studentWorkExperience->occupation_end_date_2; }}</div>
+                                               
+								<a href="#" id="occupation_end_date_2" data-type="text" data-pk="57" data-title="End date" class="editable editable-click">{{ $studentWorkExperience->occupation_end_date_2; }}</a>			   
+											   </div>
                                              </div>
                                              </div>
                               <div class="form-group">{{ Form::label('date_of_birth', 'Currently working', array('class' => 'col-sm-3 control-label'));  }}
@@ -612,26 +685,36 @@
                            <div class="line line-dashed b-b line-lg pull-in"></div>
                               <div class="form-group">
                                  {{ Form::label('forename_2', 'Occupation 3', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->occupation_3; }}</div>
+                                 <div class="col-sm-9">
+						<a href="#" id="occupation_3" data-type="text" data-pk="57" data-title="Occupation 3" class="editable editable-click">{{ $studentWorkExperience->occupation_3; }}</a>		 
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('company_name_3', 'Company Name - Address', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->company_name_3; }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="company_name_3" data-type="text" data-pk="57" data-title="Company Name - Address" class="editable editable-click">{{ $studentWorkExperience->company_name_3; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('main_duties_and_responsibilities_3', 'Main duties and responsibilities', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $studentWorkExperience->main_duties_3; }}</div>
+                                 <div class="col-sm-9">
+								<a href="#" id="main_duties_3" data-type="text" data-pk="57" data-title="Main duties and responsibilities" class="editable editable-click">{{ $studentWorkExperience->main_duties_3; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Start date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                             {{ $studentWorkExperience->occupation_start_date_3; }} </div>
+                                             
+<a href="#" id="main_duties_3" data-type="text" data-pk="57" data-title="Main duties and responsibilities" class="editable editable-click">{{ $studentWorkExperience->occupation_start_date_3; }}</a>
+											 </div>
                                              </div>
                                              </div>
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'End date', array('class' => 'col-sm-3 control-label'));  }}
                                   <div class="col-sm-3"><div class="form-inline">
-                                              {{ $studentWorkExperience->occupation_end_date_3; }} </div>
+                                             
+							<a href="#" id="occupation_end_date_3" data-type="text" data-pk="57" data-title="End date" class="editable editable-click"> {{ $studentWorkExperience->occupation_end_date_3; }} </a>				  
+											  </div>
                                              </div>
                                              </div>
                               <div class="form-group">{{ Form::label('date_of_birth', 'Currently working', array('class' => 'col-sm-3 control-label'));  }}
@@ -709,7 +792,9 @@
                               </div>
                               <div class="form-group">
                                  {{ Form::label('total_fee', 'Total fee', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_payment_info_metadata->total_fee }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="total_fee" data-type="text" data-pk="57" data-title="Total fee" class="editable editable-click">{{ $student_payment_info_metadata->total_fee }}</a>
+								 </div>
                               </div>
                               <div class="line line-dashed b-b line-lg pull-in"></div>
                               <div class="form-group">
@@ -718,7 +803,9 @@
                                     <div class="col-sm-2">{{ $studentPaymentInfo->deposit; }}</div>
                                     {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-1 control-label'));  }}
                                     <div class="col-sm-2"><div class="form-inline">
-                                                                 {{ $studentPaymentInfo->deposit_date; }}  </div>
+                                                               
+										<a href="#" id="deposit_date" data-type="text" data-pk="57" data-title="Deposit date" class="editable editable-click">  {{ $studentPaymentInfo->deposit_date; }}</a>
+																 </div>
                                                                </div>{{ Form::label('nationality', 'Method of payment', array('class' => 'col-sm-2 control-label'));  }}
                                     <div class="col-sm-2">
 
@@ -734,10 +821,14 @@
                               <div class="form-group">
                                  <div class="form-inline">
                                     {{ Form::label('forename_3', 'Instalment 1', array('class' => 'col-sm-3 control-label'));  }}
-                                    <div class="col-sm-2">{{ $studentPaymentInfo->installment_1; }}</div>
+                                    <div class="col-sm-2">
+									<a href="#" id="installment_1" data-type="text" data-pk="57" data-title="Instalment 1" class="editable editable-click"> {{ $studentPaymentInfo->installment_1; }}</a>
+									</div>
                                     {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-1 control-label'));  }}
                                     <div class="col-sm-2"><div class="form-inline">
-                                                                   {{ $studentPaymentInfo->installment_1_date; }}   </div>
+                                                                  
+<a href="#" id="installment_1_date" data-type="text" data-pk="57" data-title="Date" class="editable editable-click"> {{ $studentPaymentInfo->installment_1_date; }}</a>
+																   </div>
                                                                </div>{{ Form::label('nationality', 'Method of payment', array('class' => 'col-sm-2 control-label'));  }}
                                     <div class="col-sm-2">
                                        @if(intval($studentPaymentInfo->installment_1_method)==10000)
@@ -753,10 +844,10 @@
                               <div class="form-group">
                                  <div class="form-inline">
                                     {{ Form::label('forename_3', 'Instalment 2', array('class' => 'col-sm-3 control-label'));  }}
-                                    <div class="col-sm-2">{{ $studentPaymentInfo->installment_2; }}</div>
+                                    <div class="col-sm-2"><a href="#" id="installment_2" data-type="text" data-pk="57" data-title="Instalment 2" class="editable editable-click"> {{ $studentPaymentInfo->installment_2; }}</a></div>
                                     {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-1 control-label'));  }}
                                     <div class="col-sm-2"><div class="form-inline">
-                                                                  {{ $studentPaymentInfo->installment_2_date; }}     </div>
+                           <a href="#" id="installment_2_date" data-type="text" data-pk="57" data-title="Date" class="editable editable-click"> {{ $studentPaymentInfo->installment_2_date; }}</a>    </div>
                                                                </div>{{ Form::label('nationality', 'Method of payment', array('class' => 'col-sm-2 control-label'));  }}
                                     <div class="col-sm-2">
                                         @if(intval($studentPaymentInfo->installment_2_method)==10000)
@@ -772,10 +863,10 @@
                               <div class="form-group">
                                  <div class="form-inline">
                                     {{ Form::label('forename_3', 'Instalment 3', array('class' => 'col-sm-3 control-label'));  }}
-                                    <div class="col-sm-2">{{ $studentPaymentInfo->installment_3; }}</div>
+                                    <div class="col-sm-2"><a href="#" id="installment_3" data-type="text" data-pk="57" data-title="Instalment 3" class="editable editable-click"> {{ $studentPaymentInfo->installment_3; }}</a></div>
                                     {{ Form::label('date_of_birth', 'Date', array('class' => 'col-sm-1 control-label'));  }}
                                     <div class="col-sm-2"><div class="form-inline">
-                                                                 {{ $studentPaymentInfo->installment_3_date; }}    </div>
+                        <a href="#" id="installment_3_date" data-type="text" data-pk="57" data-title="Date" class="editable editable-click"> {{ $studentPaymentInfo->installment_3_date; }}</a></div>
                                                                </div>{{ Form::label('instalment_payment_method_3', 'Method of payment', array('class' => 'col-sm-2 control-label'));  }}
                                     <div class="col-sm-2">
                                        @if(intval($studentPaymentInfo->installment_3_method)==10000)
@@ -790,11 +881,15 @@
                               <div class="line line-dashed b-b line-lg pull-in"></div>
                               <div class="form-group">
                                  {{ Form::label('late_admin_fee', 'Late admin fee', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_payment_info_metadata->late_admin_fee }}</div>
+                                 <div class="col-sm-9">
+								 <a href="#" id="late_admin_fee" data-type="text" data-pk="57" data-title="Late admin fee" class="editable editable-click"> {{ $student_payment_info_metadata->late_admin_fee; }}</a>
+								 </div>
                               </div>
                               <div class="form-group">
                                  {{ Form::label('late_fee', 'Late fee', array('class' => 'col-sm-3 control-label'));  }}
-                                 <div class="col-sm-9">{{ $student_payment_info_metadata->late_fee }}</div>
+                                 <div class="col-sm-9">{{ $student_payment_info_metadata->late_fee }}
+							 <a href="#" id="late_fee" data-type="text" data-pk="57" data-title="Late fee" class="editable editable-click">{{ $student_payment_info_metadata->late_fee }}</a>	 
+								 </div>
                               </div>
                            </div>
                         </section>
@@ -804,7 +899,9 @@
                               <div class="form-group">
                                  {{ Form::label('date_of_birth', 'Application received to BQu date', array('class' => 'col-sm-3 control-label'));  }}
                                 <div class="col-sm-3"><div class="form-inline">
-                                              {{ $student_bqu_data->application_received_date }} </div>
+                                              
+								<a href="#" id="application_received_date" data-type="text" data-pk="57" data-title="Application received to BQu date" class="editable editable-click">{{ $student_bqu_data->application_received_date }}</a>	 
+											  </div>
                                             </div>
                                             </div>
                               <div class="form-group">

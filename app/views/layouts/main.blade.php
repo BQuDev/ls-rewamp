@@ -301,28 +301,57 @@
                                         </li>
                                     <?php } ?>
                                     <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
-                                        <li >
-                                            <a href="#">
-                                                <i class="i i-pencil2 icon">
-                                                </i>
-                                                <span class="font-bold">Marks Input</span>
-                                            </a>
-                                            <ul class="nav dk">
-                                            <?php
-                                              $all_courses = DB::table('application_courses')->select('*')->get();
-                                             ?>
-                                                @foreach($all_courses as $course)
-                                                <?php $link = "/modules/marks-input/".$course->name;  ?>
-                                                <li>
-                                                    <a href="{{ URL::to($link) }}">
+                                       <li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-docs icon">
+                        </i>
+                        <span class="font-bold">Marks Input</span>
+                      </a>
+<ul class="nav dk">
+					<li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-dot">
+                        </i>
+                        <span class="font-bold">BA Marketing</span>
+                      </a>
+<ul class="nav dk">
+					<li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-dot">
+                        </i>
+                        <span class="font-bold">International Marketing</span>
+                      </a>
+<ul class="nav dk">
+<li>
+                                                    <a href="/student-marks-IM-A-02">
                                                         <i class="i i-dot"></i>
-                                                        <span>{{ $course->name }}</span>
+                                                        <span>Element 2</span>
                                                     </a>
                                                 </li>
-                                                @endforeach
 
-                                            </ul>
-                                        </li>
+
+</ul>
+                    </li>
+
+
+</ul>
+                    </li>
+
+
+</ul>
+                    </li>
                                     <?php } ?>
                                 </ul>
                                 <li <?php if(Request::segment(1) == "exports") echo 'class="active"'; ?>>
