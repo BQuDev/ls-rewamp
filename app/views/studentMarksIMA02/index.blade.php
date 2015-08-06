@@ -1,0 +1,1 @@
+C:\wamp\www\ls-master-sheet\app/views/studentMarksIMA01Glanceds/index.blade.php
