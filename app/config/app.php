@@ -127,6 +127,7 @@ return array(
         'Maatwebsite\Excel\ExcelServiceProvider',
         'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider',
 		'Andheiberg\Notify\NotifyServiceProvider',
+		'Barryvdh\DomPDF\ServiceProvider',
 	),
 
 	/*
@@ -198,6 +199,7 @@ return array(
         'Notify'            => 'Andheiberg\Notify\Facades\Notify',
         'View'              => 'Illuminate\Support\Facades\View',
         'Carbon'            => 'Carbon\Carbon',
+		'PDF' 				=> 'Barryvdh\DomPDF\Facade'
 	),
 
 );
