@@ -9,7 +9,10 @@ angular.module('addressFormatter', []).filter('address', function () {
  
 app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.gridOptions = {
-	enableFiltering: true
+	enableFiltering: true,
+	fastWatch: true,
+	flatEntityAccess: true,
+	enableRowSelection: true,
   };
     $scope.gridOptions.enableCellEditOnFocus = true;
 
@@ -45,6 +48,10 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
     { name: 'm1', type: 'number', enableFiltering: false, displayName: 'First Marker\'s Mark',enableCellEdit: false, width: '10%'},
     { name: 'm2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Second Marker\'s Mark', width: '10%'},
     { name: 'ageed_mark', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Agreed Mark', width: '10%'},
+	/*{name: 'sele', enableFiltering: false, enableSorting: false, displayName: '', l: false,type: 'boolean',editableCellTemplate:'<div class="checkbox i-checks"><label><input type="checkbox" value="{{ row.entity.san }}" name="{{ row.entity.san }}" ng-click="grid.appScope.edit1(row.entity)" checked><i></i></label></div>',cellTemplate: '<div class="checkbox i-checks"><label><input type="checkbox" value="{{ row.entity.san }}" name="{{ row.entity.san }}" ng-click="grid.appScope.edit1(row.entity)" ><i></i></label></div>'},*/
+	{name: 'sele', enableFiltering: false, cellFilter: 'mapGender', enableSorting: false, editDropdownValueLabel: 'gender', editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownOptionsArray: [
+      { id: 1, gender: 'Sample' }
+    ]},
 	{name: 'edit', enableFiltering: false, enableSorting: false, displayName: '', enableCellEdit: false,cellTemplate: '<button id="editBtn" type="button" class="btn btn-success no_padding_btn" ng-click="grid.appScope.edit(row.entity)" >Export</button> '}
 	/*
 	{ name: 'san', enableCellEdit: false, displayName: 'SAN' },
@@ -63,6 +70,8 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
  
  $scope.msg = {};
  
+
+
  $scope.gridOptions.onRegisterApi = function(gridApi){
           //set gridApi on scope
           $scope.gridApi = gridApi;
@@ -184,6 +193,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
             });
     }
 
+
     $scope.excel_export = function(){
 
       
@@ -207,7 +217,9 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
           
 }
 	
-	
+	$scope.edit1 = function(san){
+		console.log(san);
+	}
     $scope.edit = function(san){
 
      //  console.log(Object.keys(san).map(function(k) { return san[k] })[0]);
@@ -237,14 +249,27 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
   $http.get('students_for_marks_IM_A_02')
     .success(function(data) {
       $scope.gridOptions.data = data;
+	  
+	 
     });
-}])
+}]).filter('mapGender', function() {
+  var genderHash = {
+    1: 'Sample'
+  };
+ 
+  return function(input) {
+    if (!input){
+      return '';
+    } else {
+      return genderHash[input];
+    }
+  };
+});
 
 
-
-
-
-
+$(function() {
+	$('.grid').css( "height" ,(($('#content').height()-100)+'px'));
+});
 
 
 
