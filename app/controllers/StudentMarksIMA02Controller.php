@@ -19,7 +19,7 @@ class StudentMarksIMA02Controller extends \BaseController {
         return DB::table('students')
             ->leftJoin('students_for_marks_im_a_02','students.san','=','students_for_marks_im_a_02.san')
             ->leftJoin('application_scj','students.san','=','application_scj.san')
-            ->select('students.san','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','m1','m2','ageed_mark')
+            ->select('students.san','sample','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
             ->groupBy('students.san')
             ->get();
@@ -125,7 +125,7 @@ class StudentMarksIMA02Controller extends \BaseController {
 		
 			
 			
-$pdf->loadHTML('<table width="75%" align="center" border="1" cellspacing="1" cellpadding="2">
+$pdf->loadHTML('<table width="100%" align="center" border="1" cellspacing="1" cellpadding="2">
   <tr>
     <td  colspan="5" ><p style="text-align:center"><img src="https://lsadmin.net/images/top_img.jpg" width="711" height="auto" /></p></td>
   </tr>
@@ -217,9 +217,8 @@ return $pdf->stream();
 			
 
 			$headers = array(
-    "Content-type"=>"text/html",
-    "Content-Disposition"=>"attachment;Filename=International_Marketing_BA_in_Marketing_MOD001194.doc"
-);
+    "Content-type"=>"application/msword",
+    "Content-Disposition"=>"attachment;Filename=IM_".$student_data[0]->scj_number." & ".$student_data[0]->ls_student_number."_".Sentry::getUser()->first_name." ".Sentry::getUser()->last_name.".doc");
 
 $content = '<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -229,13 +228,13 @@ $content = '<html xmlns="http://www.w3.org/1999/xhtml">
 
 <body>
 
-<table width="75%" align="center" border="1" cellspacing="1" cellpadding="2">
+<table width="100%" align="center" border="1" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="5" bgcolor="#FEFFFf" ><p style="text-align:center"><img src="https://lsadmin.net/images/top_img.jpg" width="711" height="auto" /></p></td>
+    <td colspan="5" bgcolor="#FEFFFf" ><p style="text-align:center"><img src="https://lsadmin.net/images/top_img.jpg" width="100%" height="auto" /></p></td>
   </tr>
   </table>
   <br />
-  <table width="75%" align="center" border="0" cellspacing="1" cellpadding="2">
+  <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
     <td colspan="5"><h2 style="text-align:center;">International Marketing<br />
 BA in Marketing<br />
@@ -246,7 +245,7 @@ Assessment 2 - Report <br />
   </tr>
   </table>
   <br />
-  <table width="75%" align="center" border="1" cellspacing="1" cellpadding="2">
+  <table width="100%" align="center" border="1" cellspacing="1" cellpadding="2">
   <tr>
     <td  colspan="3">SID Number :&nbsp;'.$student_data[0]->scj_number.'</td>
    
@@ -262,7 +261,7 @@ Assessment 2 - Report <br />
   </tr>
   </table>
   <br />    <br />
-  <table width="75%" align="center" border="1" cellspacing="1" cellpadding="2">
+  <table width="100%" align="center" border="1" cellspacing="1" cellpadding="2">
   <tr>
     <td width="35%" align="center">Criteria</td>
     <td width="40%" align="center">Comments</td>
@@ -318,7 +317,7 @@ The answer should include: <br>
     <td>&nbsp;'.(($student_data[0]->c3*.65)+($student_data[0]->c2*.3)+($student_data[0]->c1*.05)).'</td>
   </tr>
   </table>
-  <table width="75%" align="center" border="0" cellspacing="1" cellpadding="1">
+  <table width="100%" align="center" border="0" cellspacing="1" cellpadding="1">
    <tr>
      <td height="10">  </td>
   </tr>
@@ -328,13 +327,13 @@ The answer should include: <br>
   </table>
 
   <br />
-  <table width="75%" align="center" border="1" cellspacing="1" cellpadding="2">
+  <table width="100%" align="center" border="1" cellspacing="1" cellpadding="2">
   <tr>
     <td height="120"></td>
   </tr>
   </table>
   <br /><br />
-    <table width="75%" align="center" border="0" cellspacing="1" cellpadding="2">
+    <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
     <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
     <td colspan="2">Date: 06-08-2015</td>

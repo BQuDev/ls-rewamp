@@ -12,7 +12,13 @@
   <link rel="stylesheet" href="../css/font.css" type="text/css" />
   <link rel="stylesheet" href="../css/app.css" type="text/css" />  
   <link rel="stylesheet" href="../pnotify/pnotify.core.min.css" type="text/css" />  
-  <link rel="stylesheet" href="../pnotify/pnotify.buttons.min.css" type="text/css" />  
+  <link rel="stylesheet" href="../pnotify/pnotify.buttons.min.css" type="text/css" /> 
+<style>  
+.bg-black {
+    background-color: #000;
+    color: #656b93;
+}
+</style>  
     <!--[if lt IE 9]>
     <script src="../js/ie/html5shiv.js"></script>
     <script src="../js/ie/respond.min.js"></script>
@@ -118,101 +124,59 @@
                     <a href="/students">
                       <i class="i i-docs icon">
                       </i>
-                      <span class="font-bold">All Applications</span>
+                      <span class="font-bold">Home</span>
                     </a>
                   </li>
                   <?php } ?>
-                           <?php if (Sentry::getUser()->hasAccess('students.create')){  ?>
-                                   <li >
-                                <a href="/students/create">
-
-                                   <i class="i i-pencil2 icon">
-                                   </i>
-                                   <span class="font-bold">Add New Application</span>
-                                 </a>
-
-                               </li>
- <?php } ?>  <?php if (Sentry::getUser()->hasAccess('students.validate')){  ?>
-                                                <li >
-                                                          <a href="/students/validate">
-
-                                                             <i class="i  i-checked icon">
-                                                             </i>
-                                                             <span class="font-bold">Validate Admissions</span>
-                                                           </a>
-
-                                                         </li>
-                                                          <?php } ?>  <?php if (Sentry::getUser()->hasAccess('students.verify')){  ?>
-                                   <li >
-                                             <a href="/students/verify">
-
-                                                <i class="i  i-checked icon">
-                                                </i>
-                                                <span class="font-bold">Amendments</span>
-                                              </a>
-
-                                            </li>
-                                             <?php } ?>     <?php if (Sentry::getUser()->hasAccess('students.export')){  ?>
-<li >
-                                             <a href="/export">
-
-                                                <i class="i i-file-excel icon">
-                                                </i>
-                                                <span class="font-bold">Export</span>
-                                              </a>
-
-                                            </li>
-                                             <?php } ?>
+                           
                     
-					<li >
+					<li class="active">
                       <a href="#" class="auto">
                         <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
                         </span>
                         <i class="i i-docs icon">
                         </i>
                         <span class="font-bold">Marks Input</span>
                       </a>
 <ul class="nav dk">
-					<li >
+					<li  class="active">
                       <a href="#" class="auto">
                         <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
                         </span>
-                        <i class="i i-dots">
                         </i>
                         <span class="font-bold">BA Marketing</span>
                       </a>
 <ul class="nav dk">
-					<li >
+					<li  class="active">
                       <a href="#" class="auto">
                         <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
                         </span>
-                        <i class="i i-dots">
                         </i>
                         <span class="font-bold">International Marketing</span>
                       </a>
 <ul class="nav dk">
-					<li >
-                      <a href="/student-marks-IM-A-02" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
-                        </span>
-                        <i class="i i-dots">
-                        </i>
-                        <span class="font-bold">Element 2</span>
-                      </a>
-<ul class="nav dk">
 
+<li >
+                                             <a href="/student-marks-IM-A-02">
 
+                                                <i class="i i-file-dot icon">
+                                                </i>
+                                               <span class="font-bold">Element 1</span>
+                                              </a>
 
-</ul>
-                    </li>
+                                            </li>
+<li class="active">
+                                             <a href="/student-marks-IM-A-02">
+
+                                                <i class="i i-file-dot icon">
+                                                </i>
+                                               <span class="font-bold">Element 2</span>
+                                              </a>
+
+                                            </li>
+											
+											
+					
 
 
 </ul>
@@ -250,10 +214,9 @@
         <!-- /.aside -->
         <section id="content">
           <section class="vbox">          
-            <section class="scrollable wrapper">
 
 
-<head>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-touch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-animate.js"></script>
@@ -271,9 +234,18 @@
             width: 100%;
             height:458px;
         }
+		
+		.checkbox {
+     margin-top: 5px; 
+     margin-bottom: 0px; 
+}
+
+.checkbox + .checkbox  {
+    margin-top: 5px;
+}
     </style>
-</head>
-<body>
+
+
 <div ng-app="app">
 <div ng-controller="MainCtrl">
 
@@ -286,14 +258,14 @@
                           <div class="col-lg-7">
                             <div class="checkbox i-checks">
 	  <label>
-		<input id="auto_refresh" type="checkbox"><i></i> Auto calculate when all marks inserted to the student.
+		<input id="auto_refresh" type="checkbox"><i></i> Auto calculate when all the marks are inserted to the student.
 	  </label>
 	</div>
                           </div>
 						  <div class="col-sm-5">	
 						  <div style="float:right">	
-    <button id="refreshButton" type="button" class="btn btn-success" ng-click="refreshData()">Calculate marks</button>	&nbsp;&nbsp;&nbsp;&nbsp;<button id="excel_export" type="button" class="btn btn-success" ng-click="excel_export()">Excel Export ( All data )</button>
-</div>
+    <button id="refreshButton" type="button" class="btn btn-primary" ng-click="refreshData()">Calculate marks</button>	&nbsp;&nbsp;&nbsp;&nbsp;<button id="excel_export" type="button" class="btn btn-primary" ng-click="excel_export()">Excel Export ( All data )</button>
+</div>&nbsp;&nbsp;
 </div>
 						  
                         </div>
@@ -322,9 +294,8 @@
     <div>{{lastFile}}</div>-->
 </div>
 </div>
-</body>
-</html>
-          </section>
+
+         
           <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
         </section>
       </section>
@@ -339,5 +310,6 @@
     <script src="../pnotify/pnotify.core.min.js"></script>
     <script src="../pnotify/pnotify.buttons.min.js"></script>
 	    <script src="../js/angular/ba/im/e02.js"></script>
+		
 </body>
 </html>

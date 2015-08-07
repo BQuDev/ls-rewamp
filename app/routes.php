@@ -86,6 +86,9 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('save_marks_for_IM_A_02_word', 'StudentMarksIMA02Controller@to_word');
 	Route::resource('student-marks-IM-A-02', 'StudentMarksIMA02Controller');
 	
+	
+	Route::get('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');
+	Route::post('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');
