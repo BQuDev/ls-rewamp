@@ -603,7 +603,7 @@
     <br>
     <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
     <br>-->
-    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav class="grid"></div>
+    <div ui-grid="gridOptions" class="grid"></div>
     <!--<br>
     <div><strong>Last file uploaded:</strong></div>
     <div>{{lastFile}}</div>-->
