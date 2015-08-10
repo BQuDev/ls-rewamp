@@ -17,7 +17,7 @@
  
  <?php
  $students = DB::table('students')
-            ->leftJoin('xxx','students.san','=','xxx.san')
+            ->leftJoin('students_for_marks_im_a_02','students.san','=','students_for_marks_im_a_02.san')
             ->select('students.san','students.ls_student_number','c1','c2','c3','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
             ->groupBy('students.san')

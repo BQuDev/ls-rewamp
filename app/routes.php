@@ -80,12 +80,78 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('save_marks_for_IM_A_01_glanced_word', 'StudentMarksIMA01GlancedsController@to_word');
 	Route::resource('student-marks-IM-A-01-glanced', 'StudentMarksIMA01GlancedsController');
 	
+    Route::get('students_for_marks_IM_A_01','StudentMarksIMA01Controller@students_for_marks_IM_A_01');
+    Route::post('save_marks_for_IM_A_01','StudentMarksIMA01Controller@save_marks_for_IM_A_01');
+    Route::get('save_marks_for_IM_A_01_excel_export','StudentMarksIMA01Controller@excel_export');
+    Route::get('save_marks_for_IM_A_01_word', 'StudentMarksIMA01Controller@to_word');
+	Route::resource('student-marks-IM-A-01', 'StudentMarksIMA01Controller');
+	
     Route::get('students_for_marks_IM_A_02','StudentMarksIMA02Controller@students_for_marks_IM_A_02');
     Route::post('save_marks_for_IM_A_02','StudentMarksIMA02Controller@save_marks_for_IM_A_02');
     Route::get('save_marks_for_IM_A_02_excel_export','StudentMarksIMA02Controller@excel_export');
     Route::get('save_marks_for_IM_A_02_word', 'StudentMarksIMA02Controller@to_word');
-	Route::resource('student-marks-IM-A-02', 'StudentMarksIMA02Controller');
+	Route::resource('student-marks-IM-A-02', 'StudentMarksIMA02Controller');	
 	
+    Route::get('students_for_marks_MC_A_01','StudentMarksMCA01Controller@students_for_marks_MC_A_01');
+    Route::post('save_marks_for_MC_A_01','StudentMarksMCA01Controller@save_marks_for_MC_A_01');
+    Route::get('save_marks_for_MC_A_01_excel_export','StudentMarksMCA01Controller@excel_export');
+    Route::get('save_marks_for_MC_A_01_word', 'StudentMarksMCA01Controller@to_word');
+	Route::resource('student-marks-MC-A-01', 'StudentMarksMCA01Controller');
+	
+    Route::get('students_for_marks_MC_A_02','StudentMarksMCA02Controller@students_for_marks_MC_A_02');
+    Route::post('save_marks_for_MC_A_02','StudentMarksMCA02Controller@save_marks_for_MC_A_02');
+    Route::get('save_marks_for_MC_A_02_excel_export','StudentMarksMCA02Controller@excel_export');
+    Route::get('save_marks_for_MC_A_02_word', 'StudentMarksMCA02Controller@to_word');
+	Route::resource('student-marks-MC-A-02', 'StudentMarksMCA02Controller');
+	
+    Route::get('students_for_marks_OCM_A_01','StudentMarksOCMA01Controller@students_for_marks_OCM_A_01');
+    Route::post('save_marks_for_OCM_A_01','StudentMarksOCMA01Controller@save_marks_for_OCM_A_01');
+    Route::get('save_marks_for_OCM_A_01_excel_export','StudentMarksOCMA01Controller@excel_export');
+    Route::get('save_marks_for_OCM_A_01_word', 'StudentMarksOCMA01Controller@to_word');
+	Route::resource('student-marks-OCM-A-01', 'StudentMarksOCMA01Controller');
+	
+    Route::get('students_for_marks_RM_A_01','StudentMarksRMA01Controller@students_for_marks_RM_A_01');
+    Route::post('save_marks_for_RM_A_01','StudentMarksRMA01Controller@save_marks_for_RM_A_01');
+    Route::get('save_marks_for_RM_A_01_excel_export','StudentMarksRMA01Controller@excel_export');
+    Route::get('save_marks_for_RM_A_01_word', 'StudentMarksRMA01Controller@to_word');
+	Route::resource('student-marks-RM-A-01', 'StudentMarksRMA01Controller');
+	
+    Route::get('students_for_marks_SMA_A_01','StudentMarksSMAA01Controller@students_for_marks_SMA_A_01');
+    Route::post('save_marks_for_SMA_A_01','StudentMarksSMAA01Controller@save_marks_for_SMA_A_01');
+    Route::get('save_marks_for_SMA_A_01_excel_export','StudentMarksSMAA01Controller@excel_export');
+    Route::get('save_marks_for_SMA_A_01_word', 'StudentMarksSMAA01Controller@to_word');
+	Route::resource('student-marks-SMA-A-01', 'StudentMarksSMAA01Controller');
+	
+    Route::get('students_for_marks_SMF_A_01','StudentMarksSMFA01Controller@students_for_marks_SMF_A_01');
+    Route::post('save_marks_for_SMF_A_01','StudentMarksSMFA01Controller@save_marks_for_SMF_A_01');
+    Route::get('save_marks_for_SMF_A_01_excel_export','StudentMarksSMFA01Controller@excel_export');
+    Route::get('save_marks_for_SMF_A_01_word', 'StudentMarksSMFA01Controller@to_word');
+	Route::resource('student-marks-SMF-A-01', 'StudentMarksSMFA01Controller');
+	
+    Route::get('students_for_marks_UGMP_A_01','StudentMarksUGMPA01Controller@students_for_marks_UGMP_A_01');
+    Route::post('save_marks_for_UGMP_A_01','StudentMarksUGMPA01Controller@save_marks_for_UGMP_A_01');
+    Route::get('save_marks_for_UGMP_A_01_excel_export','StudentMarksUGMPA01Controller@excel_export');
+    Route::get('save_marks_for_UGMP_A_01_word', 'StudentMarksUGMPA01Controller@to_word');
+	Route::resource('student-marks-UGMP-A-01', 'StudentMarksUGMPA01Controller');
+	
+    Route::get('students_for_marks_MDI_A_01','StudentMarksMDIA01Controller@students_for_marks_MDI_A_01');
+    Route::post('save_marks_for_MDI_A_01','StudentMarksMDIA01Controller@save_marks_for_MDI_A_01');
+    Route::get('save_marks_for_MDI_A_01_excel_export','StudentMarksMDIA01Controller@excel_export');
+    Route::get('save_marks_for_MDI_A_01_word', 'StudentMarksMDIA01Controller@to_word');
+	Route::resource('student-marks-MDI-A-01', 'StudentMarksMDIA01Controller');
+	
+		
+    Route::get('students_for_marks_PMP_MA_A_01','StudentMarksPMPMAA01Controller@students_for_marks_PMP_MA_A_01');
+    Route::post('save_marks_for_PMP_MA_A_01','StudentMarksPMPMAA01Controller@save_marks_for_PMP_MA_A_01');
+    Route::get('save_marks_for_PMP_MA_A_01_excel_export','StudentMarksPMPMAA01Controller@excel_export');
+    Route::get('save_marks_for_PMP_MA_A_01_word', 'StudentMarksPMPMAA01Controller@to_word');
+	Route::resource('student-marks-PMP_MA-A-01', 'StudentMarksPMPMAA01Controller');	
+		
+    Route::get('students_for_marks_PMP_MBA_A_01','StudentMarksPMPMBAA01Controller@students_for_marks_PMP_MBA_A_01');
+    Route::post('save_marks_for_PMP_MBA_A_01','StudentMarksPMPMBAA01Controller@save_marks_for_PMP_MBA_A_01');
+    Route::get('save_marks_for_PMP_MBA_A_01_excel_export','StudentMarksPMPMBAA01Controller@excel_export');
+    Route::get('save_marks_for_PMP_MBA_A_01_word', 'StudentMarksPMPMBAA01Controller@to_word');
+	Route::resource('student-marks-PMP_MBA-A-01', 'StudentMarksPMPMBAA01Controller');
 	
 	Route::get('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');
 	Route::post('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');

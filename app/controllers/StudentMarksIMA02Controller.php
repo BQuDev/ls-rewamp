@@ -61,11 +61,11 @@ class StudentMarksIMA02Controller extends \BaseController {
 				$mark2 = 0;
 				
 				$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
-				if($mark2 > 100)$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
-				if($mark2 > 100)$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
-				if($mark2 > 100)$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
-				if($mark2 > 100)$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
-				if($mark2 > 100)$mark2 = (.95 * $mark1) + $mark1*(rand( 0,6 )/100);
+				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
+				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
+				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
+				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
+				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
 				
 				
 				$mark_update = DB::table('students_for_marks_im_a_02')
@@ -113,6 +113,7 @@ class StudentMarksIMA02Controller extends \BaseController {
 	public function to_word(){
 		$san               = Input::get('san');
 		$export_type               = Input::get('export_type');
+		$date               = Input::get('d');
 		//return Input::get('export_type');
 			$student_data = DB::table('students_for_marks_im_a_02')
 			->leftJoin('application_scj','students_for_marks_im_a_02.san','=','application_scj.san')
@@ -336,7 +337,7 @@ The answer should include: <br>
     <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
     <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
-    <td colspan="2">Date: 06-08-2015</td>
+    <td colspan="2">Date: '.$date .'</td>
   </tr>
  
 </table>

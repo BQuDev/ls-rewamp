@@ -1527,19 +1527,14 @@ return View::make('students.index')
 			    //$students = Student::all();
 			    //$students = Student::groupBy('san')->skip(750)->take(1000)->get();
 			    $students = Student::groupBy('san')
-				->where('san','=','9sbj6xcz')
-				->orWhere('san','=','i5uc9xcz')
-				->orWhere('san','=','a9z7mxcz')
-				->orWhere('san','=','tqfynxcz')
-				->orWhere('san','=','1zx81zcz')
-				->orWhere('san','=','7wxp1zcz')
-				->orWhere('san','=','39dngycz')
-				->orWhere('san','=','o0i3lycz')
-				->orWhere('san','=','agn6lycz')
-				->orWhere('san','=','qtvklycz')
-				->orWhere('san','=','f0qulycz')
-				->orWhere('san','=','a5y3nycz')
-				->orWhere('san','=','3nnvyycz')
+				->where('san','=','h5jj20dz')
+				->orWhere('san','=','8u2u20dz')
+				->orWhere('san','=','k3ea30dz')
+				->orWhere('san','=','ps1n60dz')
+				->orWhere('san','=','pv0l90dz')
+				->orWhere('san','=','4t8qa0dz')
+				->orWhere('san','=','8qpub0dz')
+				->orWhere('san','=','w719e0dz')
 				->get();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);

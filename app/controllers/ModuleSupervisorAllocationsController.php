@@ -30,64 +30,82 @@ class ModuleSupervisorAllocationsController extends \BaseController {
 
 	}
 	
-	public function supervisorAllocation()
-{
+public function supervisorAllocation(){
+
+    if(Input::all()) {
+
+    $validator =Validator::make(Input::all(),['student'=>'required','supervisor'=>'required']);
+
+    if($validator->fails()){
+        Notify::error('Please select students and supervisors');
+        return Redirect::back()->withInput();
+    }
+    // dd(Input::get('supervisor22'));
+
+         //dd(Input::get('supervisor'));
+        $students_array = Input::get('student');
+        $supervisor_array = Input::get('supervisor');
+
+        $division=count($students_array) / count($supervisor_array);
+        //  echo  floor($division);
+        $modulus=count($students_array) % count($supervisor_array);
+        $id=0;
+        foreach ($students_array as $student => $value) {
+            //echo "ID : " . $value . "<br />";
+            $ids = explode(",",$value);
+            if($modulus > 0 and $division <= 1){
+
+                DB::table('module_supervisor_allocation')->insert(
+                    array('ls_student_number' => $ids[0],
+                        'supervisor_id' => $supervisor_array[0] ,
+                        'san'=>$ids[1])
+                );
+            }else{
+
+                if($id<=(count($supervisor_array)-1)){//check supervisor count
+
+
+                    DB::table('module_supervisor_allocation')->insert(
+                        array('ls_student_number' => $ids[0],
+                            'supervisor_id' => $supervisor_array[$id] ,
+                            'san'=>$ids[1])
+                    );
+
+
+                    if($id==(count($supervisor_array)-1)){ $id=0; } else{ $id++; }
+
+                }
+
+            }
+
+        }
+          Notify::success('Supervisor asign successfully');
+    }
+
     $supervisorsMA = DB::table('module_supervisors')
         ->select('module_supervisors.name','module_supervisors.id')
         ->get();
 
-
-
-    $students = DB::table('students')->where('ls_student_number','>',0)
-        ->select('id','forename_1','surname','ls_student_number')
+    $students = DB::table('students')
+        ->whereNotExists(function($query)
+        {
+            $query->select(DB::raw(1))
+                ->from('module_supervisor_allocation')
+                ->whereRaw('module_supervisor_allocation.ls_student_number = students.ls_student_number');
+        })
+        ->where('students.ls_student_number','>',0)
+        ->groupBy('students.ls_student_number')
+        ->orderBy('students.id', 'desc')
         ->get();
 
-   // dd(Input::get('supervisor'));
-    if(Input::all()) {
-
-    $students_array = Input::get('student');
-    $supervisor_array = Input::get('supervisor');
-
-      $division=count($students_array) / count($supervisor_array);
-       //  echo  floor($division);
-       $modulus=count($students_array) % count($supervisor_array);
-        $id=0;
-        foreach ($students_array as $student => $value) {
-            //echo "ID : " . $value . "<br />";
-              if($modulus > 0 and $division <= 1){
-
-                  DB::table('module_supervisor_allocation')->insert(
-                      array('ls_student_number' => $value,
-                          'supervisor_id' =>  $supervisor_array[0])
-                  );
-              }else{
-                  //echo count($supervisor_array)."<br>";
-                //  echo $id."<br>";
-                  if($id<=(count($supervisor_array)-1)){//check supervisor count
-                     // echo $id."<br>";
-
-                      DB::table('module_supervisor_allocation')->insert(
-                          array('ls_student_number' => $value,
-                                'supervisor_id' =>  $supervisor_array[$id])
-                      );
-
-
-                      if($id==(count($supervisor_array)-1)){ $id=0; } else{ $id++; }
-
-                  }
-
-              }
-
-        }
-      //  Notify::success('Supervisor asign successfully');
-    }
-
+    // $queries = DB::getQueryLog();
+    // dd($queries);
 
     return View::make('moduleSupervisorAllocations.supervisorassign')
         ->with('students',$students)
         ->with('supervisorsMA',$supervisorsMA);
 
-	}
+}
 
 	public function assign_supervisor(){
 

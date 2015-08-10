@@ -18,7 +18,7 @@
 
                     {{ Form::label('san', 'Student Name', array('class' => 'col-sm-3 control-label'));  }}
                     <div class="col-sm-9">
-                    {{ Form::text('search_text',null,['class' => 'form-control input-sm','id'=>'search_text',
+                    {{ Form::text('search_text',null,['class' => 'form-control input-sm no-border','id'=>'search_text',
                     'placeholder'=>'Search ID,Name...']) }}
                     </div>
                     </div>
@@ -49,7 +49,7 @@
                             <tbody>
                             @foreach ($students as $student)
                                 <tr>
-                                    <td>{{ Form::checkbox('student[]',$student->ls_student_number.','.$student->san) }}</td>
+                                    <td>{{ Form::checkbox('student[]',$student->ls_student_number) }}</td>
                                     <td>{{$student->ls_student_number}} &nbsp;-&nbsp;{{ $student->forename_1.' '.$student->surname }}</td>
                                 </tr>
                             @endforeach
@@ -70,7 +70,7 @@
                     <div class="panel-body">
                 <div class="form-group">
                     {{ Form::label('san', 'Supervisors List', array('class' => 'col-sm-3 control-label'));  }}
-                    <div class="col-sm-9"><input type="text" id="search_text2" class="form-control input-sm"
+                    <div class="col-sm-9"><input type="text" id="search_text2" class="form-control input-sm no-border"
                                                  placeholder="Search Supervisor Name ...">
                     </div>
                 </div>

@@ -156,42 +156,8 @@
                       </a>
 <ul class="nav dk">
 
-<li >
-                                             <a href="/student-marks-IM-A-02">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
 <li class="active">
-                                             <a href="/student-marks-IM-A-02">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 2</span>
-                                              </a>
-
-                                            </li>
-											
-											
-					
-
-
-</ul>
-                    </li>
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Marketing Consultancy</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-MC-A-01">
+                                             <a href="/student-marks-IM-A-01">
 
                                                 <i class="i i-file-dot icon">
                                                 </i>
@@ -200,7 +166,7 @@
 
                                             </li>
 <li>
-                                             <a href="/student-marks-MC-A-02">
+                                             <a href="/student-marks-IM-A-02">
 
                                                 <i class="i i-file-dot icon">
                                                 </i>
@@ -215,219 +181,6 @@
 
 </ul>
                     </li>
-					
-					
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Organisational Change Management</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-OCM-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-
-</ul>
-                    </li>
-					
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Retail Marketing</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-RM-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-
-</ul>
-                    </li>
-
-					
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Strategic Management Analysis</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-SMA-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-
-</ul>
-                    </li>
-					
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Sustainable Management Futures</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-SMF-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-
-</ul>
-                    </li>	
-					
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Undergraduate Major Project</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-UGMP-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-
-</ul>
-                    </li>
-
-
-</ul>
-                    </li>
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">MA</span>
-                      </a>
-<ul class="nav dk">
-					<li >
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Marketing Design and Innovation</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-MDI-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-							
-
-</ul>
-                    </li>
-					<li >
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Postgraduate Major Project</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-PMP_MA-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-							
-
-</ul>
-                    </li>
-					
-					
-						
-					
-					
-
-
-</ul>
-                    </li>
-					<li>
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">MBA</span>
-                      </a>
-<ul class="nav dk">
-					
-					<li >
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                        </span>
-                        </i>
-                        <span class="font-bold">Postgraduate Major Project</span>
-                      </a>
-<ul class="nav dk">
-
-<li >
-                                             <a href="/student-marks-PMP_MBA-A-01">
-
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
-
-                                            </li>
-							
-
-</ul>
-                    </li>
-					
-					
-						
-					
-					
 
 
 </ul>
@@ -556,7 +309,7 @@
     <script src="../js/app.plugin.js"></script>
     <script src="../pnotify/pnotify.core.min.js"></script>
     <script src="../pnotify/pnotify.buttons.min.js"></script>
-	    <script src="../js/angular/ba/im/e02.js"></script>
+	    <script src="../js/angular/ba/ugmp/e01.js"></script>
 		
 </body>
 </html>
