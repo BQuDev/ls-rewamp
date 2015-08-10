@@ -533,7 +533,6 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-touch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-animate.js"></script>
     <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
     <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
@@ -563,9 +562,7 @@
 
 <div ng-app="app">
 <div ng-controller="MainCtrl">
-    <div ui-grid="gridOptions" class="grid"></div>
-</div>
-</div>
+
 <br>
 
 <div class="row">
@@ -605,7 +602,7 @@
     <br>
     <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
     <br>-->
-    <div ui-grid="gridOptions" class="grid"></div>
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellnav class="grid"></div>
     <!--<br>
     <div><strong>Last file uploaded:</strong></div>
     <div>{{lastFile}}</div>-->
