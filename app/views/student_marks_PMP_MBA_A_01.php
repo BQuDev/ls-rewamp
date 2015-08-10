@@ -408,7 +408,7 @@
 
             </ul>
         </li>
-        <li>
+        <li class="active">
             <a href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
