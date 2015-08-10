@@ -1,6 +1,6 @@
 <?php
 
-class StudentMarksMDIA01Controller extends \BaseController {
+class StudentMarksRMBMMAA01Controller extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,14 +10,14 @@ class StudentMarksMDIA01Controller extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('student_marks_mdi_A_01');
+        return View::make('student_marks_RMBM_MA_A_01');
 	}
 
 
-    public function students_for_marks_MDI_a_01(){
+    public function students_for_marks_rmbm_ma_a_01(){
         //return Student::all();
         return DB::table('students')
-            ->leftJoin('students_for_marks_mdi_a_01','students.san','=','students_for_marks_mdi_a_01.san')
+            ->leftJoin('students_for_marks_rmbm_ma_a_01','students.san','=','students_for_marks_rmbm_ma_a_01.san')
             ->leftJoin('application_scj','students.san','=','application_scj.san')
             ->select('students.san','sample','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','c4','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
@@ -25,7 +25,7 @@ class StudentMarksMDIA01Controller extends \BaseController {
             ->get();
     }
 
-    public function save_marks_for_MDI_A_01(){
+    public function save_marks_for_RMBM_MA_A_01(){
 
     //return Input::all();
 
@@ -36,28 +36,27 @@ class StudentMarksMDIA01Controller extends \BaseController {
 /*
         ;*/
 
-        $has_row = DB::table('students_for_marks_mdi_a_01')->where('san','=',$san)->get();
+        $has_row = DB::table('students_for_marks_rmbm_ma_a_01')->where('san','=',$san)->get();
         if($has_row){
 			
-            $mark_update = DB::table('students_for_marks_mdi_a_01')
+            $mark_update = DB::table('students_for_marks_rmbm_ma_a_01')
                 ->where('san', $san)
                 ->update(array($col => $val));
 				
-			$row = DB::table('students_for_marks_mdi_a_01')->where('san','=',$san)->first();
+			$row = DB::table('students_for_marks_rmbm_ma_a_01')->where('san','=',$san)->first();
 			
 			
 			//Calculate marks
 			
 			 //print_r($row);
-			if((($row->c1)>0)&&(($row->c2)>0)&&(($row->c3)>0)&&(($row->c4)>0)){
+			if((($row->c1)>0)&&(($row->c2)>0)&&(($row->c3)>0)){
 				
 				$mark1 = 0;
-				$c1 = intval($row->c1) * .3;
-				$c2 = intval($row->c2) * .25;
-				$c3 = intval($row->c3) * .3;
-				$c4 = intval($row->c4) * .15;
+				$c1 = intval($row->c1) * .2;
+				$c2 = intval($row->c2) * .2;
+				$c3 = intval($row->c3) * .6;
 				
-				$mark1 = $c1+$c2+$c3+$c4;
+				$mark1 = $c1+$c2+$c3;
 				
 				$mark2 = 0;
 				
@@ -69,12 +68,12 @@ class StudentMarksMDIA01Controller extends \BaseController {
 				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
 				
 				
-				$mark_update = DB::table('students_for_marks_mdi_a_01')
+				$mark_update = DB::table('students_for_marks_rmbm_ma_a_01')
                 ->where('san', $san)
                 ->update(array('m1' => $mark1,'m2' => $mark2));
 				return 1;
 			}else{
-				$mark_update = DB::table('students_for_marks_mdi_a_01')
+				$mark_update = DB::table('students_for_marks_rmbm_ma_a_01')
                 ->where('san', $san)
                 ->update(array('m1' => null,'m2' => null));
 			}
@@ -82,8 +81,8 @@ class StudentMarksMDIA01Controller extends \BaseController {
 			
 				
         }else{ 
-			// If there are no row in 'students_marks_IM_a_01_glanced'
-			$mark_update = new StudentMarksMDIA01();
+			// If there are no row in 'students_marks_IM_a_02_glanced'
+			$mark_update = new StudentMarksRMBMMAA01();
             $mark_update->san = $san;
             $mark_update->ls_student_number = $ls_student_number;
             $mark_update->$col = $val;
@@ -98,7 +97,7 @@ class StudentMarksMDIA01Controller extends \BaseController {
 
 			$excel->sheet('Mark Input Sheet', function($sheet) {
 
-				$sheet->loadView('export.marks_ba_mdi_01');
+				$sheet->loadView('export.marks_rmbm_ma_01');
 
 			});
             $excel->setcreator('BQu');
@@ -116,16 +115,16 @@ class StudentMarksMDIA01Controller extends \BaseController {
 		$date               = Input::get('d');
 		$export_type               = Input::get('export_type');
 		//return Input::get('export_type');
-			$student_data = DB::table('students_for_marks_mdi_a_01')
-			->leftJoin('application_scj','students_for_marks_mdi_a_01.san','=','application_scj.san')
-			->where('students_for_marks_mdi_a_01.san','=',$san)->get(); 
+			$student_data = DB::table('students_for_marks_rmbm_ma_a_01')
+			->leftJoin('application_scj','students_for_marks_rmbm_ma_a_01.san','=','application_scj.san')
+			->where('students_for_marks_rmbm_ma_a_01.san','=',$san)->get(); 
 		if($student_data){
 
 			
 
 			$headers = array(
     "Content-type"=>"application/msword",
-    "Content-Disposition"=>"attachment;Filename=mdi_".$student_data[0]->scj_number." & ".$student_data[0]->ls_student_number."_".Sentry::getUser()->first_name." ".Sentry::getUser()->last_name.".doc");
+    "Content-Disposition"=>"attachment;Filename=rmbm_".$student_data[0]->scj_number." & ".$student_data[0]->ls_student_number."_".Sentry::getUser()->first_name." ".Sentry::getUser()->last_name.".doc");
 
 $content = '<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -143,8 +142,13 @@ $content = '<html xmlns="http://www.w3.org/1999/xhtml">
   <br />
   <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="5"><h2 style="text-align:center;">Marketing Design and Innovation<br />
-MBA Top Up <br />
+    <td colspan="5"><h2 style="text-align:center;">Research Methods for Business and Management <br />
+MA/MBA<br />
+MOD001105<br />
+RMBM<br />
+Introduction to the Research Proposal<br /> 
+Part ‘A’<br /> 
+20% of the Overall Module Grade<br>
 </h2></td>
   </tr>
   </table>
@@ -175,70 +179,45 @@ MBA Top Up <br />
   </tr>
   <tr>
     <td height="70">
-	<strong>Introduction </strong><br><br>
-•	Is there a clear introduction that the context of the situation that is to be analysed?<br>
-•	Is there a clear statement of the problem/objective of the assignment?<br>
-<br>
-
+	<strong>1)	Title  </strong><br>Initially this might be regarded as a working title, and ideally should mirror closely the content of the Introduction. 
 	</td>
-      <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c1.'</td> <td align="center">0.10</td>
-    <td>&nbsp;'.($student_data[0]->c1*.3).'</td>
+      <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c1.'</td> <td align="center">0.20</td>
+    <td>&nbsp;'.($student_data[0]->c1*.2).'</td>
   </tr>
   <tr>
     <td height="70">
-	<strong>2)	Synthesis and use of literature: </strong><br><br>
-•	Has the student used literature to explore the topic and as evidence to support the points made?<br>
-•	Has the student integrated the literature?<br>
-•	The student is expected to show his/ her knowledge and understanding of the literature by using the literature to argue a case in support of his/ her point of view. They should be sure to use their own words to present ideas that have been obtained from literature and to cite their sources.<br>
-•	The descriptive retelling of source material alone is insufficient.<br>
-
-
-</td>
-    <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c2.'</td><td align="center">0.20</td>
-    <td>&nbsp;'.($student_data[0]->c2*.25).'</td>
-  </tr>
-  <tr>
-    <td height="70">
-	<strong>3)	Analysis: </strong><br><br>
-•	Has the student moved beyond simple description?<br>
-•	Has the student drawn insights and conclusions which address the assignment purpose?<br>
-•	Is there a review/reference made to relevant literature and its appropriate use?<br>
-•	Is there critical evaluation?<br>
-•	Are discussions and arguments coherent?    <br>
-•	Has the student demonstrated skills in applying theory into practice?<br>
-•	Analysis does not come by just describing ‘things’ and listing the views of the various writers. Instead the candidate must breakdown the various arguments. The candidate must look for the strengths and weakness in each argument. <br>
-
-
-
-</td>
-    <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c3.'</td><td align="center">0.20</td>
-    <td>&nbsp;'.($student_data[0]->c3*.3).'</td>
-  </tr>
-  <tr>
-    <td height="70">
-		<strong>4)	Conclusions:</strong><br><br>
-	•	Are the candidate’s conclusions logical in the context of his/ her assignment?<br>
-•	Have the main points made under the conclusion?<br>
-•	Are the candidate’s conclusions evidence based and built upon rigorous analysis?<br>
-•	What lessons can be learnt from the conclusions? <br>
-
-	</td>
-    <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c4.'</td><td align="center">0.30</td>
-    <td>&nbsp;'.($student_data[0]->c4*.15).'</td>
-  </tr>
-
-  <tr>
-
-    <td height="70">
-		<strong>5)	The presentation and structure of report </strong><br><br>
-</td>
-    <td>&nbsp;</td>  <td>&nbsp;</td><td align="center">0.10</td>
-    <td>&nbsp;</td>
-  </tr>
+	<strong>5)	Rationale for the study</strong>
+ <br>
+Does the document inform the reader of the rationale of this study?
+ <br>
+a)	What is the research issue? 
+ <br>
+b)	Why is it an issue? 
+ <br>
+c)	Why is it an issue now? 
+ <br>
+d)	What could this research shed light on? 
  
+ <br>
+
+</td>
+    <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c2.'</td><td align="center">0.4</td>
+    <td>&nbsp;'.($student_data[0]->c2*.4).'</td>
+  </tr>
   <tr>
-    <td colspan="4"><b>Weighted total</b></td>
-    <td>&nbsp;'.(($student_data[0]->c1*.3)+($student_data[0]->c2*.25)+($student_data[0]->c3*.3)+($student_data[0]->c4*.15)).'</td>
+    <td height="70">
+	<strong>Understanding and explanation of content demonstrated</strong>
+</td>
+    <td>&nbsp;</td>  <td>&nbsp;'.$student_data[0]->c3.'</td><td align="center">0.4</td>
+    <td>&nbsp;'.($student_data[0]->c3*.6).'</td>
+  </tr>
+  <tr>
+    <td colspan="4"><b>References</b>You are required to identify previously conducted research in the area that you are focusing on. These sources need to be referred within your rationale section. Make it clear that you know what has been done in your area in the past and where your research will fit in. 
+	 <br>
+	 <b>Format and Presentation </b><br>
+	 -	You have to make your introduction appealing. Simplify and include only relevant information. Be attentive to the structure and placement of your content. Write clearly. Make sure your introduction includes complete sentences and accurate spelling and punctuation.
+	</td>
+    <td>&nbsp;'.(($student_data[0]->c1*.2)+($student_data[0]->c2*.2)+($student_data[0]->c3*.6)).'</td>
   </tr>
   </table>
   <table width="100%" align="center" border="0" cellspacing="1" cellpadding="1">
@@ -295,7 +274,7 @@ return Response::make($content,200, $headers);
 	public function create()
 	{
 		//
-        //return View::make('student_marks_IM_A_01_glanced');
+        //return View::make('student_marks_IM_A_02_glanced');
 	}
 
 	/**

@@ -139,7 +139,7 @@
         <span class="font-bold">Marks Input</span>
     </a>
     <ul class="nav dk">
-        <li class="active">
+        <li >
             <a href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
@@ -147,7 +147,7 @@
                 <span class="font-bold">BA Marketing</span>
             </a>
             <ul class="nav dk">
-                <li>
+                <li >
                     <a href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
@@ -213,7 +213,7 @@
                 </li>
 
 
-                <li class="active">
+                <li>
                     <a href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
@@ -222,7 +222,7 @@
                     </a>
                     <ul class="nav dk">
 
-                        <li class="active">
+                        <li>
                             <a href="/student-marks-OCM-A-01">
 
                                 <i class="i i-dot"></i>
@@ -409,7 +409,7 @@
 
             </ul>
         </li>
-        <li>
+        <li class="active">
             <a href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
@@ -418,7 +418,7 @@
             </a>
             <ul class="nav dk">
 
-                <li>
+                <li class="active">
                     <a href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
@@ -427,7 +427,7 @@
                     </a>
                     <ul class="nav dk">
 
-                        <li>
+                        <li class="active"> 
                             <a href="/student-marks-MDI_mba-A-01">
 
                                 <i class="i i-dot"></i>
@@ -507,7 +507,6 @@
 </ul>
 
 <div class="line dk hidden-nav-xs"></div>
-                  <div class="line dk hidden-nav-xs"></div>
                
                   
                
@@ -625,7 +624,7 @@
     <script src="../js/app.plugin.js"></script>
     <script src="../pnotify/pnotify.core.min.js"></script>
     <script src="../pnotify/pnotify.buttons.min.js"></script>
-	    <script src="../js/angular/ba/ocm/e01.js"></script>
+	    <script src="../js/angular/mba/mdi/e01.js"></script>
 		
 </body>
 </html>

@@ -152,9 +152,42 @@ Route::group(array('before' => 'members_auth'), function()
     Route::get('save_marks_for_PMP_MBA_A_01_excel_export','StudentMarksPMPMBAA01Controller@excel_export');
     Route::get('save_marks_for_PMP_MBA_A_01_word', 'StudentMarksPMPMBAA01Controller@to_word');
 	Route::resource('student-marks-PMP_MBA-A-01', 'StudentMarksPMPMBAA01Controller');
+		
+    Route::get('students_for_marks_MDI_mba_A_01','StudentMarksMDIMBAA01Controller@students_for_marks_MDI_mba_A_01');
+    Route::post('save_marks_for_MDI_mba_A_01','StudentMarksMDIMBAA01Controller@save_marks_for_MDI_mba_A_01');
+    Route::get('save_marks_for_MDI_mba_A_01_excel_export','StudentMarksMDIMBAA01Controller@excel_export');
+    Route::get('save_marks_for_MDI_mba_A_01_word', 'StudentMarksMDIMBAA01Controller@to_word');
+	Route::resource('student-marks-MDI_mba-A-01', 'StudentMarksMDIMBAA01Controller');		
 	
-	Route::get('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');
-	Route::post('/allocation','ModuleSupervisorAllocationsController@supervisorAllocation');
+    Route::get('students_for_marks_RMBM_MA_A_01','StudentMarksRMBMMAA01Controller@students_for_marks_RMBM_MA_A_01');
+    Route::post('save_marks_for_RMBM_MA_A_01','StudentMarksRMBMMAA01Controller@save_marks_for_RMBM_MA_A_01');
+    Route::get('save_marks_for_RMBM_MA_A_01_excel_export','StudentMarksRMBMMAA01Controller@excel_export');
+    Route::get('save_marks_for_RMBM_MA_A_01_word', 'StudentMarksRMBMMAA01Controller@to_word');
+	Route::resource('student-marks-RMBM_MA-A-01', 'StudentMarksRMBMMAA01Controller');	
+	
+		
+    Route::get('students_for_marks_RMBM_MA_A_02','StudentMarksRMBMMAA02Controller@students_for_marks_RMBM_MA_A_02');
+    Route::post('save_marks_for_RMBM_MA_A_02','StudentMarksRMBMMAA02Controller@save_marks_for_RMBM_MA_A_02');
+    Route::get('save_marks_for_RMBM_MA_A_02_excel_export','StudentMarksRMBMMAA02Controller@excel_export');
+    Route::get('save_marks_for_RMBM_MA_A_02_word', 'StudentMarksRMBMMAA02Controller@to_word');
+	Route::resource('student-marks-RMBM_MA-A-02', 'StudentMarksRMBMMAA02Controller');	
+	
+		
+    Route::get('students_for_marks_RMBM_MBA_A_01','StudentMarksRMBMMBAA01Controller@students_for_marks_RMBM_MBA_A_01');
+    Route::post('save_marks_for_RMBM_MBA_A_01','StudentMarksRMBMMBAA01Controller@save_marks_for_RMBM_MBA_A_01');
+    Route::get('save_marks_for_RMBM_MBA_A_01_excel_export','StudentMarksRMBMMBAA01Controller@excel_export');
+    Route::get('save_marks_for_RMBM_MBA_A_01_word', 'StudentMarksRMBMMBAA01Controller@to_word');
+	Route::resource('student-marks-RMBM_MBA-A-01', 'StudentMarksRMBMMBAA01Controller');	
+	
+		
+    Route::get('students_for_marks_RMBM_MBA_A_02','StudentMarksRMBMMBAA02Controller@students_for_marks_RMBM_MBA_A_02');
+    Route::post('save_marks_for_RMBM_MBA_A_02','StudentMarksRMBMMBAA02Controller@save_marks_for_RMBM_MBA_A_02');
+    Route::get('save_marks_for_RMBM_MBA_A_02_excel_export','StudentMarksRMBMMBAA02Controller@excel_export');
+    Route::get('save_marks_for_RMBM_MBA_A_02_word', 'StudentMarksRMBMMBAA02Controller@to_word');
+	Route::resource('student-marks-RMBM_MBA-A-02', 'StudentMarksRMBMMBAA02Controller');	
+	
+	Route::get('/supervisor-allocation','ModuleSupervisorAllocationsController@getSupervisors_allocation');
+	Route::post('/supervisor-allocation','ModuleSupervisorAllocationsController@setSupervisors_allocation');
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');

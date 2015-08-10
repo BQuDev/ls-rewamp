@@ -1,6 +1,6 @@
 <?php
 
-class StudentMarksMDIA01Controller extends \BaseController {
+class StudentMarksMDIMBAA01Controller extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,14 +10,14 @@ class StudentMarksMDIA01Controller extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('student_marks_mdi_A_01');
+        return View::make('student_marks_mdi_mba_A_01');
 	}
 
 
-    public function students_for_marks_MDI_a_01(){
+    public function students_for_marks_MDI_mba_a_01(){
         //return Student::all();
         return DB::table('students')
-            ->leftJoin('students_for_marks_mdi_a_01','students.san','=','students_for_marks_mdi_a_01.san')
+            ->leftJoin('students_for_marks_mdi_mba_a_01','students.san','=','students_for_marks_mdi_mba_a_01.san')
             ->leftJoin('application_scj','students.san','=','application_scj.san')
             ->select('students.san','sample','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','c4','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
@@ -25,7 +25,7 @@ class StudentMarksMDIA01Controller extends \BaseController {
             ->get();
     }
 
-    public function save_marks_for_MDI_A_01(){
+    public function save_marks_for_MDI_mba_A_01(){
 
     //return Input::all();
 
@@ -36,14 +36,14 @@ class StudentMarksMDIA01Controller extends \BaseController {
 /*
         ;*/
 
-        $has_row = DB::table('students_for_marks_mdi_a_01')->where('san','=',$san)->get();
+        $has_row = DB::table('students_for_marks_mdi_mba_a_01')->where('san','=',$san)->get();
         if($has_row){
 			
-            $mark_update = DB::table('students_for_marks_mdi_a_01')
+            $mark_update = DB::table('students_for_marks_mdi_mba_a_01')
                 ->where('san', $san)
                 ->update(array($col => $val));
 				
-			$row = DB::table('students_for_marks_mdi_a_01')->where('san','=',$san)->first();
+			$row = DB::table('students_for_marks_mdi_mba_a_01')->where('san','=',$san)->first();
 			
 			
 			//Calculate marks
@@ -69,12 +69,12 @@ class StudentMarksMDIA01Controller extends \BaseController {
 				if($mark2 > 100)$mark2 = (.9 * $mark1) + $mark1*(rand( 0,6 )/100);
 				
 				
-				$mark_update = DB::table('students_for_marks_mdi_a_01')
+				$mark_update = DB::table('students_for_marks_mdi_mba_a_01')
                 ->where('san', $san)
                 ->update(array('m1' => $mark1,'m2' => $mark2));
 				return 1;
 			}else{
-				$mark_update = DB::table('students_for_marks_mdi_a_01')
+				$mark_update = DB::table('students_for_marks_mdi_mba_a_01')
                 ->where('san', $san)
                 ->update(array('m1' => null,'m2' => null));
 			}
@@ -116,9 +116,9 @@ class StudentMarksMDIA01Controller extends \BaseController {
 		$date               = Input::get('d');
 		$export_type               = Input::get('export_type');
 		//return Input::get('export_type');
-			$student_data = DB::table('students_for_marks_mdi_a_01')
-			->leftJoin('application_scj','students_for_marks_mdi_a_01.san','=','application_scj.san')
-			->where('students_for_marks_mdi_a_01.san','=',$san)->get(); 
+			$student_data = DB::table('students_for_marks_mdi_mba_a_01')
+			->leftJoin('application_scj','students_for_marks_mdi_mba_a_01.san','=','application_scj.san')
+			->where('students_for_marks_mdi_mba_a_01.san','=',$san)->get(); 
 		if($student_data){
 
 			

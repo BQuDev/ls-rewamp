@@ -131,65 +131,382 @@
                            
                     
 					<li class="active">
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
+    <a href="#" class="auto">
+        <span class="pull-right text-muted">
                         </span>
-                        <i class="i i-docs icon">
+        <i class="i i-docs icon">
                         </i>
-                        <span class="font-bold">Marks Input</span>
-                      </a>
-<ul class="nav dk">
-					<li  class="active">
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
+        <span class="font-bold">Marks Input</span>
+    </a>
+    <ul class="nav dk">
+        <li class="active">
+            <a href="#" class="auto">
+                <span class="pull-right text-muted">
                         </span>
-                        </i>
-                        <span class="font-bold">BA Marketing</span>
-                      </a>
-<ul class="nav dk">
-					<li  class="active">
-                      <a href="#" class="auto">
+                </i>
+                <span class="font-bold">BA Marketing</span>
+            </a>
+            <ul class="nav dk">
+                <li>
+                    <a href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
                         <span class="font-bold">International Marketing</span>
-                      </a>
-<ul class="nav dk">
+                    </a>
+                    <ul class="nav dk">
 
-<li class="active">
-                                             <a href="/student-marks-IM-A-01">
+                        <li>
+                            <a href="/student-marks-IM-A-02">
 
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 1</span>
-                                              </a>
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
 
-                                            </li>
-<li>
-                                             <a href="/student-marks-IM-A-02">
+                        </li>
+                        <li class="active">
+                            <a href="/student-marks-IM-A-02">
 
-                                                <i class="i i-file-dot icon">
-                                                </i>
-                                               <span class="font-bold">Element 2</span>
-                                              </a>
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 2</span>
+                            </a>
 
-                                            </li>
-											
-											
-					
+                        </li>
 
 
+
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Marketing Consultancy</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-MC-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/student-marks-MC-A-02">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 2</span>
+                            </a>
+
+                        </li>
+
+
+
+
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Organisational Change Management</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-OCM-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Retail Marketing</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-RM-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Strategic Management Analysis</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-SMA-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Sustainable Management Futures</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-SMF-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="active">
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Undergraduate Major Project</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li class="active">
+                            <a href="/student-marks-UGMP-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="auto">
+                <span class="pull-right text-muted">
+                        </span>
+                </i>
+                <span class="font-bold">MA</span>
+            </a>
+            <ul class="nav dk">
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Marketing Design and Innovation</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-MDI-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Postgraduate Major Project</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-PMP_MA-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Research Methods for Business and Management</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-RMBM_MA-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/student-marks-RMBM_MA-A-02">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 2</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+
+
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="auto">
+                <span class="pull-right text-muted">
+                        </span>
+                </i>
+                <span class="font-bold">MBA</span>
+            </a>
+            <ul class="nav dk">
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Marketing Design and Innovation</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-MDI_mba-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Postgraduate Major Project</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-PMP_MBA-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                        </span>
+                        </i>
+                        <span class="font-bold">Research Methods for Business and Management</span>
+                    </a>
+                    <ul class="nav dk">
+
+                        <li>
+                            <a href="/student-marks-RMBM_MBA-A-01">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 1</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/student-marks-RMBM_MBA-A-02">
+
+                                <i class="i i-dot"></i>
+                                <span class="font-bold">Element 2</span>
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+
+
+
+            </ul>
+        </li>
+
+
+    </ul>
+</li>
 </ul>
-                    </li>
 
-
-</ul>
-                    </li>
-
-
-</ul>
-                    </li>
-                   </ul>
+<div class="line dk hidden-nav-xs"></div>
                   
                   <div class="line dk hidden-nav-xs"></div>
                

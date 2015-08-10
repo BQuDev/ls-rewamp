@@ -2,10 +2,10 @@
 
 
 @section('content')
-    {{ Form::open(array('url' =>'supervisor-allocation','class'=>'form-horizontal','method' => 'post',
+    {{ Form::open(array('url' =>'allocation','class'=>'form-horizontal','method' => 'post',
                                    'data-validate'=>'parsley','id'=>'student_create')) }}
     <div class="modal-body wrapper-lg">
-
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         <div class="row"> <h3 class="m-t-none m-b">ASSIGN SUPERVISOR TO STUDENTS</h3>
             <div class="line line-dashed b-b line-lg pull-in"></div>
             <div class="col-sm-6 b-r">
@@ -24,10 +24,8 @@
                     </div>
 
                         <div class="form-group">
-                            <div class="checkbox i-checks">
-                                <label>
-                        {{ Form::checkbox('student_all',0, false, ['id' => 'student_all','class' => 'col-sm-3 control-checkbox']) }}<i></i> &nbsp;&nbsp;Select all Students
-</label></div>
+                        {{ Form::checkbox('student_all',0, false, ['id' => 'student_all','class' => 'col-sm-3 control-checkbox']) }}Select all Students
+
                         </div>
                     </div>
 
@@ -44,23 +42,15 @@
                         <table class="table table-striped m-b-none" data-ride="datatables" id="student_datatable" >
                             <thead>
                             <tr>
-
-                                <th></th>
+                                <th> </th><th> </th>
                             </tr>
 
                             </thead>
                             <tbody>
                             @foreach ($students as $student)
                                 <tr>
-
-                                    <td>
-                                        <div class="checkbox i-checks">
-                                            <label>{{ Form::checkbox('student[]',$student->ls_student_number.','.$student->san,false) }}
-                                                <i></i>
-                                                &nbsp;  {{$student->ls_student_number}} &nbsp;-&nbsp;{{ $student->forename_1.' '.$student->surname }}
-                                            </label>
-                                        </div>
-                                    </td>
+                                    <td>{{ Form::checkbox('student[]',$student->ls_student_number.','.$student->san) }}</td>
+                                    <td>{{$student->ls_student_number}} &nbsp;-&nbsp;{{ $student->forename_1.' '.$student->surname }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -68,9 +58,7 @@
                         </div>
                     </div>
                 </div>
-
-                    </div>
-                </section>
+</div></section>
             </div>
 
 
@@ -87,12 +75,7 @@
                     </div>
                 </div>
                         <div class="form-group">
-                            <div class="checkbox i-checks">
-                            <label>
-                            {{ Form::checkbox('suprvisor_all',0, false, ['id' => 'suprvisor_all','class' => 'col-sm-3 control-checkbox']) }} <i></i>
-                                &nbsp;&nbsp; Select all Supervisors
-                            </label>
-                            </div>
+                            {{ Form::checkbox('suprvisor_all',0, false, ['id' => 'suprvisor_all','class' => 'col-sm-3 control-checkbox']) }}Select all Supervisors
 
                         </div>
                         </div>
@@ -115,16 +98,12 @@
                                     </thead>
                                     <tbody>
                                     @foreach ($supervisorsMA as $supervisor)
-                                        <tr>
-                                            <td></td>
-                                            <td><div class="checkbox i-checks">
-                                                    <label>
+                                        <tr><td></td>
+                                            <td>
 
-                                                {{ Form::checkbox('supervisor[]',$supervisor->id) }}<i></i>
+                                                {{ Form::checkbox('supervisor[]',$supervisor->id) }}
 
-                                                        &nbsp; &nbsp; {{ $supervisor->name }} </label>
-                                            </div>
-                                            </td>
+                                                &nbsp; {{ $supervisor->name }}</td>
                                         </tr>
 
                                     @endforeach
