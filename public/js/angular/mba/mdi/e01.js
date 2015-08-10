@@ -13,6 +13,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 	fastWatch: true,
 	flatEntityAccess: true,
 	enableRowSelection: true,
+	enableColumnResizing: true,
   };
     $scope.gridOptions.enableCellEditOnFocus = true;
 
@@ -21,38 +22,46 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
     { name: 'scj_number', enableCellEdit: false, displayName: 'ARU SID', width: '10%' },
     { name: 'ls_student_number', enableCellEdit: false, displayName: 'LSM', width: '10%' },
     { name: 'forename_1', enableCellEdit: false, displayName: 'Name', width: '10%' },
-    { name: 'c1', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 1', width: '10%' , cellTooltip: 
+    { name: 'c1', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 1', cellTooltip: 
         function( row, col ) {
-          return 'critically analyse the extent that the chosen brand’s marketing mix is standardised and/or adapted across international markets using the following elements of the marketing mix - Product,Price,Place, Promotion.Evidence of a range of theories';
+          return 'The degree to which the concepts have been explained and understood';
         }, headerTooltip: 
         function( col ) {
-          return 'critically analyse the extent that the chosen brand’s marketing mix is standardised and/or adapted across international markets using the following elements of the marketing mix - Product,Price,Place, Promotion.Evidence of a range of theories';
+         return 'The degree to which the concepts have been explained and understood';
         }
 	},
-    { name: 'c2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 2' , width: '10%', cellTooltip: 
+    { name: 'c2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 2' , cellTooltip: 
         function( row, col ) {
-          return 'required to discuss which IPT ‘best’ describes the internationalisation process that the chosen global brand has undertaken - Review of main IP theories,Discussion which ‘best’ applies’. This may include Born Global, Uppsala, stages etc.Analysis of advantages and disadvantages of the best IP theory selected';
+          return 'The clarity of application';
         }, headerTooltip: 
         function( col ) {
-          return 'required to discuss which IPT ‘best’ describes the internationalisation process that the chosen global brand has undertaken - Review of main IP theories,Discussion which ‘best’ applies’. This may include Born Global, Uppsala, stages etc.Analysis of advantages and disadvantages of the best IP theory selected';
-        }
+		return 'The clarity of application';
+         }
 	},
-    { name: 'c3', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 3', width: '10%', cellTooltip: 
+    { name: 'c3', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 3' , cellTooltip: 
         function( row, col ) {
-          return 'Presentation - Well structured, theory applied to the case, good range of references, Harvard Referencing System usage in citing references.';
+           return 'The reasoning behind the evaluation';
         }, headerTooltip: 
         function( col ) {
-          return 'Presentation - Well structured, theory applied to the case, good range of references, Harvard Referencing System usage in citing references.';
-        }
+		    return 'The reasoning behind the evaluation';
+          }
 	},
-    { name: 'm1', type: 'number', enableFiltering: false, displayName: 'First Marker\'s Mark',enableCellEdit: false, width: '10%'},
-    { name: 'm2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Second Marker\'s Mark', width: '10%'},
-    { name: 'ageed_mark', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Agreed Mark', width: '8%'},
+    { name: 'c4', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Criteria 4' , cellTooltip: 
+        function( row, col ) {
+          return 'The presentation and structure of report';
+        }, headerTooltip: 
+        function( col ) {
+          return 'The presentation and structure of report';
+       }
+	},
+    { name: 'm1', type: 'number', enableFiltering: false, displayName: 'First Marker\'s Mark',enableCellEdit: false},
+    { name: 'm2', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Second Marker\'s Mark' },
+    { name: 'ageed_mark', type: 'number', enableFiltering: false,cellClass:'editable', displayName: 'Agreed Mark' },
 	/*{name: 'sele', enableFiltering: false, enableSorting: false, displayName: '', l: false,type: 'boolean',editableCellTemplate:'<div class="checkbox i-checks"><label><input type="checkbox" value="{{ row.entity.san }}" name="{{ row.entity.san }}" ng-click="grid.appScope.edit1(row.entity)" checked><i></i></label></div>',cellTemplate: '<div class="checkbox i-checks"><label><input type="checkbox" value="{{ row.entity.san }}" name="{{ row.entity.san }}" ng-click="grid.appScope.edit1(row.entity)" ><i></i></label></div>'},*/
-	{name: 'sample',displayName: 'Sample', enableFiltering: false, cellFilter: 'mapGender', enableSorting: false, editDropdownValueLabel: 'gender', editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownOptionsArray: [
+	{name: 'sample',displayName: 'Sample', enableFiltering: false, cellFilter: 'mapGender', width: '5%', enableSorting: false, editDropdownValueLabel: 'gender', editableCellTemplate: 'ui-grid/dropdownEditor', editDropdownOptionsArray: [
       { id: 1, gender: 'Sample' }
     ]},
-	{name: 'edit', enableFiltering: false, enableSorting: false, displayName: '', enableCellEdit: false,cellTemplate: '<button id="editBtn" type="button" class="btn btn-success no_padding_btn" ng-click="grid.appScope.edit(row.entity)" >Export</button> '}
+	{name: 'edit', enableFiltering: false, enableSorting: false, displayName: '',  enableCellEdit: false,cellTemplate: '<button id="editBtn" type="button" class="btn btn-success no_padding_btn" ng-click="grid.appScope.edit(row.entity)" >Export</button> '}
 	/*
 	{ name: 'san', enableCellEdit: false, displayName: 'SAN' },
     { name: 'ls_student_number', enableCellEdit: false, displayName: 'LSM Number' },
@@ -117,12 +126,12 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 			  if((oldValue != newValue)/*&&(newValue>0)*/){
           $.ajax({
                   type        : 'POST',
-                  url         : 'save_marks_for_IM_A_02',
+                  url         : 'save_marks_for_MDI_A_01',
                   data        : formData,
                   dataType    : 'json',
                   success     : function(data) {
 					  if((data == 1)&&(document.getElementById('auto_refresh').checked)){
-						  $http.get('students_for_marks_IM_A_02')
+						  $http.get('students_for_marks_MDI_mba_A_01')
             .success(function(data) {
                 $scope.gridOptions.data = data;
 				
@@ -171,7 +180,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.refreshData = function(){
 
-        $http.get('students_for_marks_IM_A_02')
+        $http.get('students_for_marks_MDI_mba_A_01')
             .success(function(data) {
                 $scope.gridOptions.data = data;
                 
@@ -213,7 +222,7 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
                         stack: stack_bottomright
                     });
                     
-					 window.open("save_marks_for_IM_A_02_excel_export", '_blank');
+					 window.open("save_marks_for_MDI_mba_A_01_excel_export", '_blank');
           
 }
 	
@@ -230,18 +239,17 @@ app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
 			  /*
 	        $.ajax({
                   type        : 'GET',
-                  url         : 'save_marks_for_IM_A_01_glanced_word',
+                  url         : 'save_marks_for_OCM_A_01_glanced_word',
                   data        : formData1,
                   dataType    : 'json',
                   success     : function(data) {
                   }
               });*/
-			//  console.log("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
-			  //console.log("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
-			  //window.location = "save_marks_for_IM_A_01_glanced_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value;
+			//  console.log("save_marks_for_IM_A_01_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
+			  //console.log("save_marks_for_IM_A_01_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value);
+			  //window.location = "save_marks_for_OCM_A_01_glanced_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value;
 
-    //window.open("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value, '_blank');
-   
+    //window.open("save_marks_for_IM_A_01_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type="+document.querySelector('input[name="export_type"]:checked').value, '_blank');
 var today = new Date();
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
@@ -256,13 +264,12 @@ if(mm<10) {
 } 
 
 today = dd+'-'+mm+'-'+yyyy;
-
-   window.open("save_marks_for_IM_A_02_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type=word&d="+today, '_blank');
+	window.open("save_marks_for_MDI_mba_A_01_word?san="+Object.keys(san).map(function(k) { return san[k] })[0]+"&export_type=word&d="+today, '_blank');
 	}
 
 
 
-  $http.get('students_for_marks_IM_A_02')
+  $http.get('students_for_marks_MDI_mba_A_01')
     .success(function(data) {
       $scope.gridOptions.data = data;
 	  
@@ -304,105 +311,3 @@ function dummysave(){
                         stack: stack_bottomright
                     });
 }
-
-
-
-
-/*
-
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'addressFormatter']);
-
-angular.module('addressFormatter', []).filter('address', function () {
-  return function (input) {
-      return input.street + ', ' + input.city + ', ' + input.state + ', ' + input.zip;
-  };
-});
-
-app.controller('MainCtrl', ['$scope', '$http', function ($scope, $http) {
-  $scope.gridOptions = {  };
-
-  $scope.storeFile = function( gridRow, gridCol, files ) {
-    // ignore all but the first file, it can only select one anyway
-    // set the filename into this column
-    gridRow.entity.filename = files[0].name;
-
-    // read the file and set it into a hidden column, which we may do stuff with later
-    var setFile = function(fileContent){
-      gridRow.entity.file = fileContent.currentTarget.result;
-      // put it on scope so we can display it - you'd probably do something else with it
-      $scope.lastFile = fileContent.currentTarget.result;
-      $scope.$apply();
-    };
-    var reader = new FileReader();
-    reader.onload = setFile;
-    reader.readAsText( files[0] );
-  };
-
-  $scope.gridOptions.columnDefs = [
-    { name: 'id', enableCellEdit: false, width: '10%' },
-    { name: 'name', displayName: 'Name (editable)', width: '20%' },
-    { name: 'age', displayName: 'Age' , type: 'number', width: '10%' },
-    { name: 'gender', displayName: 'Gender', editableCellTemplate: 'ui-grid/dropdownEditor', width: '20%',
-      cellFilter: 'mapGender', editDropdownValueLabel: 'gender', editDropdownOptionsArray: [
-      { id: 1, gender: 'male' },
-      { id: 2, gender: 'female' }
-    ] },
-    { name: 'registered', displayName: 'Registered' , type: 'date', cellFilter: 'date:"yyyy-MM-dd"', width: '20%' },
-    { name: 'address', displayName: 'Address', type: 'object', cellFilter: 'address', width: '30%' },
-    { name: 'address.city', displayName: 'Address (even rows editable)', width: '20%',
-         cellEditableCondition: function($scope){
-         return $scope.rowRenderIndex%2
-         }
-    },
-    { name: 'isActive', displayName: 'Active', type: 'boolean', width: '10%' },
-    { name: 'pet', displayName: 'Pet', width: '20%', editableCellTemplate: 'ui-grid/dropdownEditor',
-      editDropdownRowEntityOptionsArrayPath: 'foo.bar[0].options', editDropdownIdLabel: 'value'
-    },
-    { name: 'filename', displayName: 'File', width: '20%', editableCellTemplate: 'ui-grid/fileChooserEditor',
-      editFileChooserCallback: $scope.storeFile }
-  ];
-
- $scope.msg = {};
-
- $scope.gridOptions.onRegisterApi = function(gridApi){
-          //set gridApi on scope
-          $scope.gridApi = gridApi;
-          gridApi.edit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
-            $scope.msg.lastCellEdited = 'edited row id:' + rowEntity.id + ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue ;
-            $scope.$apply();
-          });
-        };
-
-  $http.get('../500_complex.json')
-    .success(function(data) {
-      for(i = 0; i < data.length; i++){
-        data[i].registered = new Date(data[i].registered);
-        data[i].gender = data[i].gender==='male' ? 1 : 2;
-        if (i % 2) {
-          data[i].pet = 'fish'
-          data[i].foo = {bar: [{baz: 2, options: [{value: 'fish'}, {value: 'hamster'}]}]}
-        }
-        else {
-          data[i].pet = 'dog'
-          data[i].foo = {bar: [{baz: 2, options: [{value: 'dog'}, {value: 'cat'}]}]}
-        }
-      }
-      $scope.gridOptions.data = data;
-    });
-}])
-
-.filter('mapGender', function() {
-  var genderHash = {
-    1: 'male',
-    2: 'female'
-  };
-
-  return function(input) {
-    if (!input){
-      return '';
-    } else {
-      return genderHash[input];
-    }
-  };
-})
-;*/
