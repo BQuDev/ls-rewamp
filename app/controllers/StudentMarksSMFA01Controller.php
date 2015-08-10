@@ -10,7 +10,7 @@ class StudentMarksSMFA01Controller extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('student_marks_smf_A_01');
+        return View::make('student_marks_SMF_A_01');
 	}
 
 

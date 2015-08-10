@@ -157,7 +157,7 @@
                     <ul class="nav dk">
 
                         <li class="active">
-                            <a href="/student-marks-IM-A-02">
+                            <a href="/student-marks-IM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>

@@ -10,7 +10,7 @@ class StudentMarksMDIMBAA01Controller extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('student_marks_mdi_mba_A_01');
+        return View::make('student_marks_MDI_mba_A_01');
 	}
 
 
