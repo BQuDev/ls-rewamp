@@ -563,7 +563,9 @@
 
 <div ng-app="app">
 <div ng-controller="MainCtrl">
-
+    <div ui-grid="gridOptions" class="grid"></div>
+</div>
+</div>
 <br>
 
 <div class="row">
