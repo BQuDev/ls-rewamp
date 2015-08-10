@@ -278,7 +278,7 @@
                                     <?php } ?>
                                     <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
                                        <li >
-                      <a href="#" class="auto">
+                      <a href="/student-marks-IM-A-01" class="auto">
                         <span class="pull-right text-muted">
                           <i class="i i-circle-sm-o text"></i>
                           <i class="i i-circle-sm text-active"></i>
@@ -287,46 +287,6 @@
                         </i>
                         <span class="font-bold">Marks Input</span>
                       </a>
-<ul class="nav dk">
-					<li >
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
-                        </span>
-                        <i class="i i-dot">
-                        </i>
-                        <span class="font-bold">BA Marketing</span>
-                      </a>
-<ul class="nav dk">
-					<li >
-                      <a href="#" class="auto">
-                        <span class="pull-right text-muted">
-                          <i class="i i-circle-sm-o text"></i>
-                          <i class="i i-circle-sm text-active"></i>
-                        </span>
-                        <i class="i i-dot">
-                        </i>
-                        <span class="font-bold">International Marketing</span>
-                      </a>
-<ul class="nav dk">
-<li>
-                                                    <a href="/student-marks-IM-A-02">
-                                                        <i class="i i-dot"></i>
-                                                        <span>Element 2</span>
-                                                    </a>
-                                                </li>
-
-
-</ul>
-                    </li>
-
-
-</ul>
-                    </li>
-
-
-</ul>
                     </li>
                                     <?php } ?>
                                 </ul>
