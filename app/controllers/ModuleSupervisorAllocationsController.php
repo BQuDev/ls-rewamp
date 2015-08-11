@@ -125,7 +125,7 @@ class ModuleSupervisorAllocationsController extends \BaseController {
             }
 
         }
-          Notify::success('Supervisor asign successfully');
+          Notify::success('Supervisor assigned successfully');
     return $this->getSupervisors_allocation();
 	}
 	public function getSupervisors_allocation(){

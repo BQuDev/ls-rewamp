@@ -144,7 +144,7 @@ $content = '<html xmlns="http://www.w3.org/1999/xhtml">
   <br />
   <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="5"><h2 style="text-align:center;">Strategic Management Analysis<br />
+    <td colspan="5"><h2 style="text-align:center;">Sustainable Management Futures<br />
 BA in Marketing Top Up <br />
 </h2></td>
   </tr>

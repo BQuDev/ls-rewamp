@@ -142,10 +142,9 @@ $content = '<html xmlns="http://www.w3.org/1999/xhtml">
   <br />
   <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="5"><h2 style="text-align:center;">Marketing Consultancy<br />
+    <td colspan="5"><h2 style="text-align:center;">Assessment 1 – Organisational Change Managemen<br />
 BA in Marketing<br />
 MOD003058<br />
-Assessment 1 – Organisational Change Management<br /> 
 </h2></td>
   </tr>
   </table>

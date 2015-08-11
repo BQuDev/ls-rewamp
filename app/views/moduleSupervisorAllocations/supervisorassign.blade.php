@@ -22,7 +22,7 @@
                     'placeholder'=>'Search ID,Name...']) }}
                     </div>
                     </div>
-
+ {{ Form::hidden('c', Input::get('c'), array('id' => 'invisible_id')) }}
                         <div class="form-group">
                             <div class="checkbox i-checks">
                                 <label>
