@@ -68,6 +68,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
 
 
 // data-bjax api 
+/*
 +function ($) { "use strict";
   var Bjax = function (element, options) {
     this.options   = options
@@ -173,7 +174,7 @@ Modernizr.addTest('ios',function(){return!!navigator.userAgent.match(/iPhone|iPa
     e.preventDefault();
   })
 }(jQuery);
-
+*/
 Date.now = Date.now || function() { return +new Date; };
 
 +function ($) {
