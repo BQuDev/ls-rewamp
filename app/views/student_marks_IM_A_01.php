@@ -619,7 +619,6 @@
   <!-- Bootstrap -->
   <script src="../js/bootstrap.js"></script>
   <!-- App -->
-  <script src="../js/app.js"></script>  
   <script src="../js/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="../js/app.plugin.js"></script>
     <script src="../pnotify/pnotify.core.min.js"></script>
