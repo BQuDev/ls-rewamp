@@ -188,6 +188,7 @@ Route::group(array('before' => 'members_auth'), function()
 	
 	Route::get('/supervisor-allocation','ModuleSupervisorAllocationsController@getSupervisors_allocation');
 	Route::post('/supervisor-allocation','ModuleSupervisorAllocationsController@setSupervisors_allocation');
+	Route::get('/supervisor-allocation/export','ModuleSupervisorAllocationsController@excel_export');
 
     Route::resource('students','StudentsController');
     Route::resource('users','UsersController');

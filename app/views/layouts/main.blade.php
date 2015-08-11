@@ -241,7 +241,7 @@
                 					<?php } ?>
                 				</ul>-->
 
-                				<li <?php if(Request::segment(1) == "modules") echo 'class="active"'; ?>>
+                				<li <?php if((Request::segment(1) == "modules")||(Request::segment(1) == "supervisor-allocation")){ echo 'class="active"';} ?>>
                                       <a href="#" class="auto">
                                         <span class="pull-right text-muted">
                                           <i class="i i-circle-sm-o text"></i>
@@ -253,7 +253,7 @@
                                       </a>
                                 <ul class="nav dk">
                                     <?php if (Sentry::getUser()->hasAccess('user_management.index')){  ?>
-                                        <li >
+                                        <li <?php if((Request::segment(2) == "supervisor-allocation")||(Request::segment(1) == "supervisor-allocation")){ echo 'class="active"';} ?>>
                                             <a href="#">
                                                 <i class="i i-pencil2 icon">
                                                 </i>
@@ -261,6 +261,7 @@
                                             </a>
                                             <ul class="nav dk">
                                             <?php
+											/*
                                               $all_courses = DB::table('application_courses')->select('*')->get();
                                              ?>
                                                 @foreach($all_courses as $course)
@@ -272,7 +273,75 @@
                                                     </a>
                                                 </li>
                                                 @endforeach
-
+											<?php
+                                             */
+                                             ?>
+											 
+										              <li <?php if(Request::segment(3) == "MA") echo 'class="active"'; ?>>
+                				  <a href="#" class="auto">
+                					<span class="pull-right text-muted">
+                					  <i class="i i-circle-sm-o text"></i>
+                					  <i class="i i-circle-sm text-active"></i>
+                					</span>
+                					<i class="i i-lab icon">
+                					</i>
+                					<span class="font-bold">MA</span>
+                				  </a>
+                				<ul class="nav dk">
+                					<?php if (Sentry::getUser()->hasAccess('students.export')){  ?>
+                						<li >
+                							<a href="{{ URL::to('supervisor-allocation') }}?c=3">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Students allocation ( All )</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                					<?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
+                						<li <?php if(Request::segment(3) == "MA") echo 'class="active"'; ?>>
+                							<a href="{{ URL::to('modules/supervisor-allocation/MA') }}">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Students allocation</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                				</ul>	</li>
+								
+								
+								         <li <?php if(Request::segment(3) == "MBA") echo 'class="active"'; ?>>
+                				  <a href="#" class="auto">
+                					<span class="pull-right text-muted">
+                					  <i class="i i-circle-sm-o text"></i>
+                					  <i class="i i-circle-sm text-active"></i>
+                					</span>
+                					<i class="i i-lab icon">
+                					</i>
+                					<span class="font-bold">MBA</span>
+                				  </a>
+                				<ul class="nav dk">
+                					<?php if (Sentry::getUser()->hasAccess('students.export')){  ?>
+                						<li >
+                							<a href="{{ URL::to('supervisor-allocation') }}?c=4">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Students allocation ( All )</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                					<?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
+                						<li <?php if(Request::segment(3) == "MBA") echo 'class="active"'; ?>>
+                							<a href="{{ URL::to('modules/supervisor-allocation/MBA') }}">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Students allocation</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                				</ul>	</li>
+								
+								
+								
                                             </ul>
                                         </li>
                                     <?php } ?>
@@ -316,6 +385,15 @@
                 								<i class="i i-pencil2 icon">
                 								</i>
                 								<span class="font-bold">Marks Input Sheet</span>
+                							</a>
+                						</li>
+                					<?php } ?>
+                					<?php if (Sentry::getUser()->hasAccess('modules.index_marks_input')){  ?>
+                						<li>
+                							<a href="{{ URL::to('/supervisor-allocation/export') }}">
+                								<i class="i i-pencil2 icon">
+                								</i>
+                								<span class="font-bold">Supervisor Allocation Sheet</span>
                 							</a>
                 						</li>
                 					<?php } ?>

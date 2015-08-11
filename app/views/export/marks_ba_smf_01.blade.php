@@ -20,7 +20,7 @@ specify the material to be analysed, its source, and why it is relevant for this
 Discuss and compare and contrast the findings from the two analyses, including contradictory findings and what could account for them.
 Relate the findings and discussion to the aims and purpose of the report, and specify any conclusions the candidate has reached.
 </th>
-<th>PPresentation and references
+<th>Presentation and references
 Meaningful title Use the Harvard referencing system for citing sources Followed guidance on report structure Appearance and written expression
 </th>
 <th>First Marker's Mark</th>

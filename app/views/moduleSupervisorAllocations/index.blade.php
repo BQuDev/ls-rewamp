@@ -38,13 +38,14 @@
                     <tbody>
 
                     @foreach ($students as $student_with_san)
-<form>
+
                     <?php
                         $student = DB::table('students')->where('san','=',$student_with_san->san)->orderBy('id','desc')->first();
 
-                       $supervisor_allocation_status = DB::table('student_module_supervisor_allocation')->orderBy('id','desc')->where('san','=',$student->san)->get();
-
+                       $supervisor_allocation_status = DB::table('module_supervisor_allocation')->orderBy('id','desc')->where('san','=',$student->san)->get();
+if($student->ls_student_number > 0){
                        ?>
+					   <form>
                        <tr>
                            <td><span id="san_{{ $student->san }}">{{ $student->san }}</span></td>
                            <td>{{ $student->ls_student_number  }}</td>
@@ -76,7 +77,6 @@
                               </select>
                            </td>
                            <td>
-
                            @if(!empty($supervisor_allocation_status))
                            @if($supervisor_allocation_status[0]->supervisor_id > 0)
                                 <span class="label bg-success">Supervisor Allocated</span>
@@ -92,7 +92,12 @@
 @endif
                            </td>
                          </tr>
+						 
                          </form>
+						
+				<?php
+}
+                       ?>		
                     @endforeach
 
                     </tbody>

@@ -100,7 +100,7 @@ class StudentMarksUGMPA01Controller extends \BaseController {
 
 			$excel->sheet('Mark Input Sheet', function($sheet) {
 
-				$sheet->loadView('export.marks_ba_smf_01');
+				$sheet->loadView('export.marks_ba_ugmp_01');
 
 			});
             $excel->setcreator('BQu');
@@ -161,7 +161,7 @@ BA in Marketing<br />
     <td  colspan="5">Brand selected :</td>
   </tr>
   <tr>
-    <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
+    <td colspan="3">First Marker:&nbsp;</td>
     <td>Suggested Mark:&nbsp;'.($student_data[0]->m1).'%</td>
     <td>Agreed Mark:&nbsp;'.$student_data[0]->ageed_mark.'%</td>
   </tr>
@@ -256,7 +256,7 @@ Was the range suitable and adequate? Has a critical review of the literature bee
   <br /><br />
     <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
+    <td colspan="3">First Marker:&nbsp;</td>
     <td colspan="2">Date: '.$date .'</td>
   </tr>
  

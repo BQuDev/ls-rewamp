@@ -1527,14 +1527,13 @@ return View::make('students.index')
 			    //$students = Student::all();
 			    //$students = Student::groupBy('san')->skip(750)->take(1000)->get();
 			    $students = Student::groupBy('san')
-				->where('san','=','h5jj20dz')
-				->orWhere('san','=','8u2u20dz')
-				->orWhere('san','=','k3ea30dz')
-				->orWhere('san','=','ps1n60dz')
-				->orWhere('san','=','pv0l90dz')
-				->orWhere('san','=','4t8qa0dz')
-				->orWhere('san','=','8qpub0dz')
-				->orWhere('san','=','w719e0dz')
+				->where('san','=','sec5c3dz')
+				->orWhere('san','=','12qz84dz')
+				->orWhere('san','=','wss9u1dz')
+				->orWhere('san','=','9dtww1dz')
+				->orWhere('san','=','ib28i1dz')
+				->orWhere('san','=','0tsns1dz')
+				->orWhere('san','=','ffu7w1dz')
 				->get();
                 //$students = DB::table('students')->select('*')->where('id','=',1)->get();
 				$sheet->loadView('export.master_sheet')->with('students',$students);

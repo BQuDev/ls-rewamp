@@ -158,7 +158,7 @@ BA in Marketing<br />
     <td  colspan="5">Brand selected :</td>
   </tr>
   <tr>
-    <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
+    <td colspan="3">First Marker:&nbsp;</td>
     <td>Suggested Mark:&nbsp;'.($student_data[0]->m1).'%</td>
     <td>Agreed Mark:&nbsp;'.$student_data[0]->ageed_mark.'%</td>
   </tr>
@@ -229,7 +229,7 @@ Learning outcome 1 and 2
   <br /><br />
     <table width="100%" align="center" border="0" cellspacing="1" cellpadding="2">
   <tr>
-    <td colspan="3">First Marker:&nbsp;'.Sentry::getUser()->first_name.' '.Sentry::getUser()->last_name.'</td>
+    <td colspan="3">First Marker:&nbsp;</td>
     <td colspan="2">Date: '.$date .'</td>
   </tr>
  
