@@ -237,7 +237,7 @@ return $pdf->stream();
 			
 			
 			$headers = array(
-    "Content-type"=>"text/html",
+    "Content-type"=>"application/msword",
     "Content-Disposition"=>"attachment;Filename=myfile.doc"
 );
 
