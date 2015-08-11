@@ -32,7 +32,7 @@
         <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
           <i class="fa fa-bars"></i>
         </a>
-        <a href="/" class="navbar-brand">
+        <a target="_blank"  href="/" class="navbar-brand">
           <img src="https://lsadmin.net/images/logo.png" class="m-r-sm" alt="lsadmin.net">
         </a>
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
@@ -74,7 +74,7 @@
             </li>
             <li class="divider"></li>
             <li>
-              <a href="/logout" data-toggle="ajaxModal" >Logout</a>
+              <a target="_blank"  href="/logout" data-toggle="ajaxModal" >Logout</a>
             </li>
           </ul>
         </li>
@@ -108,7 +108,7 @@
             </li>
             <li class="divider"></li>
             <li>
-              <a href="/logout" data-toggle="ajaxModal" >Logout</a>
+              <a target="_blank"  href="/logout" data-toggle="ajaxModal" >Logout</a>
             </li>
           </ul>
                   </div>
@@ -121,7 +121,7 @@
 				   <ul class="nav nav-main" data-ride="collapse">
                   <?php if (Sentry::getUser()->hasAccess('students.index')){  ?>
                    <li>
-                    <a href="/students">
+                    <a target="_blank"  href="/students">
                       <i class="i i-docs icon">
                       </i>
                       <span class="font-bold">Home</span>
@@ -157,7 +157,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-IM-A-02">
+                            <a target="_blank"  href="/student-marks-IM-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -165,7 +165,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-IM-A-02">
+                            <a target="_blank"  href="/student-marks-IM-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -189,7 +189,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MC-A-01">
+                            <a target="_blank"  href="/student-marks-MC-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -197,7 +197,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-MC-A-02">
+                            <a target="_blank"  href="/student-marks-MC-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -223,7 +223,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-OCM-A-01">
+                            <a target="_blank"  href="/student-marks-OCM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -244,7 +244,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RM-A-01">
+                            <a target="_blank"  href="/student-marks-RM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -266,7 +266,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-SMA-A-01">
+                            <a target="_blank"  href="/student-marks-SMA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -287,7 +287,7 @@
                     <ul class="nav dk">
 
                         <li class="active">
-                            <a href="/student-marks-SMF-A-01">
+                            <a target="_blank"  href="/student-marks-SMF-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -308,7 +308,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-UGMP-A-01">
+                            <a target="_blank"  href="/student-marks-UGMP-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -340,7 +340,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MDI-A-01">
+                            <a target="_blank"  href="/student-marks-MDI-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -361,7 +361,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-PMP_MA-A-01">
+                            <a target="_blank"  href="/student-marks-PMP_MA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -383,7 +383,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RMBM_MA-A-01">
+                            <a target="_blank"  href="/student-marks-RMBM_MA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -391,7 +391,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-RMBM_MA-A-02">
+                            <a target="_blank"  href="/student-marks-RMBM_MA-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -428,7 +428,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MDI_mba-A-01">
+                            <a target="_blank"  href="/student-marks-MDI_mba-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -451,7 +451,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-PMP_MBA-A-01">
+                            <a target="_blank"  href="/student-marks-PMP_MBA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -475,7 +475,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RMBM_MBA-A-01">
+                            <a target="_blank"  href="/student-marks-RMBM_MBA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -483,7 +483,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-RMBM_MBA-A-02">
+                            <a target="_blank"  href="/student-marks-RMBM_MBA-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>

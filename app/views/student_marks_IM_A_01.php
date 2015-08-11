@@ -130,8 +130,8 @@
                   <?php } ?>
                            
                     
-					<li class="active">
-    <a href="#" class="auto">
+	<li class="active">
+    <a target="_blank"  href="#" class="auto">
         <span class="pull-right text-muted">
                         </span>
         <i class="i i-docs icon">
@@ -140,7 +140,7 @@
     </a>
     <ul class="nav dk">
         <li class="active">
-            <a href="#" class="auto">
+            <a target="_blank"  href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
                 </i>
@@ -148,7 +148,7 @@
             </a>
             <ul class="nav dk">
                 <li class="active">
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -157,7 +157,7 @@
                     <ul class="nav dk">
 
                         <li class="active">
-                            <a href="/student-marks-IM-A-01">
+                            <a target="_blank"  href="/student-marks-IM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -165,7 +165,7 @@
 
                         </li>
                         <li >
-                            <a href="/student-marks-IM-A-02">
+                            <a target="_blank"  href="/student-marks-IM-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -180,7 +180,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -189,7 +189,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MC-A-01">
+                            <a target="_blank"  href="/student-marks-MC-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -197,7 +197,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-MC-A-02">
+                            <a target="_blank"  href="/student-marks-MC-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -214,7 +214,7 @@
 
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -223,7 +223,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-OCM-A-01">
+                            <a target="_blank"  href="/student-marks-OCM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -235,7 +235,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -244,7 +244,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RM-A-01">
+                            <a target="_blank"  href="/student-marks-RM-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -257,7 +257,7 @@
 
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -266,7 +266,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-SMA-A-01">
+                            <a target="_blank"  href="/student-marks-SMA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -278,7 +278,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -287,7 +287,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-SMF-A-01">
+                            <a target="_blank"  href="/student-marks-SMF-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -299,7 +299,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -308,7 +308,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-UGMP-A-01">
+                            <a target="_blank"  href="/student-marks-UGMP-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -323,7 +323,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" class="auto">
+            <a target="_blank"  href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
                 </i>
@@ -331,7 +331,7 @@
             </a>
             <ul class="nav dk">
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -340,7 +340,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MDI-A-01">
+                            <a target="_blank"  href="/student-marks-MDI-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -352,7 +352,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -361,7 +361,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-PMP_MA-A-01">
+                            <a target="_blank"  href="/student-marks-PMP_MA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -374,7 +374,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -383,7 +383,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RMBM_MA-A-01">
+                            <a target="_blank"  href="/student-marks-RMBM_MA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -391,7 +391,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-RMBM_MA-A-02">
+                            <a target="_blank"  href="/student-marks-RMBM_MA-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
@@ -410,7 +410,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" class="auto">
+            <a target="_blank"  href="#" class="auto">
                 <span class="pull-right text-muted">
                         </span>
                 </i>
@@ -419,7 +419,7 @@
             <ul class="nav dk">
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -428,7 +428,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-MDI_mba-A-01">
+                            <a target="_blank"  href="/student-marks-MDI_mba-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -442,7 +442,7 @@
 
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -451,7 +451,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-PMP_MBA-A-01">
+                            <a target="_blank"  href="/student-marks-PMP_MBA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -466,7 +466,7 @@
 
 
                 <li>
-                    <a href="#" class="auto">
+                    <a target="_blank"  href="#" class="auto">
                         <span class="pull-right text-muted">
                         </span>
                         </i>
@@ -475,7 +475,7 @@
                     <ul class="nav dk">
 
                         <li>
-                            <a href="/student-marks-RMBM_MBA-A-01">
+                            <a target="_blank"  href="/student-marks-RMBM_MBA-A-01">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 1</span>
@@ -483,7 +483,7 @@
 
                         </li>
                         <li>
-                            <a href="/student-marks-RMBM_MBA-A-02">
+                            <a target="_blank"  href="/student-marks-RMBM_MBA-A-02">
 
                                 <i class="i i-dot"></i>
                                 <span class="font-bold">Element 2</span>
