@@ -100,7 +100,7 @@ class StudentMarksPMPMBAA01Controller extends \BaseController {
 
 			$excel->sheet('Mark Input Sheet', function($sheet) {
 
-				$sheet->loadView('export.marks_pmp_mba_01');
+				$sheet->loadView('export.marks_mba_pmp_01');
 
 			});
             $excel->setcreator('BQu');

@@ -19,7 +19,7 @@ class StudentMarksPMPMAA01Controller extends \BaseController {
         return DB::table('students')
             ->leftJoin('students_for_marks_pmp_ma_a_01','students.san','=','students_for_marks_pmp_ma_a_01.san')
             ->leftJoin('application_scj','students.san','=','application_scj.san')
-            ->select('students.san','sample','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','c4','c5','m1','m2','ageed_mark')
+            ->select('students.san','sample','scj_number','students.ls_student_number','students.forename_1','c1','c2','c3','c4','c5','c6','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
             ->groupBy('students.san')
             ->get();
@@ -100,7 +100,7 @@ class StudentMarksPMPMAA01Controller extends \BaseController {
 
 			$excel->sheet('Mark Input Sheet', function($sheet) {
 
-				$sheet->loadView('export.marks_pmp_ma_01');
+				$sheet->loadView('export.marks_ma_pmp_01');
 
 			});
             $excel->setcreator('BQu');

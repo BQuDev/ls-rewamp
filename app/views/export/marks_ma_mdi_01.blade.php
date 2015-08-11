@@ -32,8 +32,8 @@ structure & language, Harvard Referencing correctly applied, appropriate use of 
  
  <?php
  $students = DB::table('students')
-            ->leftJoin('students_for_marks_smf_a_01','students.san','=','students_for_marks_smf_a_01.san')
-            ->select('students.san','students.ls_student_number','c1','c2','c3','c4','c5','m1','m2','ageed_mark')
+            ->leftJoin('students_for_marks_mdi_a_01','students.san','=','students_for_marks_mdi_a_01.san')
+            ->select('students.san','students.ls_student_number','c1','c2','c3','c4','m1','m2','ageed_mark')
             ->where('students.ls_student_number','>',0)
             ->groupBy('students.san')
             ->get();
@@ -53,8 +53,6 @@ structure & language, Harvard Referencing correctly applied, appropriate use of 
 <td>{{ $student->c2 }}</td>
 <td>{{ $student->c3 }}</td>
 <td>{{ $student->c4 }}</td>
-<td>{{ $student->c5 }}</td>
-<td>{{ $student->c6 }}</td>
 <td>{{ $student->m1 }}</td>
 <td>{{ $student->m2 }}</td>
 <td>{{ $student->ageed_mark }}</td>

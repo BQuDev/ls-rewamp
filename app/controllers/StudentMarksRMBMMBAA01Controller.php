@@ -98,7 +98,7 @@ class StudentMarksRMBMMBAA01Controller extends \BaseController {
 
 			$excel->sheet('Mark Input Sheet', function($sheet) {
 
-				$sheet->loadView('export.marks_rmbm_mba_01');
+				$sheet->loadView('export.marks_mba_rmbm_01');
 
 			});
             $excel->setcreator('BQu');
