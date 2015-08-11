@@ -131,19 +131,8 @@ class StudentMarksUGMPA01Controller extends \BaseController {
 
 $content = '<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="application/msword; charset=utf-8" />
 <title>Untitled Document</title>
-<style>
-                            <!-- /* Style Definitions */
-                            @page Section1"
-                               {size:8.5in 11.0in; "
-                               margin:1.0in 1.25in 1.0in 1.25in ;
-                               mso-header-margin:.5in;
-                               mso-footer-margin:.5in; mso-paper-source:0;}
-                            div.Section1
-                              {page:Section1;}
-                            -->
-                           </style>
 </head>
 
 <body>
